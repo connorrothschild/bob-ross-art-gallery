@@ -1,14 +1,17 @@
-A virtual art gallery of Bob Ross paintings. Because we all deserve a bit of relaxation.
+## A virtual art gallery of Bob Ross paintings. 
+
+Because we all deserve a bit of relaxation.
 
 Data from: https://github.com/jwilber/Bob_Ross_Paintings
+
 To implement: https://lokeshdhakar.com/projects/color-thief/#getting-started
+
 Stylistic inspiration: https://dataset-finder.netlify.app/
+
 Template: https://github.com/the-pudding/svelte-starter
 
-### FROM THE TEMPLATE
---- 
-
-# Svelte Starter
+### Template details
+<details>
 
 This [starter template](https://github.com/the-pudding/svelte-starter) aims for fast and easy web development with HMR, and pre-rendered HTML for optimal static hosting.
 
@@ -124,3 +127,5 @@ import { prefersReducedMotion } from "../stores/global.js";
 ## Notes
 
 Any @html tags, e.g., `{@html user}` must be the child of a dom element so they can be properly hydrated.
+
+</details>
