@@ -16,7 +16,7 @@
 </script>
 
 {#if icon}
-  <svg {...icon.attrs} style="{`transform: rotate(${rotation}deg);`}">
+  <svg {...icon.attrs} style={`transform: rotate(${rotation}deg);`}>
     <g>
       {@html icon.contents}
     </g>

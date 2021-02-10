@@ -83,10 +83,11 @@
 
 <div
   class="slider {direction}"
-  bind:this="{sliderEl}"
-  bind:clientWidth="{width}"
-  bind:clientHeight="{height}">
-  <div class="translate" bind:this="{translateEl}" style="{customStyle}">
+  bind:this={sliderEl}
+  bind:clientWidth={width}
+  bind:clientHeight={height}
+>
+  <div class="translate" bind:this={translateEl} style={customStyle}>
     <slot />
   </div>
 </div>

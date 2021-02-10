@@ -1,4 +1,4 @@
-## A virtual art gallery of Bob Ross paintings. 
+## A virtual art gallery of Bob Ross paintings
 
 Because we all deserve a bit of relaxation.
 

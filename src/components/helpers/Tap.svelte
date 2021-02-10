@@ -36,22 +36,26 @@
   );
 </script>
 
-<svelte:window on:keydown="{onKeyDown}" bind:innerHeight />
+<svelte:window on:keydown={onKeyDown} bind:innerHeight />
 
 <section class:debug style="height: {innerHeight}px;">
   {#each directions as dir}
     <button
-      on:click="{dispatch('tap', dir)}"
+      on:click={dispatch("tap", dir)}
       style="width: {getW(dir)}; height: {getH(dir)};"
-      aria-label="{dir}"
+      aria-label={dir}
       class="{dir} {arrowPosition}"
       class:full
-      disabled="{disable.includes(dir)}">
+      disabled={disable.includes(dir)}
+    >
       {#if visibleArrows.includes(dir)}
-        <span style="font-size: {arrowSize};"><Icon
+        <span style="font-size: {arrowSize};"
+          ><Icon
             name="chevron-{dir}"
-            stroke="{arrowStroke}"
-            strokeWidth="{arrowStrokeWidth}" /></span>
+            stroke={arrowStroke}
+            strokeWidth={arrowStrokeWidth}
+          /></span
+        >
       {/if}
     </button>
   {/each}

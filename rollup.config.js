@@ -15,7 +15,11 @@ const isDev = isWatch || isLiveReload;
 const isProduction = !isDev;
 const isHot = isWatch && !isLiveReload;
 
-const preprocess = sveltePreprocess();
+const preprocess = sveltePreprocess({
+	postcss : {
+		plugins : [ require('autoprefixer') ]
+	}
+});
 
 function serve() {
 	let server;

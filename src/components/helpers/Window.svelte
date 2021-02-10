@@ -34,6 +34,6 @@
 </script>
 
 <svelte:window
-  on:resize="{debounceFn(onResize, debounce)}"
-  on:scroll="{onScroll}"
+  on:resize={debounceFn(onResize, debounce)}
+  on:scroll={onScroll}
 />
