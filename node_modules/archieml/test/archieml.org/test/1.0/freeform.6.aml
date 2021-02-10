@@ -1,0 +1,8 @@
+test: Simple arrays nested in freeforms
+result: {"freeform": [{"type": "simple", "value": ["Value 1", "Value 2"]}]}
+
+[+freeform]
+[.simple]
+* Value 1
+* Value 2
+[]

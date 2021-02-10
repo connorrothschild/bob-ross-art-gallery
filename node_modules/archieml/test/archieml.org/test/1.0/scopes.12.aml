@@ -1,0 +1,6 @@
+test: {} closes the current scope
+result: {"scope": {}, "key": "value"}
+
+{scope}
+{}
+key:value
