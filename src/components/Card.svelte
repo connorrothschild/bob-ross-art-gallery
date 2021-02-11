@@ -23,12 +23,24 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
   .card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-height: 500px;
+    justify-content: center;
+    min-height: 750px;
+    width: 750px;
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem;
+    margin: 1rem;
+    box-shadow: 1px 1px 10px 1px #cecece;
+
+    @media screen and (max-width: 768px) {
+      min-width: auto;
+      min-height: auto;
+      width: auto;
+    }
   }
 
   .color-container {

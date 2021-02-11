@@ -1,28 +1,25 @@
 <script>
   import { scaleLinear } from "d3-scale";
   import { pannable } from "../utils/pannable.js";
-  import data from "../data/bob_ross_paintings.csv";
   import { ind } from "../stores/global.js";
 
-  export const padding = { top: 100, right: 0, bottom: 10, left: 0 };
-
   export let width, height;
-
-  var leftmin = padding.right;
-  $: leftmax = width - padding.right - handlewidth;
-
-  let left = padding.right;
-
-  let handlewidth = 5;
-
+  
+  // const padding = { top: 100, right: 0, bottom: 10, left: 0 };
+  const handlewidth = 5;
+  const leftBound = -5;
+  
+  $: pos = 0;
+  $: rightBound = width;
+  
   $: xScale = scaleLinear()
     .domain([0, width])
-    .range([0, data.length - 1]);
+    .range([0, 403]);
 
-  function handlePanLeft(event) {
-    var x = left + event.detail.dx;
-    if (x > leftmin && x < leftmax) {
-      left = x;
+  function handleMove(event) {
+    var x = pos + event.detail.dx;
+    if (x > leftBound && x < rightBound) {
+      pos = x;
       let i = Math.round(xScale(x));
       ind.set(i);
     }
@@ -39,17 +36,16 @@
 >
   <rect
     use:pannable
-    on:panmove={handlePanLeft}
-    class="handle handle--w"
+    on:panmove={handleMove}
+    class="handle"
     cursor="ew-resize"
-    x={left}
+    x={pos}
     y="0"
-    width="5"
+    width={handlewidth}
     {height}
   />
 </g>
 
-<!-- <rect class="overlay" pointer-events="all" cursor="crosshair" width="100%" height="100%" on:click={updatePan}></rect> -->
 <style>
   .handle {
     visibility: visible;

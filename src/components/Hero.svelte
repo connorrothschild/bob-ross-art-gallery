@@ -13,12 +13,12 @@
 <style>
   .hero-background {
     background: #1da1f290;
-    background: linear-gradient(#1da1f290, white);
+    background: linear-gradient(#1da1f290, whitesmoke);
   }
 
   .hero {
     text-align: center;
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     max-width: 1000px;
@@ -26,7 +26,7 @@
   }
 
   .headline {
-    margin-top: 5rem;
+    margin-top: 10rem;
     text-transform: uppercase;
     font-weight: 900;
     font-size: clamp(1vw, 5rem, 10vw);

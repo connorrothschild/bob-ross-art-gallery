@@ -1,7 +1,7 @@
 <script>
   import * as d3 from "d3";
   import * as _ from "lodash";
-  import Brush from "./Brush.Svelte";
+  import Brush from "./Brush.svelte";
   import data from "../data/colors_long.csv";
   import { processData } from "../utils/process.js";
 

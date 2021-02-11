@@ -25,7 +25,7 @@
   section {
     padding: 1rem;
     margin: 0 auto;
-
+    
     &.prose {
       max-width: 78ch;
     }
@@ -34,6 +34,7 @@
       max-width: 800px;
     }
   }
+  
 
   /* td:nth-child(2),
   th:nth-child(2) {

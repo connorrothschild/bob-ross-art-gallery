@@ -1,17 +1,14 @@
 <script>
-  import { onMount } from "svelte";
-  import wordmark from "../../svg/pudding/wordmark.svg";
 </script>
 
 <footer>
   <section class="about">
     <div class="wordmark">
-      {@html wordmark}
+      Connor Rothschild
     </div>
     <p>
-      <a href="https://pudding.cool">The Pudding</a>
-      is a digital publication that explains ideas debated in culture with visual
-      essays.
+      <a href="https://connorrothschild.com">Connor Rothschild</a>
+      has a footer here.
     </p>
   </section>
 </footer>
@@ -32,8 +29,9 @@
   }
 
   .wordmark {
-    max-width: 10em;
     margin: 1em auto;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 
   .about {

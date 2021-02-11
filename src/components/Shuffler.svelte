@@ -6,14 +6,14 @@
   export let data;
 
   // How many art pieces there are in the dataset
-  const LENGTH = data.length + 1;
+  const LENGTH = data.length - 1;
 
   // The selected art piece
   let selected = [];
+
   // The selected art piece's colors
   let colors = [];
-  // The index of the art piece
-  // let ind = 0;
+
   // How many colors there are in the selected art piece
   let colors_length = 0;
 
@@ -21,36 +21,21 @@
     if (!bgColor) {
       return "";
     }
-    return parseInt(bgColor.replace("#", ""), 16) > 0xffffff / 2
+    return parseInt(bgColor.replace("#", ""), 16) > 0xffffff / 1.5
       ? "#000"
       : "#fff";
   }
 
-  function selectRandom() {
-    ind.set(Math.floor(Math.random() * LENGTH));
-  }
-
-  function decrement() {
-    ind.update((n) => n - 1);
-  }
-
-  function increment() {
-    ind.update((n) => n + 1);
-  }
-
   $: {
-    // Bound ind by the upper limit (data.length) and by 0
-    // ind.set(ind > LENGTH | ind < 0 ? 0 : ind)
     selected = data[$ind] ? data[$ind] : data[0];
 
     // Grab how many colors for the for loop below
-    // (The cell value for selected.colors is an array formatted as a string)
     colors_length = selected.colors.length;
 
     // Reset colors to be blank lest duplication occur
     colors = [];
 
-    // The cell value for selected.colors and selected.color_hex is an array formatted as a string
+    // Create color and hex property for the colors object
     for (let i = 0; i < colors_length; i++) {
       colors[i] = { color: selected.colors[i], hex: selected.color_hex[i] };
     }
@@ -62,21 +47,53 @@
   }
 </script>
 
+<Scrubber />
 <div class="button-container">
-  <button on:click={decrement}>Previous</button>
-  <button on:click={selectRandom}>Random!</button>
-  <button on:click={increment}>Next</button>
+  <button 
+    on:click={() => {ind.update((n) => n - 1 < 0 ? 0 : n - 1)}} 
+    class="{$ind === 0 ? 'disabled' : ''}">
+    Previous
+  </button>
+    <Card data={selected} {colors} />
+  <button 
+    on:click={() => {ind.update((n) => n + 1 > LENGTH ? LENGTH : n + 1)}}
+    class="{$ind === LENGTH ? 'disabled' : ''}">
+    Next
+  </button>
+</div>
+<div class="button-container">
+  <button style="margin: 0 auto" on:click={() => {ind.set(Math.floor(Math.random() * LENGTH))}}>Random!</button>
 </div>
 
-<Card data={selected} {colors} />
-<Scrubber />
-
-<style>
+<style lang="scss">
   .button-container {
     text-align: center;
     margin-bottom: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  button {
+    height: 50px;
+    width: 200px;
+    margin: auto 0;
+    background: white;
+    box-shadow: 1px 1px 3px 1px #cecece;
+
+    @media screen and (max-width: 768px) {
+      margin: 0 auto;
+    }
+    
+    &.disabled {
+      cursor: not-allowed;
+      background: #e4e4e4;
+      color: #a8a8a8;
+      box-shadow: none;
+    }
   }
 </style>

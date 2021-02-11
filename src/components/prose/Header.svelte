@@ -1,10 +1,10 @@
 <script>
-  import wordmark from "../../svg/pudding/wordmark.svg";
+  // import wordmark from "../../svg/pudding/wordmark.svg";
 </script>
 
 <header>
   <div class="wordmark">
-    <a href="https://pudding.cool">{@html wordmark}</a>
+    <a href="https://connorrothschild.com">Connor Rothschild</a>
   </div>
 </header>
 
@@ -15,15 +15,12 @@
   }
 
   .wordmark a {
-    border: none;
+    text-decoration: none;
     color: var(--fg);
+    font-weight: bold;
   }
 
   .wordmark a:hover {
     background-color: transparent;
   }
-
-  /* header {
-    background: #1da1f290;
-  } */
 </style>
