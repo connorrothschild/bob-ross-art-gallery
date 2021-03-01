@@ -3,9 +3,7 @@
 
 <footer>
   <section class="about">
-    <div class="wordmark">
-      Connor Rothschild
-    </div>
+    <div class="wordmark">Connor Rothschild</div>
     <p>
       <a href="https://connorrothschild.com">Connor Rothschild</a>
       has a footer here.

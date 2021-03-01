@@ -40,7 +40,8 @@
     "dev": "npm run dev:rollup",
     "predeploy": "npm run build",
     "deploy": "rollup -c rollup.config-ssr.js",
-    "start": "sirv public"
+    "start": "sirv public",
+    "format": "prettier --write '{public,src}/**/*.{css,html,js,svelte}'"
   },
   "dependencies": {
     "d3": "^6.5.0",

@@ -4,17 +4,15 @@
   import { ind } from "../stores/global.js";
 
   export let width, height;
-  
-  // const padding = { top: 100, right: 0, bottom: 10, left: 0 };
+
+  // const padding = { top: 0, right: 10, bottom: 0, left: 10 };
   const handlewidth = 5;
-  const leftBound = -5;
-  
+  const leftBound = -0.9;
+
   $: pos = 0;
   $: rightBound = width;
-  
-  $: xScale = scaleLinear()
-    .domain([0, width])
-    .range([0, 403]);
+
+  $: xScale = scaleLinear().domain([0, width]).range([0, 403]);
 
   function handleMove(event) {
     var x = pos + event.detail.dx;
@@ -46,6 +44,7 @@
   />
 </g>
 
+<!-- <rect class="overlay" pointer-events="all" cursor="crosshair" width="100%" height="100%" on:click={updatePan}></rect> -->
 <style>
   .handle {
     visibility: visible;

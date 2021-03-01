@@ -10,8 +10,6 @@
 
 <Window />
 
-<!-- <Header /> -->
-
 <Main />
 
 <Footer />

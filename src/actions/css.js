@@ -2,7 +2,7 @@
  * This action lets you dynmically change value of CSS variable
  * example:
  * <p use:css={{ color }} >Hi</p>
- * 
+ *
  * in your style tag:
  * p {
  *   color: var(--color);

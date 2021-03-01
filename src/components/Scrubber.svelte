@@ -12,8 +12,8 @@
 
   const padding = { top: 0, right: 0, bottom: 0, left: 0 };
 
-  let width = 1000;
-  let height = 100;
+  let width = null;
+  let height = null;
 
   $: xScale = d3
     .scaleLinear()
@@ -28,7 +28,7 @@
 
 <div class="chart" bind:offsetWidth={width} bind:offsetHeight={height}>
   <svg style="width: 100%;">
-    <g class="rects">
+    <g>
       {#each data as d}
         <rect
           width={width / num_paintings}
@@ -44,10 +44,14 @@
   </svg>
 </div>
 
-<style>
+<style lang="scss">
   .chart {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: 1rem;
+    }
   }
 </style>

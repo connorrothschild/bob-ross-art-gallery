@@ -1,32 +1,31 @@
 <script>
-
   export let data;
   export let colors;
 
   // Promise handling of images while new ones load
-  const loadImage = (url) => new Promise((resolve, reject) => {
-    const img = new Image();
-    img.addEventListener('load', () => resolve(img));
-    img.addEventListener('error', (err) => reject(err));
-    img.src = url;
-  });
-
+  const loadImage = (url) =>
+    new Promise((resolve, reject) => {
+      const img = new Image();
+      img.addEventListener("load", () => resolve(img));
+      img.addEventListener("error", (err) => reject(err));
+      img.src = url;
+    });
 </script>
 
 <div class="card">
   {#await loadImage(data.img_src)}
     <img src="./assets/placeholder.png" alt="Placeholder image" />
   {:then}
-  <a href={data.youtube_src} target="_blank" rel="noopener noreferrer">
-    <img src={data.img_src} alt="A painting titled {data.painting_title}" />
-  </a>
-  {:catch error} 
+    <a href={data.youtube_src} target="_blank" rel="noopener noreferrer">
+      <img src={data.img_src} alt="A painting titled {data.painting_title}" />
+    </a>
+  {:catch error}
     <div>{error.message}</div>
   {/await}
   <h1>{data.painting_title}</h1>
-  <h3 style="margin-top: 0; font-weight: 300;">
+  <a href={data.youtube_src} target="_blank" rel="noopener noreferrer">
     Season {data.season}, episode {data.episode}
-  </h3>
+  </a>
 
   <div class="color-container">
     {#each colors as { color, hex, text_color }}
@@ -69,7 +68,7 @@
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px 1px #ccc;
+    box-shadow: 3px 1px 6px 0px #cecece;
     font-size: 0.9rem;
   }
 
@@ -77,5 +76,14 @@
     height: 332px;
     width: 444px;
     object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 1px #cecece;
+  }
+
+  a {
+    // text-decoration: none;
+    font-weight: 300;
+    color: black;
+    margin: 0 0 1rem 0;
   }
 </style>

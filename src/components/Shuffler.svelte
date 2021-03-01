@@ -49,20 +49,31 @@
 
 <Scrubber />
 <div class="button-container">
-  <button 
-    on:click={() => {ind.update((n) => n - 1 < 0 ? 0 : n - 1)}} 
-    class="{$ind === 0 ? 'disabled' : ''}">
+  <button
+    on:click={() => {
+      ind.update((n) => (n - 1 < 0 ? 0 : n - 1));
+    }}
+    class={$ind === 0 ? "disabled" : ""}
+  >
     Previous
   </button>
-    <Card data={selected} {colors} />
-  <button 
-    on:click={() => {ind.update((n) => n + 1 > LENGTH ? LENGTH : n + 1)}}
-    class="{$ind === LENGTH ? 'disabled' : ''}">
+  <Card data={selected} {colors} />
+  <button
+    on:click={() => {
+      ind.update((n) => (n + 1 > LENGTH ? LENGTH : n + 1));
+    }}
+    class={$ind === LENGTH ? "disabled" : ""}
+  >
     Next
   </button>
 </div>
 <div class="button-container">
-  <button style="margin: 0 auto" on:click={() => {ind.set(Math.floor(Math.random() * LENGTH))}}>Random!</button>
+  <button
+    style="margin: 0 auto"
+    on:click={() => {
+      ind.set(Math.floor(Math.random() * LENGTH));
+    }}>Random!</button
+  >
 </div>
 
 <style lang="scss">
@@ -88,7 +99,7 @@
     @media screen and (max-width: 768px) {
       margin: 0 auto;
     }
-    
+
     &.disabled {
       cursor: not-allowed;
       background: #e4e4e4;
