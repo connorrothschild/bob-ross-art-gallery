@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import Card from "./Card.svelte";
   import Scrubber from "./Scrubber.svelte";
   import { ind } from "../stores/global.js";
@@ -107,4 +107,4 @@
       box-shadow: none;
     }
   }
-</style>
+</style> -->

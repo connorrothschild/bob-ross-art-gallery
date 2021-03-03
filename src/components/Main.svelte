@@ -1,6 +1,7 @@
 <script>
   import Hero from "./Hero.svelte";
   import HistogramWrapper from "./HistogramWrapper.svelte";
+  import Gallery from "./Gallery.svelte";
   import Shuffler from "./Shuffler.svelte";
   import { processData } from "../utils/process.js";
 
@@ -18,14 +19,20 @@
   <p>{copyData.paragraph1}</p>
 </section>
 
-<section class="visual">
-  <Shuffler {data} />
-</section>
-
 <section>
   <HistogramWrapper {data} />
 </section>
 
+<!-- <section class="visual">
+  <Shuffler {data} />
+</section> -->
+
+<!-- <section> -->
+<Gallery {data} />
+<!-- </section> -->
+
+
+<!-- </section> -->
 <style lang="scss">
   section {
     padding: 1rem;

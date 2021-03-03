@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   export let data;
   export let colors;
 
@@ -13,15 +13,17 @@
 </script>
 
 <div class="card">
-  {#await loadImage(data.img_src)}
-    <img src="./assets/placeholder.png" alt="Placeholder image" />
-  {:then}
-    <a href={data.youtube_src} target="_blank" rel="noopener noreferrer">
-      <img src={data.img_src} alt="A painting titled {data.painting_title}" />
-    </a>
-  {:catch error}
-    <div>{error.message}</div>
-  {/await}
+  <div class="frame">
+    {#await loadImage(data.img_src)}
+      <img src="./assets/placeholder.png" alt="Placeholder image" />
+    {:then}
+      <a href={data.youtube_src} target="_blank" rel="noopener noreferrer">
+        <img src={data.img_src} alt="A painting titled {data.painting_title}" />
+      </a>
+    {:catch error}
+      <div>{error.message}</div>
+    {/await}
+  </div>
   <h1>{data.painting_title}</h1>
   <a href={data.youtube_src} target="_blank" rel="noopener noreferrer">
     Season {data.season}, episode {data.episode}
@@ -86,4 +88,41 @@
     color: black;
     margin: 0 0 1rem 0;
   }
-</style>
+
+  .frame {
+    background-color: #ddc;
+    border: solid 1rem #eee;
+    border-bottom-color: #fff;
+    border-left-color: #eee;
+    border-radius: 2px;
+    border-right-color: #eee;
+    border-top-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25) inset,
+      0 3px 10px 3px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 1rem;
+    position: relative;
+    text-align: center;
+    &:before {
+      border-radius: 2px;
+      bottom: 0.2rem;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
+      content: "";
+      left: 0.2rem;
+      position: absolute;
+      right: 0.2rem;
+      top: 0.2rem;
+    }
+    &:after {
+      border-radius: 2px;
+      bottom: -0.2rem;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+      content: "";
+      left: -0.2rem;
+      position: absolute;
+      right: -0.2rem;
+      top: -0.2rem;
+    }
+  }
+</style> -->

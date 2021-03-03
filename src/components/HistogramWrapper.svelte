@@ -58,12 +58,13 @@
 
   function init() {
     d3.selectAll(".rects")
-      .attr("y", height - padding.bottom)
+      // .attr("y", height - padding.bottom)
       .data(data)
       .transition()
-      .duration(1000)
+      .duration(500)
       .delay((d, i) => d.num_colors * 30)
-      .attr("y", (d) => yScale(d.yPos));
+      .attr("y", (d) => yScale(d.yPos))
+      .attr("fill", "grey");
   }
 
   function highlight() {
@@ -71,8 +72,8 @@
       .data(data)
       .transition()
       .duration(500)
-      // .delay((d, i) => i )
-      .attr("fill", (d) => (d.num_colors == 12 ? "steelblue" : "black"));
+      .delay((d, i) => i)
+      .attr("fill", (d) => (d.num_colors == 12 ? "steelblue" : "grey"));
   }
 
   $: activeStep = 0;
@@ -84,7 +85,7 @@
 <div class="scrollama-container">
   <div class="scrollama-graphic">
     <div class="chart" bind:offsetWidth={width} bind:offsetHeight={height}>
-      <div class="tip"></div>
+      <div class="tip" />
       <svg style="width: 100%; height: 100%;">
         <Histogram {width} {height} {data} {padding} {xScale} {yScale} />
       </svg>
@@ -97,9 +98,10 @@
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">
       <p>
-        The most common number of colors per painting is <span class="highlight"
-          >12 colors</span
-        >.
+        Most commonly, paintings have <span class="highlight">12 colors</span>.
+        Of the {data.length} pieces Bob Ross painted, {data.filter(
+          (d) => d.num_colors == 12
+        ).length} used 12 colors.
       </p>
     </div>
     <div class="step" class:active={activeStep == 2} data-step="c" />
@@ -157,7 +159,7 @@
   .scrollama-container {
     display: flex;
     flex-direction: row-reverse;
-    
+
     .scrollama-graphic {
       flex: 2;
       height: 95%;
@@ -183,24 +185,24 @@
   }
 
   .highlight {
-		font-weight: 600;
-		padding: 3px;
-		border-radius: 3px;
-		/* white-space: nowrap; */
-		display: inline-block;
-		background: steelblue;
-		background: linear-gradient(to left, white 50%, steelblue 50%) right;
-		background-size: 200% 1.2em;
-		transition: 1s ease-out 200ms;
-	}
+    font-weight: 600;
+    padding: 3px;
+    border-radius: 3px;
+    /* white-space: nowrap; */
+    display: inline-block;
+    background: steelblue;
+    background: linear-gradient(to left, white 50%, steelblue 50%) right;
+    background-size: 200% 1.2em;
+    transition: 1s ease-out 200ms;
+  }
 
   .tip {
     opacity: 0;
-    position: absolute;			
-    background: white;	
-    border: 0px;		
-    border-radius: 3px;			
+    position: absolute;
+    background: white;
+    border: 0px;
+    border-radius: 3px;
     pointer-events: none;
     width: 200px;
-}
+  }
 </style>
