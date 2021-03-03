@@ -22,7 +22,7 @@
   <Shuffler {data} />
 </section>
 
-<section class="visual">
+<section>
   <HistogramWrapper {data} />
 </section>
 
