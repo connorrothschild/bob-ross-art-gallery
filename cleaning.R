@@ -7,6 +7,11 @@ paintings <- paintings %>%
   mutate(yPos = row_number()) %>%
   ungroup()
 
+paintings[1:3,]$gridY <- 21
+paintings[1:3,]$gridX <- c(1,2,3)
+paintings[4:403,]$gridY <- rep(20:1, each = 20, length.out = 400)
+paintings[4:403,]$gridX <- rep(1:20, length.out = 400)
+
 readr::write_csv(paintings, here::here('src/data/bob_ross_paintings.csv'))
 
 long <- paintings %>%

@@ -3,6 +3,7 @@
   import { onMount } from "svelte";
   import "intersection-observer";
   import scrollama from "scrollama";
+  import Icon from "./helpers/Icon.svelte";
   import Histogram from "./Histogram.svelte";
   export let data;
 
@@ -19,9 +20,12 @@
       .onStepEnter((response) => {
         activeStep = response.index;
         if (response.index == 0) {
-          init();
+          grid();
         }
         if (response.index == 1) {
+          histogram();
+        } 
+        if (response.index == 2) {
           highlight();
         }
       })
@@ -56,31 +60,57 @@
     .domain(d3.extent(data, (d) => d.yPos))
     .range([height - padding.bottom, padding.top]);
 
-  function init() {
+  function histogram() {
+  xScale = d3
+    .scaleBand()
+    .domain(xDomain)
+    .range([padding.left, width - padding.right]);
+
+  yScale = d3
+    .scaleLinear()
+    .domain(d3.extent(data, (d) => d.yPos))
+    .range([height - padding.bottom, padding.top]);
+    
     d3.selectAll(".rects")
-      // .attr("y", height - padding.bottom)
       .data(data)
-      .transition()
+      .transition('restore')
       .duration(500)
       .delay((d, i) => d.num_colors * 30)
       .attr("y", (d) => yScale(d.yPos))
+      .attr("x", d => xScale(d.num_colors))
+      .attr('width', width / d3.max(data, (d) => d.num_colors))
+      .attr('height', (height - padding.top - padding.bottom) /
+        d3.max(data, (d) => d.yPos))
       .attr("fill", "grey");
   }
-
   function highlight() {
     d3.selectAll(".rects")
       .data(data)
-      .transition()
+      .transition('highlight')
       .duration(500)
       .delay((d, i) => i)
-      .attr("fill", (d) => (d.num_colors == 12 ? "steelblue" : "grey"));
+      .attr("fill", (d) => (d.num_colors == 12 ? "steelblue" : "grey"))
+  }
+
+  function grid() {
+    xScale = d3.scaleBand().domain(data.map(d => d.gridX)).range([padding.left, width - padding.right]);
+    yScale = d3.scaleBand().domain(data.map(d => d.gridY)).range([0, height - padding.bottom - padding.top]);
+
+    d3.selectAll(".rects")
+      .data(data)
+      .transition('grid')
+      .duration(500)
+      .delay((d, i) => d.num_colors * 30)
+      .attr('x', (d) => xScale(d.gridX))
+      .attr("y", (d) => yScale(d.gridY))
+      .attr('width', (width / 19) * .95)
+      .attr('height', (height / 21) * .95)
+      .attr("fill", "grey");
+
   }
 
   $: activeStep = 0;
 </script>
-
-<!-- <button on:click={init}>Init</button>
-<button on:click={highlight}>Highlight</button> -->
 
 <div class="scrollama-container">
   <div class="scrollama-graphic">
@@ -94,9 +124,20 @@
 
   <div class="scrollama-steps">
     <div class="step" class:active={activeStep == 0} data-step="a">
-      <p>This is a histogram.</p>
+      <p>This is every piece Bob Ross has painted. Each rectangle 
+        <svg width="20" height="15">
+					<rect width="100%" height="100%" fill="grey"/>
+				</svg>
+        represents a painting. Go ahead and hover 
+              <Icon name="mouse-pointer"/>
+              <!-- <Icon name="crosshair" /> -->
+        on a rectangle to see the painting it represents!
+      </p>
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">
+      <p>We can organize the pieces by the <strong>number of colors</strong> used to paint them.</p>
+    </div>
+    <div class="step" class:active={activeStep == 2} data-step="c">
       <p>
         Most commonly, paintings have <span class="highlight">12 colors</span>.
         Of the {data.length} pieces Bob Ross painted, {data.filter(
@@ -104,7 +145,6 @@
         ).length} used 12 colors.
       </p>
     </div>
-    <div class="step" class:active={activeStep == 2} data-step="c" />
   </div>
 </div>
 
