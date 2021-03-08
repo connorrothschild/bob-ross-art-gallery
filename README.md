@@ -2,6 +2,10 @@
 
 Because we all deserve a bit of relaxation.
 
+### To fix:
+
+* Grid works on resize but histogram does not 
+
 Data from: https://github.com/jwilber/Bob_Ross_Paintings
 
 To implement: https://lokeshdhakar.com/projects/color-thief/#getting-started
@@ -10,9 +14,8 @@ Stylistic inspiration: https://dataset-finder.netlify.app/
 
 Modeled after: https://www.nytimes.com/2020/03/16/arts/design/art-galleries-online-viewing-coronavirus.html
 
-Template: https://github.com/the-pudding/svelte-starter
+Template: https://github.com/the-pudding/svelte-starter (details below)
 
-### Template details
 <details>
 
 This [starter template](https://github.com/the-pudding/svelte-starter) aims for fast and easy web development with HMR, and pre-rendered HTML for optimal static hosting.

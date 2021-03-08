@@ -21,7 +21,6 @@
     />
   {:catch error}
     <div />
-
   {/await}
 </div>
 

@@ -5,6 +5,7 @@
   import { ind } from "../stores/global.js";
 
   export let data;
+  export let long_data;
 
   let selected = [];
 
@@ -50,7 +51,7 @@
         &#8250;
       </button>
     </div>
-    <Scrubber />
+    <Scrubber data={long_data} />
   </div>
   <div class="information">
     <GalleryInformation {selected} />

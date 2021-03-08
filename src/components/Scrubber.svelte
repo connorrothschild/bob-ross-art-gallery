@@ -2,10 +2,8 @@
   import * as d3 from "d3";
   import * as _ from "lodash";
   import Brush from "./Brush.svelte";
-  import data from "../data/colors_long.csv";
-  import { processData } from "../utils/process.js";
 
-  processData(data, true);
+  export let data;
 
   const unique_colors = new Set([...data.map((d) => d.colors)]).size;
   const num_paintings = 403; // d3.max(data.map(d => d.painting_index));

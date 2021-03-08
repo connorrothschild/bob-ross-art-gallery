@@ -71,7 +71,6 @@ export default {
 		json(),
 		dsv(),
 		svg(),
-
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		isDev && serve(),

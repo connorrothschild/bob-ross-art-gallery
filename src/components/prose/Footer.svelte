@@ -13,11 +13,12 @@
 
 <style>
   footer {
+    display: block;
     background-color: var(--text-main);
     color: var(--background-body);
     font-family: var(--sans);
-    padding: 3em 1em;
-    margin-top: 3em;
+    padding: 3rem 1rem;
+    margin-top: 3rem;
   }
 
   a,

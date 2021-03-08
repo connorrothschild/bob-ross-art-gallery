@@ -54,7 +54,7 @@
           href={selected.youtube_src}
           target="_blank"
           rel="noopener noreferrer"
-          class="subtitle">Sales inquiry</a
+          class="subtitle">Watch on YouTube</a
         ></button
       >
       <button

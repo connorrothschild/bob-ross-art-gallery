@@ -1,14 +1,16 @@
 <script>
   import Hero from "./Hero.svelte";
-  import HistogramWrapper from "./HistogramWrapper.svelte";
+  import GridHistogramWrapper from "./GridHistogramWrapper.svelte";
   import Gallery from "./Gallery.svelte";
-  import Shuffler from "./Shuffler.svelte";
+  import ColorViz from "./ColorViz.svelte";
   import { processData } from "../utils/process.js";
 
   import copyData from "../data/copy.json";
   import data from "../data/bob_ross_paintings.csv";
+  import long_data from "../data/colors_long.csv";
 
   processData(data);
+  processData(long_data, true);
 
   console.log(data);
 </script>
@@ -20,15 +22,15 @@
 </section>
 
 <section>
-  <HistogramWrapper {data} />
+  <GridHistogramWrapper {data} />
 </section>
 
-<!-- <section class="visual">
-  <Shuffler {data} />
-</section> -->
+<section>
+  <ColorViz data={long_data} />
+</section>
 
 <!-- <section> -->
-<Gallery {data} />
+<Gallery {data} {long_data} />
 <!-- </section> -->
 
 
