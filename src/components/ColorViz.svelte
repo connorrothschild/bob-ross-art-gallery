@@ -3,10 +3,10 @@
   import { onMount } from "svelte";
   import "intersection-observer";
   import scrollama from "scrollama";
-  import mapToArray from "../utils/mapToArray"
+  import mapToArray from "../utils/mapToArray";
   export let data;
 
-   // SCROLL!
+  // SCROLL!
   onMount(() => {
     // instantiate the scrollama
     const scroller = scrollama();
@@ -18,15 +18,15 @@
       })
       .onStepEnter((response) => {
         activeStep = response.index;
-        console.log(activeStep)
+        console.log(activeStep);
         if (response.index == 0) {
-        //   grid();
+          //   grid();
         }
         if (response.index == 1) {
-        //   histogram();
+          //   histogram();
         }
         if (response.index == 2) {
-        //   highlight();
+          //   highlight();
         }
       })
       .onStepExit((response) => {
@@ -36,17 +36,17 @@
     // setup resize event
     window.addEventListener("resize", scroller.resize);
   });
-  
+
   const padding = { top: 0, right: 10, bottom: 30, left: 10 };
 
   let width = null;
   let height = null;
 
-  const grouped = 
-    mapToArray(d3.group(data, d => d.color_hex))
-    .sort((a, b) => a.value.length - b.value.length)
+  const grouped = mapToArray(d3.group(data, (d) => d.color_hex)).sort(
+    (a, b) => a.value.length - b.value.length
+  );
 
-  const maxColor = d3.max(grouped, d => d.value.length);
+  const maxColor = d3.max(grouped, (d) => d.value.length);
 
   $: xScale = d3
     .scaleLinear()
@@ -68,16 +68,16 @@
     <div class="chart" bind:offsetWidth={width} bind:offsetHeight={height}>
       <div class="tip" />
       <svg style="width: 100%; height: 100%;">
-          <g>
-            {#each grouped as d}
-                <rect
-                width={xScale(d.value.length)}
-                height={(height / grouped.length) * .9}
-                fill={d.key}
-                x={0}
-                y={yScale(d.key)}
-                />
-            {/each}
+        <g>
+          {#each grouped as d}
+            <rect
+              width={xScale(d.value.length)}
+              height={(height / grouped.length) * 0.9}
+              fill={d.key}
+              x={0}
+              y={yScale(d.key)}
+            />
+          {/each}
         </g>
       </svg>
     </div>
@@ -85,19 +85,13 @@
 
   <div class="scrollama-steps" id="colorSection">
     <div class="step" class:active={activeStep == 0} data-step="a">
-      <p>
-        Content.
-      </p>
+      <p>Content.</p>
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">
-      <p>
-        Content.
-      </p>
+      <p>Content.</p>
     </div>
     <div class="step" class:active={activeStep == 2} data-step="c">
-      <p>
-        Content.
-      </p>
+      <p>Content.</p>
     </div>
   </div>
 </div>

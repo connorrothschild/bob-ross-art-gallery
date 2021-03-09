@@ -1,11 +1,10 @@
 <script>
-  import copyData from "../data/copy.json";
 </script>
 
 <div class="hero-background">
   <div class="hero">
-    <h1 class="headline">{copyData.headline}</h1>
-    <h2 class="subtitle">{copyData.subtitle}</h2>
+    <h1 class="headline">The Bob Ross Virtual Art Gallery</h1>
+    <h2 class="subtitle">You deserve some calm.</h2>
     <h3>By <a href="https://connorrothschild.com">Connor Rothschild</a></h3>
   </div>
 </div>
@@ -13,7 +12,7 @@
 <style>
   .hero-background {
     background: #1da1f290;
-    background: linear-gradient(#1da1f290, whitesmoke);
+    background: linear-gradient(#1da1f290, rgb(255, 249, 230));
   }
 
   .hero {

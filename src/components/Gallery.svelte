@@ -17,9 +17,9 @@
   }
 </script>
 
-<div class="gallery">
+<div class="gallery" id="gallery">
   <div class="background">
-    <div class="relative-container">
+    <div class="gallery-bg">
       <button
         on:click={() => {
           ind.update((n) => (n - 1 < 0 ? 0 : n - 1));
@@ -81,7 +81,7 @@
   }
   .gallery {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
 
     > .background {
       flex: 2;
@@ -94,7 +94,7 @@
         background: whitesmoke;
       }
 
-      .relative-container {
+      .gallery-bg {
         position: relative;
 
         > button {

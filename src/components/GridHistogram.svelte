@@ -68,7 +68,6 @@
       on:mouseout={handleMouseout}
     />
   {/each}
-
 </g>
 
 <!-- X AXIS -->

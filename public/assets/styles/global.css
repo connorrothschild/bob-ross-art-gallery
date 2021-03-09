@@ -26,7 +26,9 @@
   --red: #ff533d;
   --yellow: #e5e338;
 
-  --bg: var(--white);
+	--background: rgb(255, 249, 230);
+
+  --bg: var(--background);
   --fg: var(--off-black);
   --default: var(--gray-light);
   --primary: var(--red);
@@ -35,7 +37,7 @@
   /* water.css */
 
   --body-font: var(--sans);
-  --background-body: var(--white);
+  --background-body: var(--background);
   --background-ui: var(--off-white);
   --background-alt: var(--off-white);
   --selection: var(--gray);

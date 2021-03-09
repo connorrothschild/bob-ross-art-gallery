@@ -1,5 +1,5 @@
 <script>
-  import * as d3 from "d3";
+  import { scaleLinear, scaleBand } from "d3";
   import * as _ from "lodash";
   import Brush from "./Brush.svelte";
 
@@ -13,18 +13,16 @@
   let width = null;
   let height = null;
 
-  $: xScale = d3
-    .scaleLinear()
+  $: xScale = scaleLinear()
     .domain([0, num_paintings])
     .range([padding.left, width - padding.right]);
 
-  $: yScale = d3
-    .scaleBand()
+  $: yScale = scaleBand()
     .domain(data.map((d) => d.color_hex))
     .range([height - padding.bottom, padding.top]);
 </script>
 
-<div class="chart" bind:offsetWidth={width} bind:offsetHeight={height}>
+<div bind:offsetWidth={width} bind:offsetHeight={height}>
   <svg style="width: 100%;">
     <g>
       {#each data as d}
@@ -43,13 +41,4 @@
 </div>
 
 <style lang="scss">
-  .chart {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-
-    @media screen and (max-width: 768px) {
-      margin-bottom: 1rem;
-    }
-  }
 </style>

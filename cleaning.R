@@ -22,7 +22,9 @@ long <- paintings %>%
   ) %>%
   mutate(colors = strsplit(colors, ','),
          color_hex = strsplit(color_hex, ',')) %>%
-  unnest(c(colors, color_hex))
+  unnest(c(colors, color_hex)) %>%
+  mutate(colors = trimws(colors),
+         color_hex = trimws(color_hex))
 
 readr::write_csv(long, here::here('src/data/colors_long.csv'))
 

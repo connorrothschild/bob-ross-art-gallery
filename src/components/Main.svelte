@@ -1,11 +1,11 @@
 <script>
-  import Hero from "./Hero.svelte";
+  import Hero from "./prose/Hero.svelte";
+  import Intro from "./prose/Intro.svelte";
   import GridHistogramWrapper from "./GridHistogramWrapper.svelte";
   import Gallery from "./Gallery.svelte";
   import ColorViz from "./ColorViz.svelte";
   import { processData } from "../utils/process.js";
 
-  import copyData from "../data/copy.json";
   import data from "../data/bob_ross_paintings.csv";
   import long_data from "../data/colors_long.csv";
 
@@ -17,9 +17,7 @@
 
 <Hero />
 
-<section class="prose">
-  <p>{copyData.paragraph1}</p>
-</section>
+<Intro />
 
 <section>
   <GridHistogramWrapper {data} />
@@ -33,9 +31,8 @@
 <Gallery {data} {long_data} />
 <!-- </section> -->
 
-
 <!-- </section> -->
-<style lang="scss">
+<style lang="scss" global>
   section {
     padding: 1rem;
     margin: 0 auto;
