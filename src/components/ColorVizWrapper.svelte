@@ -142,7 +142,6 @@
           {data}
           {xScaleBar}
           {yScaleBar}
-          {xScaleTimeline}
           {yScaleTimeline}
           {xTicks}
         />

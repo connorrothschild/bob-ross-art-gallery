@@ -2,17 +2,13 @@
   import * as d3 from "d3";
   import { fade } from "svelte/transition";
   export let data,
-    width,
     height,
     padding,
     xScale,
-    yScale,
     xTicks,
     rectWidth,
-    rectHeight,
-    rectX,
-    rectY;
-
+    rectHeight;
+    
   function handleMouseover(e) {
     let d = e.target.attributes;
     const tip = d3.select(".gridTip");

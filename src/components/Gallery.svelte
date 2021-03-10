@@ -26,7 +26,7 @@
         }}
         class={$ind === 0 ? "left disabled" : "left"}
       >
-        &#8249;
+        ◄
       </button>
       <img
         src="./assets/background.png"
@@ -48,7 +48,7 @@
         }}
         class={$ind === LENGTH ? "disabled right" : "right"}
       >
-        &#8250;
+        ►
       </button>
     </div>
     <Scrubber data={long_data} />

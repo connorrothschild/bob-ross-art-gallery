@@ -13,7 +13,7 @@
 
 <div class="frame">
   {#await loadImage(selected.img_src)}
-    <img src="./assets/placeholder.png" alt="Placeholder image" />
+    <img src="./assets/placeholder.png" alt="Placeholder painting" />
   {:then}
     <img
       src={selected.img_src}
@@ -30,12 +30,6 @@
     object-fit: cover;
     border-radius: 5px;
     box-shadow: 1px 1px 10px 1px #cecece;
-  }
-
-  a {
-    font-weight: 300;
-    color: black;
-    margin: 0 0 1rem 0;
   }
 
   .frame {

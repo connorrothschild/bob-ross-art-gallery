@@ -147,16 +147,12 @@
       <div class="gridTip" />
       <svg style="width: 100%; height: 100%;">
         <GridHistogram
-          {width}
           {height}
           {rectWidth}
           {rectHeight}
-          {rectX}
-          {rectY}
           {data}
           {padding}
           {xScale}
-          {yScale}
           {xTicks}
         />
       </svg>

@@ -4,8 +4,8 @@
   <section class="notes">
     <h2>Notes and data</h2>
     <p>
-      This project was built with <a href="#">Svelte</a> and enhanced by The
-      Pudding's <a href="#">Svelte Starter template</a>. Data is from
+      This project was built with <a href="https://svelte.dev/">Svelte</a> and enhanced by The
+      Pudding's <a href="https://github.com/the-pudding/svelte-starter">Svelte Starter template</a>. Data is from
       <a href="https://github.com/jwilber/Bob_Ross_Paintings">Jared Wilber</a>
       and underwent
       <a
