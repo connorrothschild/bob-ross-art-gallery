@@ -24,7 +24,7 @@
 
     tip
       .transition("tip-in")
-      .duration(1000)
+      .duration(200)
       .style("opacity", 1)
       // Below handles offset on edges of screen
       .style(
@@ -44,7 +44,7 @@
   function handleMouseout() {
     d3.select(".gridTip")
       .transition("tip-out")
-      .duration(1000)
+      .duration(200)
       .style("opacity", 0);
   }
 </script>
@@ -96,7 +96,7 @@
     }
 
     text {
-      font-weight: 400;
+      font-weight: 200;
       @media screen and (max-width: 768px) {
         font-size: 0.75rem;
       }

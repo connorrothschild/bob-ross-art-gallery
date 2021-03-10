@@ -85,8 +85,8 @@
     d3.selectAll(".gridRect")
       .data(data)
       .transition("grid")
-      .duration(500)
-      .delay((d) => d.gridY * d.gridX)
+      //.delay((d) => d.gridY * d.gridX)
+      .duration(1000)
       .attr("x", (d) => xScale(d.gridX))
       .attr("y", (d) => yScale(d.gridY))
       .attr("width", rectWidth)
@@ -118,8 +118,8 @@
     d3.selectAll(".gridRect")
       .data(data)
       .transition("histogram")
-      .duration(500)
-      .delay((d) => d.num_colors * 30)
+      //.delay((d) => d.num_colors * 30)
+      .duration(1000)
       .attr("x", (d) => xScale(d.num_colors))
       .attr("y", (d) => yScale(d.yPos))
       .attr("width", rectWidth)
@@ -132,10 +132,12 @@
     d3.selectAll(".gridRect")
       .data(data)
       .transition("highlight")
-      .duration(500)
-      .delay((d, i) => i)
+      //.delay((d, i) => i)
+      .duration(1000)
       .attr("fill", (d) => (d.num_colors == 12 ? "steelblue" : "grey"))
-      .attr("stroke", (d) => (d.num_colors == 12 ? "steelblue" : "grey"));
+      .attr("stroke", (d) => (d.num_colors == 12 ? "steelblue" : "grey"))
+      .attr("width", rectWidth)
+      .attr("height", rectHeight)
   }
 
   $: activeStep = 0;

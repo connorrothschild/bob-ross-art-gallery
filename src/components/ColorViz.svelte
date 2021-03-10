@@ -19,9 +19,15 @@
     let d = e.target.attributes;
     const tip = d3.select(".timelineTip");
 
+    if(d.num) {
+    tip.html(
+      `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}: ${d.num.value} uses</p>`
+    );
+    } else {
     tip.html(
       `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}</p>`
     );
+    }
 
     tip
       .transition("tip-in")
@@ -72,6 +78,7 @@
       fill={d.key}
       background_color={d.colors}
       text_color={d.text_color}
+      num={d.value.length}
       x={0}
       y={yScaleBar(d.key)}
       on:mouseover={handleMouseover}

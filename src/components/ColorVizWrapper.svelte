@@ -7,6 +7,8 @@
   import ColorViz from "./ColorViz.svelte";
   export let data;
 
+  let DELAY; 
+
   // SCROLL!
   onMount(async () => {
     // instantiate the scrollama
@@ -20,10 +22,12 @@
       .onStepEnter((response) => {
         activeStep = response.index;
         if (response.index == 0) {
-          init();
+          response.direction == 'down' ? DELAY = 0 : DELAY = 1000;
+          init(DELAY);
         }
         if (response.index == 1) {
-          createTimeline();
+          response.direction == 'down' ? DELAY = 1000 : DELAY = 0;
+          createTimeline(DELAY);
         }
         if (response.index == 2) {
           highlight();
@@ -85,34 +89,38 @@
   $: activeStep = 0;
 
   // SCROLL STEPS
-  function init() {
+  function init(DELAY) {
     d3.selectAll(".timelineRect")
       .data(data)
-      .transition()
-      .duration(1000)
+      .transition('timeline-exit')
+        .duration(1000)
+        .ease(d3.easeExp)
       .attr("x", 0);
 
     d3.selectAll(".colorBar")
       .data(grouped)
-      .transition()
-      .duration(1000)
-      .delay(1000)
+      .transition('bar-enter')
+        .duration(1000)
+        .delay(DELAY)
+        .ease(d3.easeExp)
       .attr("width", (d) => xScaleBar(d.value.length))
       .attr("height", (height / unique_colors) * 0.9);
   }
 
-  function createTimeline() {
+  function createTimeline(DELAY) {
     d3.selectAll(".colorBar")
       .data(grouped)
-      .transition()
-      .duration(1000)
+      .transition('bar-exit')
+        .duration(1000)
+        .ease(d3.easeExp)
       .attr("width", 0);
 
     d3.selectAll(".timelineRect")
       .data(data)
-      .transition()
-      .duration(1000)
-      .delay(1000)
+      .transition('timeline-enter')
+        .duration(1000)
+        .delay(DELAY)
+        .ease(d3.easeExp)
       .attr("x", (d) => xScaleTimeline(d.painting_index))
       .attr("opacity", 1);
   }
@@ -120,8 +128,8 @@
   function highlight() {
     d3.selectAll(".timelineRect")
       .data(data)
-      .transition()
-      .duration(1000)
+      .transition('timeline-highlight')
+        .duration(1000)
       .attr("x", (d) => xScaleTimeline(d.painting_index))
       .attr("opacity", (d) =>
         (d.color_hex == "#8A3324") | (d.color_hex == "#5F2E1F") ? 1 : 0.3
