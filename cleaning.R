@@ -28,8 +28,8 @@ long <- paintings %>%
 
 readr::write_csv(long, here::here('src/data/colors_long.csv'))
 
-counts <- paintings %>%
-  count(colors, sort = T) %>%
+counts <- long %>%
+  count(colors, color_hex, sort = T) %>%
   mutate(colors = fct_reorder(colors, n))
 
 readr::write_csv(counts, here::here('src/data/colors_counts.csv'))

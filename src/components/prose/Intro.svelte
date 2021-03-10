@@ -34,11 +34,17 @@
     }
   }
 
+  p {
+    font-size: 1.2rem;
+  }
+
   .button {
-    padding: 3px 4px;
+    font-size: 1rem;
+    padding: 5px;
     background: white;
     border-radius: 3px;
-    border: 1px solid #cecece;
+    box-shadow: 0px 0px 6px 1px #cecece;
+    font-weight: lighter;
     text-decoration: none;
     color: black;
     margin: 0 5px;
@@ -46,6 +52,7 @@
 
     &:hover {
       background: whitesmoke;
+      box-shadow: 0px 0px 3px 1px #cecece;
     }
   }
 </style>

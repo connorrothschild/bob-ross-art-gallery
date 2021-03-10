@@ -19,7 +19,6 @@
       })
       .onStepEnter((response) => {
         activeStep = response.index;
-        console.log(activeStep);
         if (response.index == 0) {
           init();
         }
@@ -38,7 +37,7 @@
     window.addEventListener("resize", scroller.resize);
   });
 
-  const padding = { top: 0, right: 10, bottom: 30, left: 10 };
+  const padding = { top: 0, right: 15, bottom: 30, left: 15 };
 
   let width = null;
   let height = null;
@@ -68,6 +67,8 @@
     .domain(grouped.map((d) => d.key))
     .range([height - padding.bottom, padding.top]);
 
+  $: xTicks = xScaleBar.ticks(5);
+
   // FOR TIMELINE VIEW
   const num_paintings = 403;
 
@@ -80,8 +81,6 @@
     .scaleBand()
     .domain(grouped.map((d) => d.key))
     .range([height - padding.bottom, padding.top]);
-
-  $: xTicks = null;
 
   $: activeStep = 0;
 
@@ -189,7 +188,6 @@
     text-align: center;
     padding: 0.5rem;
     border-radius: 10px;
-    // border: .5px solid white;
     box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.5);
   }
 </style>

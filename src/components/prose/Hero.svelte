@@ -12,7 +12,7 @@
 <style>
   .hero-background {
     background: #1da1f290;
-    background: linear-gradient(#1da1f290, rgb(255, 249, 230));
+    background: linear-gradient(#1da1f290, var(--background));
   }
 
   .hero {
@@ -29,6 +29,8 @@
     text-transform: uppercase;
     font-weight: 900;
     font-size: clamp(1vw, 5rem, 10vw);
+    color: black;
+    line-height: 1.25;
   }
 
   .subtitle {

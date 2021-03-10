@@ -174,8 +174,7 @@
         </svg>
         represents a painting. Go ahead and hover
         <Icon name="mouse-pointer" stroke="black" stroke-width="1" />
-        <!-- <Icon name="crosshair" /> -->
-        on a rectangle to see the painting it represents!
+        over a rectangle to see the painting it represents!
       </p>
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">

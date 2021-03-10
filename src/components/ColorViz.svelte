@@ -17,7 +17,6 @@
 
   function handleMouseover(e) {
     let d = e.target.attributes;
-    console.log(d);
     const tip = d3.select(".timelineTip");
 
     tip.html(
@@ -40,6 +39,30 @@
   }
 </script>
 
+<!-- X AXIS -->
+<g
+  transform="translate({-padding.left}, {height -
+    padding.bottom -
+    padding.top})"
+>
+  {#if xTicks}
+    {#each xTicks as x}
+      <g
+        class="tick"
+        opacity="1"
+        transform="translate({xScaleBar(x)},0)"
+        transition:fade
+      >
+        <line stroke="#000" y2="6" y1={-height} />
+        <text fill="currentColor" dy="1em" y="9" x={x == 0 ? 4 : null}>
+          {x}
+        </text>
+      </g>
+    {/each}
+
+  {/if}
+</g>
+<!-- CHART -->
 <g>
   {#each grouped as d}
     <rect
@@ -73,4 +96,23 @@
   {/each}
 </g>
 
-<style lang="scss"></style>
+<!-- CHART -->
+<style lang="scss">
+  text {
+    font-weight: 300;
+    text-anchor: middle;
+  }
+
+  .tick {
+    line {
+      stroke: #cecece80;
+    }
+
+    text {
+      font-weight: 200;
+      @media screen and (max-width: 768px) {
+        font-size: 0.75rem;
+      }
+    }
+  }
+</style>

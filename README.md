@@ -5,6 +5,7 @@ Because we all deserve a bit of relaxation.
 ### To fix:
 
 * Grid works on resize but histogram does not 
+* Handle weird interactions on rapid scroll, or all the way down scrolling back up
 
 Data from: https://github.com/jwilber/Bob_Ross_Paintings
 

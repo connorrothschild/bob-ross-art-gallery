@@ -24,11 +24,13 @@
 
 <style lang="scss">
   footer {
-    display: block;
+    display: flex;
+    place-items: center;
     background-color: var(--text-main);
-    color: var(--background-body);
-    font-family: var(--sans);
+    color: white;
     padding: 3rem 1rem;
+    min-height: 50vh;
+    margin: auto;
   }
 
   a,
@@ -39,8 +41,7 @@
 
   .notes {
     max-width: 768px;
-    margin: 0 auto;
-    padding: 1rem;
+    margin: auto;
 
     h2 {
       font-weight: bold;

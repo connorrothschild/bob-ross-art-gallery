@@ -1,177 +1,19 @@
-colors,n
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",46
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",32
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",24
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",17
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",14
-"['Alizarin Crimson', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",13
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",9
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown']",9
-"['Alizarin Crimson', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Phthalo Green', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",8
-"['Alizarin Crimson', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",7
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",6
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",6
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",4
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",4
-"['Alizarin Crimson', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",4
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",3
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",3
-"['Alizarin Crimson', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",3
-"['Alizarin Crimson', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",3
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",3
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",3
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",3
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",3
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Yellow Ochre']",3
-"['Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",3
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Phthalo Green', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Black Gesso', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Black Gesso', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Black Gesso', 'Cadmium Yellow', 'Dark Sienna', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",2
-"['Alizarin Crimson', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Black', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Black', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Black', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Bright Red', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown']",2
-"['Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Alizarin Crimson', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",2
-"['Prussian Blue', 'Titanium White', 'Van Dyke Brown']",2
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Burnt Umber', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Sap Green', 'Titanium White', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Bright Red', 'Midnight Black', 'Prussian Blue', 'Sap Green']",1
-"['Alizarin Crimson', 'Black Gesso', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Burnt Umber', 'Cadmium Yellow', 'Phthalo Green', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Black Gesso', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Black Gesso', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Dark Sienna', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Black Gesso', 'Indian Yellow', 'Liquid Clear', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White']",1
-"['Alizarin Crimson', 'Black Gesso', 'Indian Yellow', 'Sap Green', 'Titanium White', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Black Gesso', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White']",1
-"['Alizarin Crimson', 'Black Gesso', 'Liquid Clear', 'Midnight Black', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Liquid Black', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Midnight Black', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Red', 'Midnight Black', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Black', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Black', 'Midnight Black', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Phthalo Blue', 'Titanium White', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Midnight Black', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Midnight Black', 'Sap Green', 'Titanium White', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Midnight Black', 'Sap Green', 'Titanium White']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Liquid Black', 'Phthalo Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Bright Red', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Bright Red', 'Dark Sienna', 'Midnight Black', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Bright Red', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Burnt Umber', 'Cadmium Yellow', 'Indian Yellow', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Burnt Umber', 'Cadmium Yellow', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Burnt Umber', 'Cadmium Yellow', 'Phthalo Blue', 'Phthalo Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Burnt Umber', 'Cadmium Yellow', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Burnt Umber', 'Indian Yellow', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Indian Yellow', 'Midnight Black', 'Sap Green', 'Titanium White']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Indian Yellow', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Liquid Clear', 'Phthalo Blue', 'Phthalo Green', 'Titanium White']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Sap Green', 'Titanium White', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Cadmium Yellow', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Dark Sienna', 'Liquid Black', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Dark Sienna', 'Liquid Clear', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Dark Sienna', 'Liquid Clear', 'Midnight Black', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White']",1
-"['Alizarin Crimson', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Dark Sienna', 'Midnight Black', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Alizarin Crimson', 'Dark Sienna', 'Midnight Black', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Indian Yellow', 'Liquid Black', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Liquid Black', 'Phthalo Blue', 'Phthalo Green', 'Titanium White']",1
-"['Alizarin Crimson', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White']",1
-"['Alizarin Crimson', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White']",1
-"['Alizarin Crimson', 'Midnight Black', 'Titanium White']",1
-"['Alizarin Crimson', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Alizarin Crimson', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Black Gesso', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow', 'Midnight Black', 'Prussian Blue', 'Titanium White']",1
-"['Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Black Gesso', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Titanium White', 'Van Dyke Brown']",1
-"['Black Gesso', 'Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Black Gesso', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Black Gesso', 'Cadmium Yellow', 'Liquid Clear', 'Midnight Black', 'Prussian Blue', 'Sap Green', 'Titanium White']",1
-"['Black Gesso', 'Indian Yellow', 'Phthalo Blue', 'Prussian Blue', 'Titanium White']",1
-"['Black Gesso', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Bright Red', 'Burnt Umber', 'Indian Yellow', 'Prussian Blue', 'Titanium White']",1
-"['Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Bright Red', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Bright Red', 'Dark Sienna', 'Midnight Black', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Bright Red', 'Dark Sienna', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Liquid Clear', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre']",1
-"['Dark Sienna', 'Midnight Black', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown']",1
-"['Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White']",1
-"['Midnight Black', 'Prussian Blue', 'Titanium White']",1
-['Van Dyke Brown'],1
+colors,color_hex,n
+Titanium White,#FFFFFF,400
+Alizarin Crimson,#4E1500,380
+Van Dyke Brown,#221B15,371
+Cadmium Yellow,#FFEC00,346
+Yellow Ochre,#C79B00,327
+Phthalo Blue,#0C0040,323
+Bright Red,#DB0000,321
+Midnight Black,#000000,317
+Sap Green,#0A3410,306
+Indian Yellow,#FFB800,292
+Dark Sienna,#5F2E1F,290
+Prussian Blue,#021E44,263
+Phthalo Green,#102E3C,116
+Black Gesso,#000000,101
+Burnt Umber,#8A3324,55
+Liquid Clear,#FFFFFF,51
+Liquid Black,#000000,14
+Indian Red,#CD5C5C,1

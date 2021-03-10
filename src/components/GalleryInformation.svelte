@@ -42,11 +42,8 @@
     <h3 class="subtitle">By Bob Ross</h3>
     <div class="purchase-container">
       <button>
-        <a
-          href={selected.youtube_src}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="subtitle">Watch on YouTube</a
+        <a href={selected.youtube_src} target="_blank" rel="noopener noreferrer"
+          >Watch on YouTube</a
         ></button
       >
       <button
@@ -81,7 +78,7 @@
     a {
       text-decoration: none;
       color: black;
-      font-weight: lighter;
+      font-weight: 200;
     }
   }
 
@@ -94,7 +91,7 @@
 
     .subtitle {
       margin-top: 0;
-      font-weight: normal;
+      font-weight: 400;
       font-size: 1rem;
     }
   }
@@ -104,12 +101,19 @@
 
     button {
       text-transform: uppercase;
-      font-weight: lighter;
+      font-weight: 200;
       letter-spacing: 1px;
       margin-right: 0.5rem;
+      font-size: 0.8rem;
+      box-shadow: 0px 0px 4px 1px #cecece;
+
+      &:hover {
+        box-shadow: 0px 0px 2px 1px #cecece80;
+        background: whitesmoke;
+      }
 
       a {
-        font-weight: lighter !important;
+        font-weight: 200 !important;
       }
     }
   }
