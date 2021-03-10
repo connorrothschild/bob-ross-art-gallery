@@ -1,14 +1,14 @@
 <script>
   import * as d3 from "d3";
   import { onMount } from "svelte";
-  import "intersection-observer";
-  import scrollama from "scrollama";
+  // import "intersection-observer";
+  // import scrollama from "scrollama";
   import Icon from "./helpers/Icon.svelte";
   import GridHistogram from "./GridHistogram.svelte";
   export let data;
 
   // SCROLL
-  onMount(() => {
+  onMount(async () => {
     // instantiate the scrollama
     const scroller = scrollama();
 
