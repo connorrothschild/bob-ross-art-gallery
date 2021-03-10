@@ -1,8 +1,0 @@
-test: bullets within a multi-line value do not break up the value
-result: {"key": "value\ntext\n* value\nmore text"}
-
-key:value
-text
-* value
-more text
-:end

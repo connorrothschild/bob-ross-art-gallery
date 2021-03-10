@@ -1,6 +1,0 @@
-test: ignores all content on line after :end + space
-result: {"key": "value\nextra"}
-
-key:value
-extra
-:end this

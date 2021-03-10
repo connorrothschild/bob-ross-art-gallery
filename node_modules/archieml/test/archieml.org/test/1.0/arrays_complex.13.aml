@@ -1,8 +1,0 @@
-test: arrays that are redefined replace the existing array
-result: {"array": [{"key": "value 2"}]}
-
-[array]
-key:value 1
-[]
-[array]
-key:value 2

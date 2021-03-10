@@ -1,6 +1,0 @@
-test: array keys beginning with [.dots] create complex subarrays
-result: {"array": [{"subarray": [{"key": "value"}]}]}
-
-[array]
-[.subarray]
-key: value

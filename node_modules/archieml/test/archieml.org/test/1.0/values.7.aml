@@ -1,4 +1,0 @@
-test: allows non-letter characters at the start of values
-result: {"key": ":value"}
-
-key::value

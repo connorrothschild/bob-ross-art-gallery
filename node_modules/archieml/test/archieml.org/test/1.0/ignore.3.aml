@@ -1,5 +1,0 @@
-test: :ignore is case insensitive
-result: {}
-
-:iGnOrE
-key:value

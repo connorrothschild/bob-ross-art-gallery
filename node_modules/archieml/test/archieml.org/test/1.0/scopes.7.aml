@@ -1,5 +1,0 @@
-test: items before a {scope} are not namespaced
-result: {"key": "value", "scope": {}}
-
-key:value
-{scope}

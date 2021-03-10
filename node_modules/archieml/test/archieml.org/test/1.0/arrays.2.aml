@@ -1,4 +1,0 @@
-test: ignores spaces on either side of [array]
-result: {"array": []}
-
-  [array]  

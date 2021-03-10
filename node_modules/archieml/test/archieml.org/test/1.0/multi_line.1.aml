@@ -1,6 +1,0 @@
-test: adds additional lines to value if followed by an :end
-result: {"key": "value\nextra"}
-
-key:value
-extra
-:end

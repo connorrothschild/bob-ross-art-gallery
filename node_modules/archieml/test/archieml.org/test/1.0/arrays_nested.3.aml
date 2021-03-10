@@ -1,7 +1,0 @@
-test: subarrays can contain multiple complex values
-result: {"array": [{"subarray": [{"key": "value"}, {"key": "value"}]}]}
-
-[array]
-[.subarray]
-key: value
-key: value

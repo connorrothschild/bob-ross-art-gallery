@@ -1,7 +1,0 @@
-test: subarrays can exist alongside regular keys
-result: {"array": [{"parentkey": "value", "subarray": [{"subkey": "value"}]}]}
-
-[array]
-parentkey: value
-[.subarray]
-subkey: value

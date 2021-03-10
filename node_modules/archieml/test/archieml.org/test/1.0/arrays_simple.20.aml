@@ -1,8 +1,0 @@
-test: simple arrays can be replaced with complex arrays
-result: {"array": [{"key": "value"}]}
-
-[array]
-*Value
-[]
-[array]
-key:value

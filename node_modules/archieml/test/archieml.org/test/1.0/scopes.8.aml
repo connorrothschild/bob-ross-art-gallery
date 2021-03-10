@@ -1,5 +1,0 @@
-test: items after a {scope} are namespaced
-result: {"scope": {"key": "value"}}
-
-{scope}
-key:value

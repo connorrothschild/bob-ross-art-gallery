@@ -1,6 +1,0 @@
-test: ignore tabs on either side of {}
-result: {"scope": {}, "key": "value"}
-
-{scope}
-		{}		
-key:value

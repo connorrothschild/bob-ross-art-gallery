@@ -1,4 +1,0 @@
-test: arrays can be nested using dot-notaion
-result: {"scope": {"array": []}}
-
-[scope.array]

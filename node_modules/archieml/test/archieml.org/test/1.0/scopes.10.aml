@@ -1,8 +1,0 @@
-test: scopes can be reopened
-result: {"scope": {"key": "value", "other": "value"}}
-
-{scope}
-key:value
-{}
-{scope}
-other:value

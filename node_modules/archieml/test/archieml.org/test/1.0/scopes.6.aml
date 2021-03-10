@@ -1,4 +1,0 @@
-test: ignores text after {scope}
-result: {"scope": {}}
-
-{scope}a

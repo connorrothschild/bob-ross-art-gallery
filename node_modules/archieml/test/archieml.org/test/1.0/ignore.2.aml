@@ -1,5 +1,0 @@
-test: text after :ignore should be ignored
-result: {}
-
-:ignore
-key:value

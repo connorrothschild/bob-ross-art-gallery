@@ -1,6 +1,0 @@
-test: ignore tabs inside []
-result: {"array": [], "key": "value"}
-
-[array]
-[		]
-key:value

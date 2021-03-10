@@ -1,9 +1,0 @@
-test: skips within a multi-line value break up the value
-result: {"array": [{"key": "value"}]}
-
-[array]
-key:value
-:skip
-:endskip
-more text
-:end
