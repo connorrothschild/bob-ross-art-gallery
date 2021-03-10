@@ -3,14 +3,18 @@
   import Intro from "./prose/Intro.svelte";
   import GridHistogramWrapper from "./GridHistogramWrapper.svelte";
   import Gallery from "./Gallery.svelte";
-  import ColorViz from "./ColorViz.svelte";
-  import { processData } from "../utils/process.js";
+  import ColorVizWrapper from "./ColorVizWrapper.svelte";
+  import { processData, getTextColor } from "../utils/process.js";
 
   import data from "../data/bob_ross_paintings.csv";
   import long_data from "../data/colors_long.csv";
 
   processData(data);
   processData(long_data, true);
+
+  long_data.forEach(function (d) {
+    d.text_color = getTextColor(d.color_hex);
+  });
 
   console.log(data);
 </script>
@@ -24,7 +28,7 @@
 </section>
 
 <section>
-  <ColorViz data={long_data} />
+  <ColorVizWrapper data={long_data} />
 </section>
 
 <!-- <section> -->

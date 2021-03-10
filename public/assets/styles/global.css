@@ -26,7 +26,7 @@
   --red: #ff533d;
   --yellow: #e5e338;
 
-	--background: rgb(255, 249, 230);
+  --background: rgb(255, 249, 230);
 
   --bg: var(--background);
   --fg: var(--off-black);

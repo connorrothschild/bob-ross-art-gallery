@@ -19,6 +19,18 @@
     scroll-behavior: smooth;
   }
 
+  .highlight-text {
+    font-weight: 600;
+    padding: 3px;
+    border-radius: 3px;
+    /* white-space: nowrap; */
+    display: inline-block;
+    background: steelblue;
+    background: linear-gradient(to left, white 50%, steelblue 50%) right;
+    background-size: 200% 1.2em;
+    transition: 1s ease-out 200ms;
+  }
+
   /* SCROLLAMA */
   .chart {
     border: none;

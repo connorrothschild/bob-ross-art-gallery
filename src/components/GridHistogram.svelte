@@ -15,7 +15,7 @@
 
   function handleMouseover(e) {
     let d = e.target.attributes;
-    const tip = d3.select(".tip");
+    const tip = d3.select(".gridTip");
 
     tip.html(`<p class='title'>${d.title.value}</p>
               <p class='subtitle'>${d.subtitle.value}</p>
@@ -46,7 +46,10 @@
   }
 
   function handleMouseout() {
-    d3.select(".tip").transition("tip-out").duration(1000).style("opacity", 0);
+    d3.select(".gridTip")
+      .transition("tip-out")
+      .duration(1000)
+      .style("opacity", 0);
   }
 </script>
 
@@ -57,7 +60,7 @@
       title={d.painting_title}
       subtitle={"Season " + d.season + ", episode " + d.episode}
       img={d.img_src}
-      class="rects"
+      class="gridRect"
       width={rectWidth}
       height={rectHeight}
       fill="grey"
@@ -103,18 +106,19 @@
     }
   }
 
-  :global(.tip .painting) {
+  :global(.gridTip .painting) {
     width: 100%;
   }
 
-  :global(.tip .title) {
+  :global(.gridTip .title) {
     text-align: center;
     font-weight: normal;
     font-size: 1rem;
     margin: 0.5rem 0 0 0;
+    padding: 0 0.1rem;
   }
 
-  :global(.tip .subtitle) {
+  :global(.gridTip .subtitle) {
     text-align: center;
     font-weight: 100;
     font-size: 0.75rem;

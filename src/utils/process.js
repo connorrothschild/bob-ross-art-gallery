@@ -21,3 +21,16 @@ export function processData(data, long = false) {
 
   return data;
 }
+
+export function getTextColor(bgColor) {
+  // Handle red which should spit out white but this function doesn't handle well
+  if (bgColor == "#DB0000") {
+    return "#FFFFFF";
+  }
+  if (!bgColor) {
+    return "";
+  }
+  return parseInt(bgColor.replace("#", ""), 16) > 0xffffff / 1.5
+    ? "#000000"
+    : "#FFFFFF";
+}

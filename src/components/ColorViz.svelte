@@ -1,100 +1,76 @@
 <script>
   import * as d3 from "d3";
-  import { onMount } from "svelte";
-  import "intersection-observer";
-  import scrollama from "scrollama";
-  import mapToArray from "../utils/mapToArray";
-  export let data;
 
-  // SCROLL!
-  onMount(() => {
-    // instantiate the scrollama
-    const scroller = scrollama();
+  export let data,
+    grouped,
+    width,
+    height,
+    padding,
+    xScaleBar,
+    yScaleBar,
+    xScaleTimeline,
+    yScaleTimeline,
+    xTicks;
 
-    // setup the instance, pass callback functions
-    scroller
-      .setup({
-        step: "#colorSection .step",
-      })
-      .onStepEnter((response) => {
-        activeStep = response.index;
-        console.log(activeStep);
-        if (response.index == 0) {
-          //   grid();
-        }
-        if (response.index == 1) {
-          //   histogram();
-        }
-        if (response.index == 2) {
-          //   highlight();
-        }
-      })
-      .onStepExit((response) => {
-        // { element, index, direction }
-      });
+  const num_paintings = 403;
+  const unique_colors = grouped.length;
 
-    // setup resize event
-    window.addEventListener("resize", scroller.resize);
-  });
+  function handleMouseover(e) {
+    let d = e.target.attributes;
+    console.log(d);
+    const tip = d3.select(".timelineTip");
 
-  const padding = { top: 0, right: 10, bottom: 30, left: 10 };
+    tip.html(
+      `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}</p>`
+    );
 
-  let width = null;
-  let height = null;
-
-  const grouped = mapToArray(d3.group(data, (d) => d.color_hex)).sort(
-    (a, b) => a.value.length - b.value.length
-  );
-
-  const maxColor = d3.max(grouped, (d) => d.value.length);
-
-  $: xScale = d3
-    .scaleLinear()
-    .domain([0, maxColor])
-    .range([padding.left, width - padding.right]);
-
-  $: yScale = d3
-    .scaleBand()
-    .domain(grouped.map((d) => d.key))
-    .range([height - padding.bottom, padding.top]);
-
-  $: xTicks = null;
-
-  $: activeStep = 0;
+    tip
+      .transition("tip-in")
+      .duration(200)
+      .style("opacity", 1)
+      // Below handles offset on edges of screen
+      .style("left", e.layerX + "px")
+      .style("top", e.layerY - 28 + "px");
+  }
+  function handleMouseout() {
+    d3.select(".timelineTip")
+      .transition("tip-out")
+      .duration(200)
+      .style("opacity", 0);
+  }
 </script>
 
-<div class="scrollama-container">
-  <div class="scrollama-graphic">
-    <div class="chart" bind:offsetWidth={width} bind:offsetHeight={height}>
-      <div class="tip" />
-      <svg style="width: 100%; height: 100%;">
-        <g>
-          {#each grouped as d}
-            <rect
-              width={xScale(d.value.length)}
-              height={(height / grouped.length) * 0.9}
-              fill={d.key}
-              x={0}
-              y={yScale(d.key)}
-            />
-          {/each}
-        </g>
-      </svg>
-    </div>
-  </div>
+<g>
+  {#each grouped as d}
+    <rect
+      width="0"
+      height={(height / unique_colors) * 0.9}
+      class="colorBar"
+      fill={d.key}
+      background_color={d.colors}
+      text_color={d.text_color}
+      x={0}
+      y={yScaleBar(d.key)}
+      on:mouseover={handleMouseover}
+      on:mouseout={handleMouseout}
+    />
+  {/each}
+</g>
+<g>
+  {#each data as d}
+    <rect
+      width={width / num_paintings}
+      height={(height / unique_colors) * 0.9}
+      fill={d.color_hex}
+      background_color={d.colors}
+      text_color={d.text_color}
+      x={0}
+      y={yScaleTimeline(d.color_hex)}
+      class="timelineRect"
+      on:mouseover={handleMouseover}
+      on:mouseout={handleMouseout}
+    />
+  {/each}
+</g>
 
-  <div class="scrollama-steps" id="colorSection">
-    <div class="step" class:active={activeStep == 0} data-step="a">
-      <p>Content.</p>
-    </div>
-    <div class="step" class:active={activeStep == 1} data-step="b">
-      <p>Content.</p>
-    </div>
-    <div class="step" class:active={activeStep == 2} data-step="c">
-      <p>Content.</p>
-    </div>
-  </div>
-</div>
-
-<style lang="scss">
-</style>
+<style lang="scss"></style>

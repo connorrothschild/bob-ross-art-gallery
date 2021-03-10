@@ -82,7 +82,7 @@
     rectWidth = (width / 19) * 0.95;
     rectHeight = (height / 21) * 0.95;
 
-    d3.selectAll(".rects")
+    d3.selectAll(".gridRect")
       .data(data)
       .transition("grid")
       .duration(500)
@@ -115,7 +115,7 @@
     rectX = data.map((d) => yScale(d.yPos));
     rectY = data.map((d) => xScale(d.num_colors));
 
-    d3.selectAll(".rects")
+    d3.selectAll(".gridRect")
       .data(data)
       .transition("histogram")
       .duration(500)
@@ -129,7 +129,7 @@
   }
 
   function highlight() {
-    d3.selectAll(".rects")
+    d3.selectAll(".gridRect")
       .data(data)
       .transition("highlight")
       .duration(500)
@@ -144,7 +144,7 @@
 <div class="scrollama-container">
   <div class="scrollama-graphic">
     <div class="chart" bind:offsetWidth={width} bind:offsetHeight={height}>
-      <div class="tip" />
+      <div class="gridTip" />
       <svg style="width: 100%; height: 100%;">
         <GridHistogram
           {width}
@@ -186,8 +186,10 @@
     </div>
     <div class="step" class:active={activeStep == 2} data-step="c">
       <p>
-        Most commonly, paintings have <span class="highlight">12 colors</span>.
-        Of the {data.length} pieces Bob Ross painted, {data.filter(
+        Most commonly, paintings have <span
+          class="highlight-text"
+          style="background: steelblue; color: white;">12 colors</span
+        >. Of the {data.length} pieces Bob Ross painted, {data.filter(
           (d) => d.num_colors == 12
         ).length} used 12 colors.
       </p>
@@ -196,19 +198,7 @@
 </div>
 
 <style lang="scss">
-  .highlight {
-    font-weight: 600;
-    padding: 3px;
-    border-radius: 3px;
-    /* white-space: nowrap; */
-    display: inline-block;
-    background: steelblue;
-    background: linear-gradient(to left, white 50%, steelblue 50%) right;
-    background-size: 200% 1.2em;
-    transition: 1s ease-out 200ms;
-  }
-
-  .tip {
+  .gridTip {
     opacity: 0;
     position: absolute;
     background: white;

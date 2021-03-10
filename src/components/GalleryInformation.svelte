@@ -1,21 +1,13 @@
 <script>
   export let selected;
   import { ind } from "../stores/global.js";
+  import { getTextColor } from "../utils/process.js";
 
   // The selected art piece's colors
   let colors = [];
 
   // How many colors there are in the selected art piece
   let colors_length = 0;
-
-  function getTextColor(bgColor) {
-    if (!bgColor) {
-      return "";
-    }
-    return parseInt(bgColor.replace("#", ""), 16) > 0xffffff / 1.5
-      ? "#000"
-      : "#fff";
-  }
 
   $: {
     // Grab how many colors for the for loop below
