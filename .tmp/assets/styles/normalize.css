@@ -174,7 +174,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -184,7 +185,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
@@ -348,8 +350,6 @@ template {
   display: none;
 }
 
-
-
 /*! https://github.com/a11yproject/a11yproject.com/blob/main/src/css/base/_resets.scss */
 *,
 *::before,
@@ -362,34 +362,32 @@ template {
 
 /* Removes borders from linked images */
 a img {
-	border: none; 
+  border: none;
 }
-
 
 b,
 strong {
-	font-weight: 700;
+  font-weight: 700;
 }
 
 button,
 input[type="button"] {
-	border: 0;
+  border: 0;
 }
-
 
 em,
 cite,
 i {
-	font-style: italic;
+  font-style: italic;
 }
 
 img,
 figure,
 picture {
-	border: 0;
-	display: block;
-	height: auto;
-	max-width: 100%;
+  border: 0;
+  display: block;
+  height: auto;
+  max-width: 100%;
 }
 
 h1,
@@ -398,21 +396,21 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 sub {
-	text-transform: lowercase;
-	font-size: inherit;
-	font-variant-position: sub;
+  text-transform: lowercase;
+  font-size: inherit;
+  font-variant-position: sub;
 }
 
 sup {
-	text-transform: lowercase;
-	font-variant-position: super;
+  text-transform: lowercase;
+  font-variant-position: super;
 }
 
 textarea {
-	overflow: auto;
-	resize: vertical;
+  overflow: auto;
+  resize: vertical;
 }
