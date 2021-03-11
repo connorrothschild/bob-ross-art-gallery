@@ -19,7 +19,7 @@
     let d = e.target.attributes;
     const tip = d3.select(".timelineTip");
 
-    if(d.num) {
+    if (d.num) {
     tip.html(
       `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}: ${d.num.value} uses</p>`
     );
@@ -31,7 +31,7 @@
 
     tip
       .transition("tip-in")
-      .duration(200)
+      // .duration(200)
       .style("opacity", 1)
       // Below handles offset on edges of screen
       .style("left", e.layerX + "px")
@@ -40,7 +40,7 @@
   function handleMouseout() {
     d3.select(".timelineTip")
       .transition("tip-out")
-      .duration(200)
+      // .duration(200)
       .style("opacity", 0);
   }
 </script>
@@ -69,7 +69,7 @@
   {/if}
 </g>
 <!-- CHART -->
-<g>
+<g on:mouseover={handleMouseover} on:mouseout={handleMouseout}>
   {#each grouped as d}
     <rect
       width="0"
@@ -81,8 +81,6 @@
       num={d.value.length}
       x={0}
       y={yScaleBar(d.key)}
-      on:mouseover={handleMouseover}
-      on:mouseout={handleMouseout}
     />
   {/each}
 </g>

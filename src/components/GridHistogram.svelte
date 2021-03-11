@@ -23,8 +23,8 @@
     const paintingWidth = parseFloat(tip.style("width"));
 
     tip
-      .transition("tip-in")
-      .duration(200)
+      // .transition("tip-in")
+      // .duration(200)
       .style("opacity", 1)
       // Below handles offset on edges of screen
       .style(
@@ -43,14 +43,14 @@
 
   function handleMouseout() {
     d3.select(".gridTip")
-      .transition("tip-out")
-      .duration(200)
+      // .transition("tip-out")
+      // .duration(200)
       .style("opacity", 0);
   }
 </script>
 
 <!-- RECTS (HISTOGRAM) -->
-<g>
+<g on:mouseover={handleMouseover} on:mouseout={handleMouseout}>
   {#each data as d, i}
     <rect
       title={d.painting_title}
@@ -63,8 +63,6 @@
       stroke="white"
       x={0}
       y={height - padding.bottom}
-      on:mouseover={handleMouseover}
-      on:mouseout={handleMouseout}
     />
   {/each}
 </g>
