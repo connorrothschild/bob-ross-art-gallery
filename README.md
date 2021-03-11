@@ -6,6 +6,7 @@ Because we all deserve a bit of relaxation.
 
 * Grid works on resize but histogram does not 
 * Handle weird interactions on rapid scroll, or all the way down scrolling back up
+* Mobile touch events don't end...
 
 Data from: https://github.com/jwilber/Bob_Ross_Paintings
 
