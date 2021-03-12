@@ -1,12 +1,12 @@
 <script>
   import * as d3 from "d3";
   import { onMount } from "svelte";
-  // import "intersection-observer";
-  // import scrollama from "scrollama";
+  import debounceFn from "lodash.debounce";
   import Icon from "./helpers/Icon.svelte";
   import GridHistogram from "./GridHistogram.svelte";
   export let data;
 
+  let rectWidth, rectHeight, rectX, rectY;
   // SCROLL
   onMount(async () => {
     // instantiate the scrollama
@@ -34,7 +34,7 @@
       });
 
     // setup resize event
-    window.addEventListener("resize", scroller.resize);
+    window.addEventListener("resize", debounceFn(scroller.resize, 1000));
   });
 
   const padding = { top: 0, right: 0, bottom: 30, left: 0 };
@@ -61,11 +61,6 @@
     .range([height - padding.bottom, padding.top]);
 
   $: xTicks = null;
-
-  $: rectWidth = (width / 19) * 0.95;
-  $: rectHeight = (height / 21) * 0.95;
-  $: rectX = data.map((d) => xScale(d.gridX));
-  $: rectY = data.map((d) => yScale(d.gridY));
 
   function grid() {
     xScale = d3
@@ -129,15 +124,23 @@
   }
 
   function highlight() {
+    rectWidth = width / d3.max(data, (d) => d.num_colors);
+    rectHeight =
+      (height - padding.top - padding.bottom) / d3.max(data, (d) => d.yPos);
+
     d3.selectAll(".gridRect")
       .data(data)
-      .transition("highlight")
-      //.delay((d, i) => i)
+      .transition("histogram")
+      //.delay((d) => d.num_colors * 30)
       .duration(1000)
-      .attr("fill", (d) => (d.num_colors == 12 ? "steelblue" : "grey"))
-      .attr("stroke", (d) => (d.num_colors == 12 ? "steelblue" : "grey"))
+      .attr("x", (d) => xScale(d.num_colors))
+      .attr("y", (d) => yScale(d.yPos))
       .attr("width", rectWidth)
       .attr("height", rectHeight)
+      .attr("fill", "grey")
+      .attr("stroke", "white")
+      .attr("fill", (d) => (d.num_colors == 12 ? "steelblue" : "grey"))
+      .attr("stroke", (d) => (d.num_colors == 12 ? "steelblue" : "grey"));
   }
 
   $: activeStep = 0;

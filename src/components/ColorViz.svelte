@@ -30,7 +30,7 @@
     }
 
     tip
-      .transition("tip-in")
+      // .transition("tip-in")
       // .duration(200)
       .style("opacity", 1)
       // Below handles offset on edges of screen
@@ -39,7 +39,7 @@
   }
   function handleMouseout() {
     d3.select(".timelineTip")
-      .transition("tip-out")
+      // .transition("tip-out")
       // .duration(200)
       .style("opacity", 0);
   }

@@ -1,8 +1,7 @@
 <script>
   import * as d3 from "d3";
   import { onMount } from "svelte";
-  // import "intersection-observer";
-  // import scrollama from "scrollama";
+  import debounceFn from "lodash.debounce";
   import mapToArray from "../utils/mapToArray";
   import ColorViz from "./ColorViz.svelte";
   export let data;
@@ -34,11 +33,10 @@
         }
       })
       .onStepExit((response) => {
-        // { element, index, direction }
       });
 
     // setup resize event
-    window.addEventListener("resize", scroller.resize);
+    window.addEventListener("resize", debounceFn(scroller.resize, 1000));
   });
 
   const padding = { top: 0, right: 15, bottom: 30, left: 15 };
@@ -122,7 +120,9 @@
         .delay(DELAY)
         .ease(d3.easeExp)
       .attr("x", (d) => xScaleTimeline(d.painting_index))
-      .attr("opacity", 1);
+      .attr("opacity", 1)
+      .attr("width", (d) => xScaleBar(d.value.length))
+      .attr("height", (height / unique_colors) * 0.9);
   }
 
   function highlight() {
@@ -133,7 +133,9 @@
       .attr("x", (d) => xScaleTimeline(d.painting_index))
       .attr("opacity", (d) =>
         (d.color_hex == "#8A3324") | (d.color_hex == "#5F2E1F") ? 1 : 0.3
-      );
+      )      
+      .attr("width", (d) => xScaleBar(d.value.length))
+      .attr("height", (height / unique_colors) * 0.9);
   }
 </script>
 
