@@ -6,7 +6,12 @@
   import ColorViz from "./ColorViz.svelte";
   export let data;
 
-  let DELAY; 
+  let DELAY;
+
+  const padding = { top: 0, right: 15, bottom: 30, left: 15 };
+
+  let width = null;
+  let height = window.innerHeight * 0.8; // let height = null;
 
   // SCROLL!
   onMount(async () => {
@@ -21,28 +26,34 @@
       .onStepEnter((response) => {
         activeStep = response.index;
         if (response.index == 0) {
-          response.direction == 'down' ? DELAY = 0 : DELAY = 1000;
+          response.direction == "down" ? (DELAY = 0) : (DELAY = 1000);
           init(DELAY);
         }
         if (response.index == 1) {
-          response.direction == 'down' ? DELAY = 1000 : DELAY = 0;
+          response.direction == "down" ? (DELAY = 1000) : (DELAY = 0);
           createTimeline(DELAY);
         }
         if (response.index == 2) {
           highlight();
         }
       })
-      .onStepExit((response) => {
-      });
+      .onStepExit((response) => {});
 
+    // Only trigger height resize if new height exceeds a certain threshold
+    // Avoids resize on mobile scroll up or down with URL bar
+    function resize() {
+      console.log(width);
+      if (
+        ((window.innerHeight * 0.8) / height > 1.1) |
+        ((window.innerHeight * 0.8) / height < 0.9)
+      ) {
+        height = window.innerHeight * 0.8;
+      }
+    }
     // setup resize event
+    window.addEventListener("resize", debounceFn(resize, 500));
     window.addEventListener("resize", debounceFn(scroller.resize, 1000));
   });
-
-  const padding = { top: 0, right: 15, bottom: 30, left: 15 };
-
-  let width = null;
-  let height = null;
 
   const grouped = mapToArray(d3.group(data, (d) => d.color_hex)).sort(
     (a, b) => a.value.length - b.value.length
@@ -90,17 +101,17 @@
   function init(DELAY) {
     d3.selectAll(".timelineRect")
       .data(data)
-      .transition('timeline-exit')
-        .duration(1000)
-        .ease(d3.easeExp)
+      .transition("timeline-exit")
+      .duration(1000)
+      .ease(d3.easeExp)
       .attr("x", 0);
 
     d3.selectAll(".colorBar")
       .data(grouped)
-      .transition('bar-enter')
-        .duration(1000)
-        .delay(DELAY)
-        .ease(d3.easeExp)
+      .transition("bar-enter")
+      .duration(1000)
+      .delay(DELAY)
+      .ease(d3.easeExp)
       .attr("width", (d) => xScaleBar(d.value.length))
       .attr("height", (height / unique_colors) * 0.9);
   }
@@ -108,40 +119,43 @@
   function createTimeline(DELAY) {
     d3.selectAll(".colorBar")
       .data(grouped)
-      .transition('bar-exit')
-        .duration(1000)
-        .ease(d3.easeExp)
+      .transition("bar-exit")
+      .duration(1000)
+      .ease(d3.easeExp)
       .attr("width", 0);
 
     d3.selectAll(".timelineRect")
       .data(data)
-      .transition('timeline-enter')
-        .duration(1000)
-        .delay(DELAY)
-        .ease(d3.easeExp)
+      .transition("timeline-enter")
+      .duration(1000)
+      .delay(DELAY)
+      .ease(d3.easeExp)
       .attr("x", (d) => xScaleTimeline(d.painting_index))
+      .attr("y", (d) => yScaleTimeline(d.color_hex))
+
       .attr("opacity", 1)
-      .attr("width", (d) => xScaleBar(d.value.length))
+      .attr("width", (d) => width / num_paintings)
       .attr("height", (height / unique_colors) * 0.9);
   }
 
   function highlight() {
     d3.selectAll(".timelineRect")
       .data(data)
-      .transition('timeline-highlight')
-        .duration(1000)
+      .transition("timeline-highlight")
+      .duration(1000)
       .attr("x", (d) => xScaleTimeline(d.painting_index))
+      .attr("y", (d) => yScaleTimeline(d.color_hex))
       .attr("opacity", (d) =>
         (d.color_hex == "#8A3324") | (d.color_hex == "#5F2E1F") ? 1 : 0.3
-      )      
-      .attr("width", (d) => xScaleBar(d.value.length))
+      )
+      .attr("width", (d) => width / num_paintings)
       .attr("height", (height / unique_colors) * 0.9);
   }
 </script>
 
 <div class="scrollama-container">
   <div class="scrollama-graphic">
-    <div class="chart" bind:offsetWidth={width} bind:offsetHeight={height}>
+    <div class="chart" bind:offsetWidth={width}>
       <div class="timelineTip" />
       <svg style="width: 100%; height: 100%;">
         <ColorViz
@@ -151,9 +165,11 @@
           {grouped}
           {data}
           {xScaleBar}
+          {xScaleTimeline}
           {yScaleBar}
           {yScaleTimeline}
           {xTicks}
+          {activeStep}
         />
       </svg>
     </div>

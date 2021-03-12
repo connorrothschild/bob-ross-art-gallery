@@ -2,13 +2,15 @@
   import * as d3 from "d3";
   import { fade } from "svelte/transition";
   export let data,
+    width,
     height,
     padding,
-    xScale,
-    xTicks,
-    rectWidth,
-    rectHeight;
-    
+    xScaleGrid,
+    yScaleGrid,
+    xScaleHist,
+    yScaleHist,
+    xTicks;
+
   function handleMouseover(e) {
     let d = e.target.attributes;
     const tip = d3.select(".gridTip");
@@ -57,12 +59,12 @@
       subtitle={"Season " + d.season + ", episode " + d.episode}
       img={d.img_src}
       class="gridRect"
-      width={rectWidth}
-      height={rectHeight}
+      width={(width / 19) * 0.95}
+      height={(height / 21) * 0.95}
       fill="grey"
       stroke="white"
       x={0}
-      y={height - padding.bottom}
+      y={0}
     />
   {/each}
 </g>
@@ -74,7 +76,7 @@
       <g
         class="tick"
         opacity="1"
-        transform="translate({xScale(x)},0)"
+        transform="translate({xScaleHist(x)},0)"
         transition:fade
       >
         <line stroke="currentColor" y2="6" />

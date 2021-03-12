@@ -9,8 +9,10 @@
     padding,
     xScaleBar,
     yScaleBar,
+    xScaleTimeline,
     yScaleTimeline,
-    xTicks;
+    xTicks,
+    activeStep;
 
   const num_paintings = 403;
   const unique_colors = grouped.length;
@@ -20,13 +22,13 @@
     const tip = d3.select(".timelineTip");
 
     if (d.num) {
-    tip.html(
-      `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}: ${d.num.value} uses</p>`
-    );
+      tip.html(
+        `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}: ${d.num.value} uses</p>`
+      );
     } else {
-    tip.html(
-      `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}</p>`
-    );
+      tip.html(
+        `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}</p>`
+      );
     }
 
     tip
@@ -65,7 +67,6 @@
         </text>
       </g>
     {/each}
-
   {/if}
 </g>
 <!-- CHART -->

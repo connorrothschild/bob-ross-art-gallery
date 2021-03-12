@@ -6,7 +6,11 @@
   import GridHistogram from "./GridHistogram.svelte";
   export let data;
 
-  let rectWidth, rectHeight, rectX, rectY;
+  const padding = { top: 0, right: 0, bottom: 30, left: 0 };
+
+  let width = null;
+  let height = window.innerHeight * 0.8; // let height = null;
+
   // SCROLL
   onMount(async () => {
     // instantiate the scrollama
@@ -33,14 +37,22 @@
         // { element, index, direction }
       });
 
+    // Only trigger height resize if new height exceeds a certain threshold
+    // Avoids resize on mobile scroll up or down with URL bar
+    function resize() {
+      console.log(width);
+      if (
+        ((window.innerHeight * 0.8) / height > 1.1) |
+        ((window.innerHeight * 0.8) / height < 0.9)
+      ) {
+        height = window.innerHeight * 0.8;
+      }
+    }
+
     // setup resize event
+    window.addEventListener("resize", debounceFn(resize, 500));
     window.addEventListener("resize", debounceFn(scroller.resize, 1000));
   });
-
-  const padding = { top: 0, right: 0, bottom: 30, left: 0 };
-
-  let width = null;
-  let height = null;
 
   // A painting can have between 1 and 15 (maxColors) colors
   // We want an array of 1-15 for our X axis
@@ -50,28 +62,32 @@
     .fill()
     .map((element, index) => index + 1);
 
-  $: xScale = d3
+  $: xScaleHist = d3
     .scaleBand()
     .domain(xDomain)
     .range([padding.left, width - padding.right]);
 
-  $: yScale = d3
+  $: yScaleHist = d3
     .scaleLinear()
     .domain(d3.extent(data, (d) => d.yPos))
     .range([height - padding.bottom, padding.top]);
 
+  $: xScaleGrid = d3
+    .scaleBand()
+    .domain(data.map((d) => d.gridX))
+    .range([padding.left, width - padding.right]);
+
+  $: yScaleGrid = d3
+    .scaleBand()
+    .domain(data.map((d) => d.gridY))
+    .range([0, height - padding.bottom - padding.top]);
+
   $: xTicks = null;
 
-  function grid() {
-    xScale = d3
-      .scaleBand()
-      .domain(data.map((d) => d.gridX))
-      .range([padding.left, width - padding.right]);
-    yScale = d3
-      .scaleBand()
-      .domain(data.map((d) => d.gridY))
-      .range([0, height - padding.bottom - padding.top]);
+  let rectWidth,
+    rectHeight = null;
 
+  function grid() {
     xTicks = null;
 
     rectWidth = (width / 19) * 0.95;
@@ -82,8 +98,8 @@
       .transition("grid")
       //.delay((d) => d.gridY * d.gridX)
       .duration(1000)
-      .attr("x", (d) => xScale(d.gridX))
-      .attr("y", (d) => yScale(d.gridY))
+      .attr("x", (d) => xScaleGrid(d.gridX))
+      .attr("y", (d) => yScaleGrid(d.gridY))
       .attr("width", rectWidth)
       .attr("height", rectHeight)
       .attr("fill", "grey")
@@ -91,32 +107,19 @@
   }
 
   function histogram() {
-    xScale = d3
-      .scaleBand()
-      .domain(xDomain)
-      .range([padding.left, width - padding.right]);
-
-    xTicks = xScale.domain();
-
-    yScale = d3
-      .scaleLinear()
-      .domain(d3.extent(data, (d) => d.yPos))
-      .range([height - padding.bottom, padding.top]);
+    xTicks = xScaleHist.domain();
 
     rectWidth = width / d3.max(data, (d) => d.num_colors);
     rectHeight =
       (height - padding.top - padding.bottom) / d3.max(data, (d) => d.yPos);
-
-    rectX = data.map((d) => yScale(d.yPos));
-    rectY = data.map((d) => xScale(d.num_colors));
 
     d3.selectAll(".gridRect")
       .data(data)
       .transition("histogram")
       //.delay((d) => d.num_colors * 30)
       .duration(1000)
-      .attr("x", (d) => xScale(d.num_colors))
-      .attr("y", (d) => yScale(d.yPos))
+      .attr("x", (d) => xScaleHist(d.num_colors))
+      .attr("y", (d) => yScaleHist(d.yPos))
       .attr("width", rectWidth)
       .attr("height", rectHeight)
       .attr("fill", "grey")
@@ -133,8 +136,8 @@
       .transition("histogram")
       //.delay((d) => d.num_colors * 30)
       .duration(1000)
-      .attr("x", (d) => xScale(d.num_colors))
-      .attr("y", (d) => yScale(d.yPos))
+      .attr("x", (d) => xScaleHist(d.num_colors))
+      .attr("y", (d) => yScaleHist(d.yPos))
       .attr("width", rectWidth)
       .attr("height", rectHeight)
       .attr("fill", "grey")
@@ -153,11 +156,13 @@
       <svg style="width: 100%; height: 100%;">
         <GridHistogram
           {height}
-          {rectWidth}
-          {rectHeight}
+          {width}
           {data}
           {padding}
-          {xScale}
+          {xScaleHist}
+          {yScaleHist}
+          {xScaleGrid}
+          {yScaleGrid}
           {xTicks}
         />
       </svg>
@@ -174,7 +179,7 @@
           <rect width="100%" height="100%" fill="grey" />
         </svg>
         represents a painting. Go ahead and hover
-        <Icon name="mouse-pointer" stroke="black" stroke-width="1" />
+        <Icon name="mouse-pointer" stroke="black" strokeWidth="1" />
         over a rectangle to see the painting it represents!
       </p>
     </div>
