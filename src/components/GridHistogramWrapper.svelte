@@ -42,8 +42,8 @@
     function resize() {
       console.log(width);
       if (
-        ((window.innerHeight * 0.8) / height > 1.1) |
-        ((window.innerHeight * 0.8) / height < 0.9)
+        ((window.innerHeight * 0.8) / height > 1.2) |
+        ((window.innerHeight * 0.8) / height < 0.8)
       ) {
         height = window.innerHeight * 0.8;
       }
