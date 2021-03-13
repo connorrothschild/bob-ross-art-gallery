@@ -69,32 +69,27 @@
     {/each}
   {/if}
 </g>
-<!-- CHART -->
+
+<!-- CHART (BARCHART) -->
 <g on:mouseover={handleMouseover} on:mouseout={handleMouseout}>
   {#each grouped as d}
     <rect
-      width="0"
-      height={(height / unique_colors) * 0.9}
       class="colorBar"
       fill={d.key}
       background_color={d.colors}
       text_color={d.text_color}
       num={d.value.length}
-      x={0}
-      y={yScaleBar(d.key)}
     />
   {/each}
 </g>
+
+<!-- CHART (TIMELINE VIEW) -->
 <g>
   {#each data as d}
     <rect
-      width={width / num_paintings}
-      height={(height / unique_colors) * 0.9}
       fill={d.color_hex}
       background_color={d.colors}
       text_color={d.text_color}
-      x={0}
-      y={yScaleTimeline(d.color_hex)}
       class="timelineRect"
       on:mouseover={handleMouseover}
       on:mouseout={handleMouseout}

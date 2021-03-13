@@ -9,7 +9,8 @@
     yScaleGrid,
     xScaleHist,
     yScaleHist,
-    xTicks;
+    xTicks,
+    activeStep;
 
   function handleMouseover(e) {
     let d = e.target.attributes;
@@ -53,18 +54,14 @@
 
 <!-- RECTS (HISTOGRAM) -->
 <g on:mouseover={handleMouseover} on:mouseout={handleMouseout}>
-  {#each data as d, i}
+  {#each data as d}
     <rect
       title={d.painting_title}
       subtitle={"Season " + d.season + ", episode " + d.episode}
       img={d.img_src}
       class="gridRect"
-      width={(width / 19) * 0.95}
-      height={(height / 21) * 0.95}
       fill="grey"
       stroke="white"
-      x={0}
-      y={0}
     />
   {/each}
 </g>

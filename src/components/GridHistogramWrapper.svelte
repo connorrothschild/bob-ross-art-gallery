@@ -4,56 +4,55 @@
   import debounceFn from "lodash.debounce";
   import Icon from "./helpers/Icon.svelte";
   import GridHistogram from "./GridHistogram.svelte";
-  import { windowWidth, windowHeight } from "../stores/global.js";
+  import { windowHeight } from "../stores/global.js";
   export let data;
 
   const padding = { top: 0, right: 0, bottom: 30, left: 0 };
 
-  let width = null;
-  let height = windowHeight * 0.8; // let height = null;
-  
+  $: width = null;
+  $: height = null;
+  $: lastResponse = 0;
+
+  let currWindowHeight = $windowHeight;
+
   // SCROLL
   onMount(async () => {
-
     // instantiate the scrollama
     const scroller = scrollama();
+
+    function handleStepEnter(response) {
+      activeStep = response.index;
+      if (response.index == 0) {
+        grid();
+      }
+      if (response.index == 1) {
+        histogram();
+      }
+      if (response.index == 2) {
+        highlight();
+      }
+      lastResponse = response;
+    }
 
     // setup the instance, pass callback functions
     scroller
       .setup({
         step: "#gridSection .step",
       })
-      .onStepEnter((response) => {
-        activeStep = response.index;
-        if (response.index == 0) {
-          grid();
-        }
-        if (response.index == 1) {
-          histogram();
-        }
-        if (response.index == 2) {
-          highlight();
-        }
-      })
-      .onStepExit((response) => {
-        // { element, index, direction }
-      });
+      .onStepEnter((response) => handleStepEnter(response))
+      .onStepExit((response) => {});
 
-    // Only trigger height resize if new height exceeds a certain threshold
-    // Avoids resize on mobile scroll up or down with URL bar
-    function resize() {
-      console.log(width);
-      if (
-        ((window.innerHeight * 0.8) / height > 1.2) |
-        ((window.innerHeight * 0.8) / height < 0.8)
-      ) {
-        height = window.innerHeight * 0.8;
-      }
-    }
-
-    // setup resize event
-    window.addEventListener("resize", debounceFn(resize, 500));
-    window.addEventListener("resize", debounceFn(scroller.resize, 1000));
+    window.addEventListener(
+      "resize",
+      debounceFn(() => {
+        const heightChange = currWindowHeight / window.innerHeight;
+        if ((heightChange > 1.1) | (heightChange < 0.9)) {
+          handleStepEnter(lastResponse);
+        }
+        currWindowHeight = window.innerHeight;
+      }, 200)
+    );
+    window.addEventListener("resize", debounceFn(scroller.resize, 300));
   });
 
   // A painting can have between 1 and 15 (maxColors) colors
@@ -98,7 +97,7 @@
     d3.selectAll(".gridRect")
       .data(data)
       .transition("grid")
-      //.delay((d) => d.gridY * d.gridX)
+      // .delay((d) => (d.gridY * d.gridX) / 10)
       .duration(1000)
       .attr("x", (d) => xScaleGrid(d.gridX))
       .attr("y", (d) => yScaleGrid(d.gridY))
@@ -118,7 +117,7 @@
     d3.selectAll(".gridRect")
       .data(data)
       .transition("histogram")
-      //.delay((d) => d.num_colors * 30)
+      // .delay((d) => d.num_colors * 15)
       .duration(1000)
       .attr("x", (d) => xScaleHist(d.num_colors))
       .attr("y", (d) => yScaleHist(d.yPos))
@@ -136,7 +135,7 @@
     d3.selectAll(".gridRect")
       .data(data)
       .transition("histogram")
-      //.delay((d) => d.num_colors * 30)
+      // .delay((d) => -d.yPos * 5)
       .duration(1000)
       .attr("x", (d) => xScaleHist(d.num_colors))
       .attr("y", (d) => yScaleHist(d.yPos))
@@ -153,12 +152,17 @@
 
 <div class="scrollama-container">
   <div class="scrollama-graphic">
-    <div class="chart" bind:offsetWidth={width} bind:offsetHeight={height}>
+    <div
+      class="chart"
+      id="grid"
+      bind:offsetWidth={width}
+      bind:offsetHeight={height}
+    >
       <div class="gridTip" />
       <svg style="width: 100%; height: 100%;">
         <GridHistogram
-          {height}
           {width}
+          {height}
           {data}
           {padding}
           {xScaleHist}
@@ -166,6 +170,7 @@
           {xScaleGrid}
           {yScaleGrid}
           {xTicks}
+          {activeStep}
         />
       </svg>
     </div>

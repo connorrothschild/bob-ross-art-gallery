@@ -4,57 +4,56 @@
   import debounceFn from "lodash.debounce";
   import mapToArray from "../utils/mapToArray";
   import ColorViz from "./ColorViz.svelte";
-  import { windowWidth, windowHeight } from "../stores/global.js";
   export let data;
 
   let DELAY;
 
   const padding = { top: 0, right: 15, bottom: 30, left: 15 };
 
-  let width = null;
-  let height = windowHeight * 0.8; // let height = null;
-  
+  $: width = null;
+  $: height = null;
+  $: lastResponse = 0;
+
   // SCROLL!
   onMount(async () => {
-
     // instantiate the scrollama
     const scroller = scrollama();
+
+    function handleStepEnter(response) {
+      activeStep = response.index;
+      if (response.index == 0) {
+        response.direction == "down" ? (DELAY = 0) : (DELAY = 1000);
+        init(DELAY);
+      }
+      if (response.index == 1) {
+        response.direction == "down" ? (DELAY = 1000) : (DELAY = 0);
+        createTimeline(DELAY);
+      }
+      if (response.index == 2) {
+        highlight();
+      }
+      lastResponse = response;
+    }
 
     // setup the instance, pass callback functions
     scroller
       .setup({
         step: "#colorSection .step",
       })
-      .onStepEnter((response) => {
-        activeStep = response.index;
-        if (response.index == 0) {
-          response.direction == "down" ? (DELAY = 0) : (DELAY = 1000);
-          init(DELAY);
-        }
-        if (response.index == 1) {
-          response.direction == "down" ? (DELAY = 1000) : (DELAY = 0);
-          createTimeline(DELAY);
-        }
-        if (response.index == 2) {
-          highlight();
-        }
-      })
+      .onStepEnter((response) => handleStepEnter(response))
       .onStepExit((response) => {});
 
-    // Only trigger height resize if new height exceeds a certain threshold
-    // Avoids resize on mobile scroll up or down with URL bar
-    function resize() {
-      console.log(width);
-      if (
-        ((window.innerHeight * 0.8) / height > 1.2) |
-        ((window.innerHeight * 0.8) / height < 0.8)
-      ) {
-        height = window.innerHeight * 0.8;
-      }
-    }
-    // setup resize event
-    window.addEventListener("resize", debounceFn(resize, 500));
-    window.addEventListener("resize", debounceFn(scroller.resize, 1000));
+    window.addEventListener(
+      "resize",
+      debounceFn(() => {
+        const heightChange = currWindowHeight / window.innerHeight;
+        if ((heightChange > 1.1) | (heightChange < 0.9)) {
+          handleStepEnter(lastResponse);
+        }
+        currWindowHeight = window.innerHeight;
+      }, 200)
+    );
+    window.addEventListener("resize", debounceFn(scroller.resize, 300));
   });
 
   const grouped = mapToArray(d3.group(data, (d) => d.color_hex)).sort(
@@ -97,8 +96,6 @@
     .domain(grouped.map((d) => d.key))
     .range([height - padding.bottom, padding.top]);
 
-  $: activeStep = 0;
-
   // SCROLL STEPS
   function init(DELAY) {
     d3.selectAll(".timelineRect")
@@ -110,12 +107,14 @@
 
     d3.selectAll(".colorBar")
       .data(grouped)
+      .attr("y", (d) => yScaleBar(d.key))
+      .attr("x", 0)
+      .attr("height", (height / unique_colors) * 0.9)
       .transition("bar-enter")
       .duration(1000)
       .delay(DELAY)
       .ease(d3.easeExp)
-      .attr("width", (d) => xScaleBar(d.value.length))
-      .attr("height", (height / unique_colors) * 0.9);
+      .attr("width", (d) => xScaleBar(d.value.length));
   }
 
   function createTimeline(DELAY) {
@@ -128,16 +127,15 @@
 
     d3.selectAll(".timelineRect")
       .data(data)
+      .attr("y", (d) => yScaleTimeline(d.color_hex))
+      .attr("opacity", 1)
+      .attr("height", (height / unique_colors) * 0.9)
       .transition("timeline-enter")
       .duration(1000)
       .delay(DELAY)
       .ease(d3.easeExp)
       .attr("x", (d) => xScaleTimeline(d.painting_index))
-      .attr("y", (d) => yScaleTimeline(d.color_hex))
-
-      .attr("opacity", 1)
-      .attr("width", (d) => width / num_paintings)
-      .attr("height", (height / unique_colors) * 0.9);
+      .attr("width", (d) => width / num_paintings);
   }
 
   function highlight() {
@@ -153,11 +151,13 @@
       .attr("width", (d) => width / num_paintings)
       .attr("height", (height / unique_colors) * 0.9);
   }
+
+  $: activeStep = 0;
 </script>
 
 <div class="scrollama-container">
   <div class="scrollama-graphic">
-    <div class="chart" bind:offsetWidth={width}>
+    <div class="chart" bind:offsetWidth={width} bind:offsetHeight={height}>
       <div class="timelineTip" />
       <svg style="width: 100%; height: 100%;">
         <ColorViz
