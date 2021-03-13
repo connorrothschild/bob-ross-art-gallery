@@ -4,15 +4,17 @@
   import debounceFn from "lodash.debounce";
   import Icon from "./helpers/Icon.svelte";
   import GridHistogram from "./GridHistogram.svelte";
+  import { windowWidth, windowHeight } from "../stores/global.js";
   export let data;
 
   const padding = { top: 0, right: 0, bottom: 30, left: 0 };
 
   let width = null;
-  let height = window.innerHeight * 0.8; // let height = null;
-
+  let height = windowHeight * 0.8; // let height = null;
+  
   // SCROLL
   onMount(async () => {
+
     // instantiate the scrollama
     const scroller = scrollama();
 

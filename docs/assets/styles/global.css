@@ -40,7 +40,7 @@
   --background-body: var(--background);
   --background-ui: var(--off-white);
   --background-alt: var(--off-white);
-  --selection: var(--gray);
+  --selection: #8DCDEC;
   --text-main: var(--off-black);
   --links: var(--purple);
   --focus: var(--green);

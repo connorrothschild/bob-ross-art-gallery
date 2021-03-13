@@ -4,6 +4,7 @@
   import debounceFn from "lodash.debounce";
   import mapToArray from "../utils/mapToArray";
   import ColorViz from "./ColorViz.svelte";
+  import { windowWidth, windowHeight } from "../stores/global.js";
   export let data;
 
   let DELAY;
@@ -11,10 +12,11 @@
   const padding = { top: 0, right: 15, bottom: 30, left: 15 };
 
   let width = null;
-  let height = window.innerHeight * 0.8; // let height = null;
-
+  let height = windowHeight * 0.8; // let height = null;
+  
   // SCROLL!
   onMount(async () => {
+
     // instantiate the scrollama
     const scroller = scrollama();
 
