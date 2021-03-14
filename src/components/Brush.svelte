@@ -9,9 +9,8 @@
   const handlewidth = 5;
   const leftBound = -0.9;
 
-  $: pos = 0;
   $: rightBound = width;
-
+  $: pos = xScale.invert($ind)
   $: xScale = scaleLinear().domain([0, width]).range([0, 403]);
 
   function handleMove(event) {
