@@ -5,13 +5,16 @@
 
   export let width, height;
 
-  // const padding = { top: 0, right: 10, bottom: 0, left: 10 };
+const padding = {top: 0, bottom: 5}
+
   const handlewidth = 5;
-  const leftBound = -0.9;
+  const leftBound = -1;
 
   $: rightBound = width;
-  $: pos = xScale.invert($ind);
   $: xScale = scaleLinear().domain([0, width]).range([0, 403]);
+  
+  // Position of the handle itself
+  $: pos = xScale.invert($ind);
 
   function handleMove(event) {
     var x = pos + event.detail.dx;
@@ -22,8 +25,6 @@
     }
   }
 </script>
-
-<!-- <rect class="overlay" pointer-events="all" cursor="crosshair" width="100%" height="100%" on:click={updatePan}></rect> -->
 
 <g
   class="brush"
@@ -39,11 +40,10 @@
     x={pos}
     y="0"
     width={handlewidth}
-    {height}
+    height={height - padding.bottom - padding.top}
   />
 </g>
 
-<!-- <rect class="overlay" pointer-events="all" cursor="crosshair" width="100%" height="100%" on:click={updatePan}></rect> -->
 <style>
   .handle {
     visibility: visible;
@@ -51,8 +51,4 @@
     stroke-width: 1px;
     fill: whitesmoke;
   }
-
-  /* .overlay {
-    fill: transparent;
-} */
 </style>

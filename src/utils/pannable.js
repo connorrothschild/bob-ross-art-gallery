@@ -7,13 +7,13 @@ export function pannable(node) {
   let dy;
 
   function handleMousedown(event) {
-    if (event.type == "touchmove") {
-      x = event.touches[0].clientX;
-      y = event.touches[0].clientY;
-    } else {
+    // if (event.type == "touchmove") {
+    //   x = event.touches[0].clientX;
+    //   y = event.touches[0].clientY;
+    // } else {
       x = event.clientX;
       y = event.clientY;
-    }
+    // }
 
     node.dispatchEvent(
       new CustomEvent("panstart", {
@@ -23,25 +23,25 @@ export function pannable(node) {
 
     window.addEventListener("mousemove", handleMousemove);
     window.addEventListener("mouseup", handleMouseup);
-    window.addEventListener("touchmove", handleMousemove);
-    window.addEventListener("touchend", handleMouseup);
-    window.addEventListener("touchcancel", handleMouseup);
+    // window.addEventListener("touchmove", handleMousemove);
+    // window.addEventListener("touchend", handleMouseup);
+    // window.addEventListener("touchcancel", handleMouseup);
   }
 
   function handleMousemove(event) {
-    if (event.type == "touchmove") {
-      dx = event.touches[0].clientX - x;
-      dy = event.touches[0].clientY - y;
+    // if (event.type == "touchmove") {
+    //   dx = event.touches[0].clientX - x;
+    //   dy = event.touches[0].clientY - y;
 
-      x = event.touches[0].clientX;
-      y = event.touches[0].clientY;
-    } else {
+    //   x = event.touches[0].clientX;
+    //   y = event.touches[0].clientY;
+    // } else {
       dx = event.clientX - x;
       dy = event.clientY - y;
 
       x = event.clientX;
       y = event.clientY;
-    }
+    // }
 
     node.dispatchEvent(
       new CustomEvent("panmove", {
@@ -51,13 +51,13 @@ export function pannable(node) {
   }
 
   function handleMouseup(event) {
-    if (event.type == "touchmove") {
-      x = event.touches[0].clientX;
-      y = event.touches[0].clientY;
-    } else {
+    // if (event.type == "touchmove") {
+    //   x = event.touches[0].clientX;
+    //   y = event.touches[0].clientY;
+    // } else {
       x = event.clientX;
       y = event.clientY;
-    }
+    // }
 
     node.dispatchEvent(
       new CustomEvent("panend", {
@@ -67,18 +67,18 @@ export function pannable(node) {
 
     window.removeEventListener("mousemove", handleMousemove);
     window.removeEventListener("mouseup", handleMouseup);
-    window.addEventListener("touchmove", handleMousemove);
-    window.addEventListener("touchend", handleMouseup);
-    window.addEventListener("touchcancel", handleMouseup);
+    // window.addEventListener("touchmove", handleMousemove);
+    // window.addEventListener("touchend", handleMouseup);
+    // window.addEventListener("touchcancel", handleMouseup);
   }
 
   node.addEventListener("mousedown", handleMousedown);
-  node.addEventListener("touchstart", handleMousedown);
+  // node.addEventListener("touchstart", handleMousedown);
 
   return {
     destroy() {
       node.removeEventListener("mousedown", handleMousedown);
-      node.removeEventListener("touchstart", handleMousedown);
+      // node.removeEventListener("touchstart", handleMousedown);
     },
   };
 }
