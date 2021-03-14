@@ -10,7 +10,7 @@
 
     if (d.num) {
       tip.html(
-        `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}: ${d.num.value} uses</p>`
+        `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}<br>${d.num.value} uses</p>`
       );
     } else {
       tip.html(
@@ -19,18 +19,36 @@
     }
 
     tip
-      // .transition("tip-in")
-      // .duration(200)
       .style("opacity", 1)
       // Below handles offset on edges of screen
-      .style("left", e.layerX + "px")
+      .style("left", (e.screenX > window.innerWidth * 0.7 ? e.layerX - 130 : e.layerX) + "px")
       .style("top", e.layerY - 28 + "px");
   }
   function handleMouseout() {
-    d3.select(".timelineTip")
-      // .transition("tip-out")
-      // .duration(200)
-      .style("opacity", 0);
+    d3.select(".timelineTip").style("opacity", 0);
+  }
+
+  function handleTouch(e) {
+    let d = e.target.attributes;
+    const tip = d3.select(".timelineTip");
+
+    if (d.num) {
+      tip.html(
+        `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}: ${d.num.value} uses</p>`
+      );
+    } else {
+      tip.html(
+        `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}</p>`
+      );
+    }
+
+    const xPos = parseFloat(d.x.value);
+    const yPos = parseFloat(d.y.value);
+
+    tip
+      .style("opacity", 1)
+      .style("left", (xPos > window.innerWidth * .5 ? xPos - 125 : xPos + 25) + "px")
+      .style("top", yPos - 25 + "px");
   }
 </script>
 
@@ -58,7 +76,8 @@
 </g>
 
 <!-- CHART (BARCHART) -->
-<g on:mouseover={handleMouseover} on:mouseout={handleMouseout}>
+<g
+>
   {#each grouped as d}
     <rect
       class="colorBar"
@@ -66,6 +85,10 @@
       background_color={d.colors}
       text_color={d.text_color}
       num={d.value.length}
+        on:mouseover={handleMouseover}
+        on:mouseout={handleMouseout}
+        on:touchstart={handleTouch}
+        on:touchend={handleMouseout}
     />
   {/each}
 </g>
@@ -80,6 +103,8 @@
       class="timelineRect"
       on:mouseover={handleMouseover}
       on:mouseout={handleMouseout}
+      on:touchstart={handleTouch}
+      on:touchend={handleMouseout}
     />
   {/each}
 </g>

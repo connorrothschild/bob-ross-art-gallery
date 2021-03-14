@@ -17,8 +17,6 @@
     const paintingWidth = parseFloat(tip.style("width"));
 
     tip
-      // .transition("tip-in")
-      // .duration(200)
       .style("opacity", 1)
       // Below handles offset on edges of screen
       .style(
@@ -36,15 +34,48 @@
   }
 
   function handleMouseout() {
-    d3.select(".gridTip")
-      // .transition("tip-out")
-      // .duration(200)
-      .style("opacity", 0);
+    d3.select(".gridTip").style("opacity", 0);
+  }
+
+  function handleTouch(e) {
+    let d = e.target.attributes;
+
+    const tip = d3.select(".gridTip");
+
+    tip.html(`<p class='title'>${d.title.value}</p>
+              <p class='subtitle'>${d.subtitle.value}</p>
+              <div class="frame">
+                <img class="painting" src=${d.img.value}></img>
+              </div>`);
+
+    const xPos = parseFloat(d.x.value);
+    const yPos = parseFloat(d.y.value);
+
+    tip
+      .style("opacity", 1)
+      // Below handles offset on edges of screen
+      .style(
+        "left",
+        (xPos > window.innerWidth / 2 // Right side of screen
+          ? xPos - 25
+          : xPos + 25) + "px"
+      )
+      .style(
+        "top",
+        (yPos > window.innerHeight / 2 // Bottom of screen
+          ? yPos - 75
+          : yPos + 25) + "px"
+      );
   }
 </script>
 
-<!-- RECTS (HISTOGRAM) -->
-<g on:mouseover={handleMouseover} on:mouseout={handleMouseout}>
+<!-- RECTS -->
+<g
+  on:mouseover={handleMouseover}
+  on:mouseout={handleMouseout}
+  on:touchstart={handleTouch}
+  on:touchend={handleMouseout}
+>
   {#each data as d}
     <rect
       title={d.painting_title}
