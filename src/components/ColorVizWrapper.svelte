@@ -4,7 +4,7 @@
   import debounceFn from "lodash.debounce";
   import mapToArray from "../utils/mapToArray";
   import ColorViz from "./ColorViz.svelte";
-  import { windowHeight } from "../stores/global.js";
+  import { windowHeight, windowWidth } from "../stores/global.js";
 
   export let data;
 
@@ -13,10 +13,11 @@
   const padding = { top: 0, right: 15, bottom: 30, left: 15 };
 
   $: width = null;
-  $: height = null;
+  $: height = $windowHeight * 0.9;
   $: lastResponse = 0;
 
   let currWindowHeight = $windowHeight;
+  let currWindowWidth = $windowWidth;
 
   // SCROLL!
   onMount(async () => {
@@ -50,11 +51,18 @@
     window.addEventListener(
       "resize",
       debounceFn(() => {
-        const heightChange = currWindowHeight / window.innerHeight;
-        if ((heightChange > 1.2) | (heightChange < 0.8)) {
+        const heightChange = window.innerHeight - currWindowHeight;
+        const widthChange = window.innerWidth - currWindowWidth;
+        if (widthChange == 0) {
+          if ((heightChange > 50) | (heightChange < -50)) {
+            handleStepEnter(lastResponse);
+            height = $windowHeight * 0.9;
+            currWindowHeight = window.innerHeight;
+          }
+        } else if (widthChange != 0) {
           handleStepEnter(lastResponse);
+          currWindowWidth = window.innerWidth;
         }
-        currWindowHeight = window.innerHeight;
       }, 200)
     );
     window.addEventListener("resize", debounceFn(scroller.resize, 300));
@@ -139,7 +147,7 @@
       .delay(DELAY)
       .ease(d3.easeExp)
       .attr("x", (d) => xScaleTimeline(d.painting_index))
-      .attr("width", (d) => width / num_paintings);
+      .attr("width", width / num_paintings);
   }
 
   function highlight() {
@@ -152,7 +160,7 @@
       .attr("opacity", (d) =>
         (d.color_hex == "#8A3324") | (d.color_hex == "#5F2E1F") ? 1 : 0.3
       )
-      .attr("width", (d) => width / num_paintings)
+      .attr("width", width / num_paintings)
       .attr("height", (height / unique_colors) * 0.9);
   }
 
@@ -161,7 +169,7 @@
 
 <div class="scrollama-container">
   <div class="scrollama-graphic">
-    <div class="chart" bind:offsetWidth={width} bind:offsetHeight={height}>
+    <div class="chart" bind:offsetWidth={width} style="height: {height}px">
       <div class="timelineTip" />
       <svg style="width: 100%; height: 100%;">
         <ColorViz

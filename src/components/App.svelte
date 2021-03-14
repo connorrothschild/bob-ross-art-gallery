@@ -37,8 +37,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh;
-    margin-top: 10vh;
+    margin-top: 30px;
   }
 
   .step {

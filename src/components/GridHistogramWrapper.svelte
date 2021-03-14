@@ -4,16 +4,17 @@
   import debounceFn from "lodash.debounce";
   import Icon from "./helpers/Icon.svelte";
   import GridHistogram from "./GridHistogram.svelte";
-  import { windowHeight } from "../stores/global.js";
+  import { windowHeight, windowWidth } from "../stores/global.js";
   export let data;
 
   const padding = { top: 0, right: 0, bottom: 30, left: 0 };
 
   $: width = null;
-  $: height = null;
+  $: height = $windowHeight * 0.9;
   $: lastResponse = 0;
 
   let currWindowHeight = $windowHeight;
+  let currWindowWidth = $windowWidth;
 
   // SCROLL
   onMount(async () => {
@@ -45,11 +46,18 @@
     window.addEventListener(
       "resize",
       debounceFn(() => {
-        const heightChange = currWindowHeight / window.innerHeight;
-        if ((heightChange > 1.2) | (heightChange < 0.8)) {
+        const heightChange = window.innerHeight - currWindowHeight;
+        const widthChange = window.innerWidth - currWindowWidth;
+        if (widthChange == 0) {
+          if ((heightChange > 50) | (heightChange < -50)) {
+            handleStepEnter(lastResponse);
+            height = $windowHeight * 0.9;
+            currWindowHeight = window.innerHeight;
+          }
+        } else if (widthChange != 0) {
           handleStepEnter(lastResponse);
+          currWindowWidth = window.innerWidth;
         }
-        currWindowHeight = window.innerHeight;
       }, 200)
     );
     window.addEventListener("resize", debounceFn(scroller.resize, 300));
@@ -156,7 +164,7 @@
       class="chart"
       id="grid"
       bind:offsetWidth={width}
-      bind:offsetHeight={height}
+      style="height: {height}px"
     >
       <div class="gridTip" />
       <svg style="width: 100%; height: 100%;">

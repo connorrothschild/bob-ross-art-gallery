@@ -8,6 +8,7 @@
 
   import data from "../data/bob_ross_paintings.csv";
   import long_data from "../data/colors_long.csv";
+  import { onMount } from "svelte";
 
   processData(data);
   processData(long_data, true);
