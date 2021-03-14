@@ -21,7 +21,10 @@
     tip
       .style("opacity", 1)
       // Below handles offset on edges of screen
-      .style("left", (e.screenX > window.innerWidth * 0.7 ? e.layerX - 130 : e.layerX) + "px")
+      .style(
+        "left",
+        (e.screenX > window.innerWidth * 0.7 ? e.layerX - 130 : e.layerX) + "px"
+      )
       .style("top", e.layerY - 28 + "px");
   }
   function handleMouseout() {
@@ -47,7 +50,10 @@
 
     tip
       .style("opacity", 1)
-      .style("left", (xPos > window.innerWidth * .5 ? xPos - 125 : xPos + 25) + "px")
+      .style(
+        "left",
+        (xPos > window.innerWidth * 0.5 ? xPos - 125 : xPos + 25) + "px"
+      )
       .style("top", yPos - 25 + "px");
   }
 </script>
@@ -76,8 +82,7 @@
 </g>
 
 <!-- CHART (BARCHART) -->
-<g
->
+<g>
   {#each grouped as d}
     <rect
       class="colorBar"
@@ -85,10 +90,10 @@
       background_color={d.colors}
       text_color={d.text_color}
       num={d.value.length}
-        on:mouseover={handleMouseover}
-        on:mouseout={handleMouseout}
-        on:touchstart={handleTouch}
-        on:touchend={handleMouseout}
+      on:mouseover={handleMouseover}
+      on:mouseout={handleMouseout}
+      on:touchstart={handleTouch}
+      on:touchend={handleMouseout}
     />
   {/each}
 </g>

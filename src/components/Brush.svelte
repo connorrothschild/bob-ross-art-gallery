@@ -10,7 +10,7 @@
   const leftBound = -0.9;
 
   $: rightBound = width;
-  $: pos = xScale.invert($ind)
+  $: pos = xScale.invert($ind);
   $: xScale = scaleLinear().domain([0, width]).range([0, 403]);
 
   function handleMove(event) {
