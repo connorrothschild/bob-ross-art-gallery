@@ -38,11 +38,11 @@
         createTimeline(DELAY);
       }
       if (response.index == 3) {
-                highlight("#8A3324", "#5F2E1F");
-
+        highlight("#8A3324", "#5F2E1F");
       }
       if (response.index == 4) {
-highlight("#CD5C5C", null);      }
+        highlight("#CD5C5C", null);
+      }
       lastResponse = response;
     }
 
@@ -175,15 +175,34 @@ highlight("#CD5C5C", null);      }
 
   <div class="scrollama-steps" id="colorSection">
     <div class="step" class:active={activeStep == 0} data-step="a">
-      <p>But what colors does Bob Ross use most often? This chart shows each color used throughout <em>The Joy of Painting</em>.</p>
+      <p>
+        But what colors does Bob Ross use most often? This chart shows each
+        color used throughout <em>The Joy of Painting</em>.
+      </p>
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">
-      <p>Unsurprisingly, the most common color in Bob Ross's palette is a <span class='highlight-text' style='color: black; background: white; border: 1px solid #cecece'>solid white</span>.</p>
-      <p>Ross uses a solid, pure white in every painting, as both a base for the overall piece (in what he calls <strong>Liquid White</strong>) and throughout (in the form of <strong>Titanium White</strong>).</p>
+      <p>
+        Unsurprisingly, the most common color in Bob Ross's palette is a <span
+          class="highlight-text"
+          style="color: black; background: white; border: 1px solid #cecece"
+          >solid white</span
+        >.
+      </p>
+      <p>
+        Ross uses a solid, pure white in every painting, as both a base for the
+        overall piece (in what he calls <strong>Liquid White</strong>) and
+        throughout (in the form of <strong>Titanium White</strong>).
+      </p>
     </div>
     <div class="step" class:active={activeStep == 2} data-step="b">
-      <p>Another way to visualize Ross's use of colors is to look at each painting, one by one.</p> 
-      <p>Here, each line represents one use of that color in a painting (with the paintings arranged chronologically on the X axis).</p>
+      <p>
+        Another way to visualize Ross's use of colors is to look at each
+        painting, one by one.
+      </p>
+      <p>
+        Here, each line represents one use of that color in a painting (with the
+        paintings arranged chronologically on the X axis).
+      </p>
     </div>
     <div class="step" class:active={activeStep == 3} data-step="c">
       <p>
@@ -202,13 +221,29 @@ highlight("#CD5C5C", null);      }
         for the other without much functional difference in his art.
       </p>
     </div>
-        <div class="step" class:active={activeStep == 4} data-step="b">
-      <p>We can also see which colors Bob Ross used least, and <em>where they appeared</em>.</p>
-      <p>Here, for example, we see Ross' single use of the color <span class="highlight-text" style="background: #CD5C5C; color: white;">Indian Red</span>. 
-        That color occurred in one painting: Autumn Images.
+    <div class="step" class:active={activeStep == 4} data-step="b">
+      <p>
+        We can also see which colors Bob Ross used least, and <em
+          >where they appeared</em
+        >.
       </p>
-      <a href="https://www.youtube.com/embed/HMx34Am6RFg" target='_blank' rel='noopener noreferrer' class='frame'><img class='painting' src="https://www.twoinchbrush.com/images/painting14.png"/></a>
-      </div>
+      <p>
+        Here, for example, we see Ross' single use of the color <span
+          class="highlight-text"
+          style="background: #CD5C5C; color: white;">Indian Red</span
+        >. That color occurred in one painting: Autumn Images.
+      </p>
+      <a
+        href="https://www.youtube.com/embed/HMx34Am6RFg"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="frame"
+        ><img
+          class="painting"
+          src="https://www.twoinchbrush.com/images/painting14.png"
+        /></a
+      >
+    </div>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 <script>
   import { fade } from "svelte/transition";
   import * as d3 from "d3";
-import { identity } from "svelte/internal";
+  import { identity } from "svelte/internal";
 
   export let data, grouped, height, padding, xScaleBar, xTicks;
 
@@ -88,7 +88,7 @@ import { identity } from "svelte/internal";
     <rect
       class="colorBar"
       fill={d.key}
-      stroke={d.key == '#FFFFFF' ? '#cecece' : null}
+      stroke={d.key == "#FFFFFF" ? "#cecece" : null}
       background_color={d.colors}
       text_color={d.text_color}
       num={d.value.length}

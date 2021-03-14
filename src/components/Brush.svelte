@@ -5,14 +5,14 @@
 
   export let width, height;
 
-const padding = {top: 0, bottom: 5}
+  const padding = { top: 0, bottom: 5 };
 
   const handlewidth = 5;
   const leftBound = -1;
 
   $: rightBound = width;
   $: xScale = scaleLinear().domain([0, width]).range([0, 403]);
-  
+
   // Position of the handle itself
   $: pos = xScale.invert($ind);
 

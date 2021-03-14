@@ -60,7 +60,7 @@
       )
       .style(
         "top",
-        (yPos > window.innerHeight * .75 // Bottom of screen
+        (yPos > window.innerHeight * 0.75 // Bottom of screen
           ? yPos - paintingHeight
           : yPos + 25) + "px"
       );

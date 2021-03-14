@@ -11,8 +11,8 @@ export function pannable(node) {
     //   x = event.touches[0].clientX;
     //   y = event.touches[0].clientY;
     // } else {
-      x = event.clientX;
-      y = event.clientY;
+    x = event.clientX;
+    y = event.clientY;
     // }
 
     node.dispatchEvent(
@@ -36,11 +36,11 @@ export function pannable(node) {
     //   x = event.touches[0].clientX;
     //   y = event.touches[0].clientY;
     // } else {
-      dx = event.clientX - x;
-      dy = event.clientY - y;
+    dx = event.clientX - x;
+    dy = event.clientY - y;
 
-      x = event.clientX;
-      y = event.clientY;
+    x = event.clientX;
+    y = event.clientY;
     // }
 
     node.dispatchEvent(
@@ -55,8 +55,8 @@ export function pannable(node) {
     //   x = event.touches[0].clientX;
     //   y = event.touches[0].clientY;
     // } else {
-      x = event.clientX;
-      y = event.clientY;
+    x = event.clientX;
+    y = event.clientY;
     // }
 
     node.dispatchEvent(
