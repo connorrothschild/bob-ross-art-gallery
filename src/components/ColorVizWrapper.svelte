@@ -54,7 +54,7 @@
         const heightChange = window.innerHeight - currWindowHeight;
         const widthChange = window.innerWidth - currWindowWidth;
         if (widthChange == 0) {
-          if ((heightChange > 50) | (heightChange < -50)) {
+          if ((heightChange > 100) | (heightChange < -100)) {
             handleStepEnter(lastResponse);
             height = $windowHeight * 0.9;
             currWindowHeight = window.innerHeight;
@@ -191,7 +191,7 @@
 
   <div class="scrollama-steps" id="colorSection">
     <div class="step" class:active={activeStep == 0} data-step="a">
-      <p>Content.</p>
+      <p>Just updated</p>
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">
       <p>Content.</p>

@@ -49,7 +49,7 @@
         const heightChange = window.innerHeight - currWindowHeight;
         const widthChange = window.innerWidth - currWindowWidth;
         if (widthChange == 0) {
-          if ((heightChange > 50) | (heightChange < -50)) {
+          if ((heightChange > 100) | (heightChange < -100)) {
             handleStepEnter(lastResponse);
             height = $windowHeight * 0.9;
             currWindowHeight = window.innerHeight;
