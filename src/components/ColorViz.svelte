@@ -14,9 +14,6 @@
     xTicks,
     activeStep;
 
-  const num_paintings = 403;
-  const unique_colors = grouped.length;
-
   function handleMouseover(e) {
     let d = e.target.attributes;
     const tip = d3.select(".timelineTip");

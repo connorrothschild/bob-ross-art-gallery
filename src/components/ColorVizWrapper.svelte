@@ -4,6 +4,8 @@
   import debounceFn from "lodash.debounce";
   import mapToArray from "../utils/mapToArray";
   import ColorViz from "./ColorViz.svelte";
+  import { windowHeight } from "../stores/global.js";
+
   export let data;
 
   let DELAY;
@@ -13,6 +15,8 @@
   $: width = null;
   $: height = null;
   $: lastResponse = 0;
+
+  let currWindowHeight = $windowHeight;
 
   // SCROLL!
   onMount(async () => {
