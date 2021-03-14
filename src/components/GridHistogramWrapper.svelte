@@ -4,17 +4,14 @@
   import debounceFn from "lodash.debounce";
   import Icon from "./helpers/Icon.svelte";
   import GridHistogram from "./GridHistogram.svelte";
-  import { windowHeight, windowWidth } from "../stores/global.js";
-  export let data;
+
+  export let data, height;
+
+  console.log(height)
 
   const padding = { top: 0, right: 0, bottom: 30, left: 0 };
 
   $: width = null;
-  $: height = $windowHeight * 0.9;
-  $: lastResponse = 0;
-
-  let currWindowHeight = $windowHeight;
-  let currWindowWidth = $windowWidth;
 
   // SCROLL
   onMount(async () => {
@@ -32,7 +29,6 @@
       if (response.index == 2) {
         highlight();
       }
-      lastResponse = response;
     }
 
     // setup the instance, pass callback functions
@@ -43,23 +39,6 @@
       .onStepEnter((response) => handleStepEnter(response))
       .onStepExit((response) => {});
 
-    window.addEventListener(
-      "resize",
-      debounceFn(() => {
-        const heightChange = window.innerHeight - currWindowHeight;
-        const widthChange = window.innerWidth - currWindowWidth;
-        if (widthChange == 0) {
-          if ((heightChange > 100) | (heightChange < -100)) {
-            handleStepEnter(lastResponse);
-            height = $windowHeight * 0.9;
-            currWindowHeight = window.innerHeight;
-          }
-        } else if (widthChange != 0) {
-          handleStepEnter(lastResponse);
-          currWindowWidth = window.innerWidth;
-        }
-      }, 200)
-    );
     window.addEventListener("resize", debounceFn(scroller.resize, 300));
   });
 
