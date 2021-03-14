@@ -25,6 +25,7 @@ export function pannable(node) {
     window.addEventListener("mouseup", handleMouseup);
     window.addEventListener("touchmove", handleMousemove);
     window.addEventListener("touchend", handleMouseup);
+    window.addEventListener("touchcancel", handleMouseup);
   }
 
   function handleMousemove(event) {
@@ -66,6 +67,9 @@ export function pannable(node) {
 
     window.removeEventListener("mousemove", handleMousemove);
     window.removeEventListener("mouseup", handleMouseup);
+    window.addEventListener("touchmove", handleMousemove);
+    window.addEventListener("touchend", handleMouseup);
+    window.addEventListener("touchcancel", handleMouseup);
   }
 
   node.addEventListener("mousedown", handleMousedown);
