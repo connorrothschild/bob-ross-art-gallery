@@ -23,7 +23,7 @@
   console.log(data);
 
   //RESIZING
-  let height = 800;
+  let height = 700;
 
   onMount(() => {
     height = $windowHeight * 0.8;

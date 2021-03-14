@@ -32,7 +32,7 @@
     box-shadow: 1px 1px 10px 1px #cecece;
   }
 
-  .frame {
+  :global(.frame) {
     background-color: #ddc;
     border: solid 2vmin #eee;
     border-bottom-color: #fff;

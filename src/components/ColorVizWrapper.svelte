@@ -30,12 +30,19 @@
         init(DELAY);
       }
       if (response.index == 1) {
+        response.direction == "down" ? (DELAY = 0) : (DELAY = 1000);
+        init(DELAY);
+      }
+      if (response.index == 2) {
         response.direction == "down" ? (DELAY = 1000) : (DELAY = 0);
         createTimeline(DELAY);
       }
-      if (response.index == 2) {
-        highlight();
+      if (response.index == 3) {
+                highlight("#8A3324", "#5F2E1F");
+
       }
+      if (response.index == 4) {
+highlight("#CD5C5C", null);      }
       lastResponse = response;
     }
 
@@ -131,17 +138,17 @@
     d3.selectAll(".timelineRect")
       .data(data)
       .attr("y", (d) => yScaleTimeline(d.color_hex))
-      .attr("opacity", 1)
       .attr("height", (height / unique_colors) * 0.9)
       .transition("timeline-enter")
       .duration(1000)
       .delay(DELAY)
       .ease(d3.easeExp)
+      .attr("opacity", 1)
       .attr("x", (d) => xScaleTimeline(d.painting_index))
       .attr("width", width / num_paintings);
   }
 
-  function highlight() {
+  function highlight(color1, color2) {
     d3.selectAll(".timelineRect")
       .data(data)
       .transition("timeline-highlight")
@@ -149,7 +156,7 @@
       .attr("x", (d) => xScaleTimeline(d.painting_index))
       .attr("y", (d) => yScaleTimeline(d.color_hex))
       .attr("opacity", (d) =>
-        (d.color_hex == "#8A3324") | (d.color_hex == "#5F2E1F") ? 1 : 0.3
+        (d.color_hex == color1) | (d.color_hex == color2) ? 1 : 0.3
       )
       .attr("width", width / num_paintings)
       .attr("height", (height / unique_colors) * 0.9);
@@ -168,12 +175,17 @@
 
   <div class="scrollama-steps" id="colorSection">
     <div class="step" class:active={activeStep == 0} data-step="a">
-      <p>Testing new approach to mobile responsiveness</p>
+      <p>But what colors does Bob Ross use most often? This chart shows each color used throughout <em>The Joy of Painting</em>.</p>
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">
-      <p>Content.</p>
+      <p>Unsurprisingly, the most common color in Bob Ross's palette is a <span class='highlight-text' style='color: black; background: white; border: 1px solid #cecece'>solid white</span>.</p>
+      <p>Ross uses a solid, pure white in every painting, as both a base for the overall piece (in what he calls <strong>Liquid White</strong>) and throughout (in the form of <strong>Titanium White</strong>).</p>
     </div>
-    <div class="step" class:active={activeStep == 2} data-step="c">
+    <div class="step" class:active={activeStep == 2} data-step="b">
+      <p>Another way to visualize Ross's use of colors is to look at each painting, one by one.</p> 
+      <p>Here, each line represents one use of that color in a painting (with the paintings arranged chronologically on the X axis).</p>
+    </div>
+    <div class="step" class:active={activeStep == 3} data-step="c">
       <p>
         Here, we notice patterns. At the end of Season 6, Bob Ross moved away
         from <span
@@ -190,6 +202,13 @@
         for the other without much functional difference in his art.
       </p>
     </div>
+        <div class="step" class:active={activeStep == 4} data-step="b">
+      <p>We can also see which colors Bob Ross used least, and <em>where they appeared</em>.</p>
+      <p>Here, for example, we see Ross' single use of the color <span class="highlight-text" style="background: #CD5C5C; color: white;">Indian Red</span>. 
+        That color occurred in one painting: Autumn Images.
+      </p>
+      <a href="https://www.youtube.com/embed/HMx34Am6RFg" target='_blank' rel='noopener noreferrer' class='frame'><img class='painting' src="https://www.twoinchbrush.com/images/painting14.png"/></a>
+      </div>
   </div>
 </div>
 
@@ -205,5 +224,14 @@
     padding: 0.5rem;
     border-radius: 10px;
     box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .painting {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 1px #cecece;
+    margin: 0 auto;
+    max-width: 250px;
   }
 </style>

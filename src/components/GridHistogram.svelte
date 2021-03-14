@@ -4,14 +4,12 @@
   export let data, height, padding, xScaleHist, xTicks;
 
   function handleMouseover(e) {
-    let d = e.target.attributes;
+    let d = e.originalTarget.attributes;
     const tip = d3.select(".gridTip");
 
     tip.html(`<p class='title'>${d.title.value}</p>
               <p class='subtitle'>${d.subtitle.value}</p>
-              <div class="frame">
-                <img class="painting" src=${d.img.value}></img>
-              </div>`);
+              <img class="painting" src=${d.img.value}></img>`);
 
     const paintingHeight = parseFloat(tip.style("height"));
     const paintingWidth = parseFloat(tip.style("width"));
@@ -38,18 +36,18 @@
   }
 
   function handleTouch(e) {
-    let d = e.target.attributes;
+    let d = e.originalTarget.attributes;
 
     const tip = d3.select(".gridTip");
 
     tip.html(`<p class='title'>${d.title.value}</p>
               <p class='subtitle'>${d.subtitle.value}</p>
-              <div class="frame">
-                <img class="painting" src=${d.img.value}></img>
-              </div>`);
+              <img class="painting" src=${d.img.value}></img>`);
 
     const xPos = parseFloat(d.x.value);
     const yPos = parseFloat(d.y.value);
+    const paintingHeight = parseFloat(tip.style("height"));
+    const paintingWidth = parseFloat(tip.style("width"));
 
     tip
       .style("opacity", 1)
@@ -57,13 +55,13 @@
       .style(
         "left",
         (xPos > window.innerWidth / 2 // Right side of screen
-          ? xPos - 25
+          ? xPos - paintingWidth
           : xPos + 25) + "px"
       )
       .style(
         "top",
-        (yPos > window.innerHeight / 2 // Bottom of screen
-          ? yPos - 75
+        (yPos > window.innerHeight * .75 // Bottom of screen
+          ? yPos - paintingHeight
           : yPos + 25) + "px"
       );
   }
@@ -71,10 +69,10 @@
 
 <!-- RECTS -->
 <g
-  on:mouseover={handleMouseover}
-  on:mouseout={handleMouseout}
-  on:touchstart={handleTouch}
-  on:touchend={handleMouseout}
+  on:mouseover|preventDefault={handleMouseover}
+  on:mouseout|preventDefault={handleMouseout}
+  on:touchstart|preventDefault={handleTouch}
+  on:touchend|preventDefault={handleMouseout}
 >
   {#each data as d}
     <rect

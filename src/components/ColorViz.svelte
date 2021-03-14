@@ -1,11 +1,12 @@
 <script>
   import { fade } from "svelte/transition";
   import * as d3 from "d3";
+import { identity } from "svelte/internal";
 
   export let data, grouped, height, padding, xScaleBar, xTicks;
 
   function handleMouseover(e) {
-    let d = e.target.attributes;
+    let d = e.originalTarget.attributes;
     const tip = d3.select(".timelineTip");
 
     if (d.num) {
@@ -32,7 +33,7 @@
   }
 
   function handleTouch(e) {
-    let d = e.target.attributes;
+    let d = e.originalTarget.attributes;
     const tip = d3.select(".timelineTip");
 
     if (d.num) {
@@ -87,13 +88,14 @@
     <rect
       class="colorBar"
       fill={d.key}
+      stroke={d.key == '#FFFFFF' ? '#cecece' : null}
       background_color={d.colors}
       text_color={d.text_color}
       num={d.value.length}
-      on:mouseover={handleMouseover}
-      on:mouseout={handleMouseout}
-      on:touchstart={handleTouch}
-      on:touchend={handleMouseout}
+      on:mouseover|preventDefault={handleMouseover}
+      on:mouseout|preventDefault={handleMouseout}
+      on:touchstart|preventDefault={handleTouch}
+      on:touchend|preventDefault={handleMouseout}
     />
   {/each}
 </g>
@@ -106,10 +108,10 @@
       background_color={d.colors}
       text_color={d.text_color}
       class="timelineRect"
-      on:mouseover={handleMouseover}
-      on:mouseout={handleMouseout}
-      on:touchstart={handleTouch}
-      on:touchend={handleMouseout}
+      on:mouseover|preventDefault={handleMouseover}
+      on:mouseout|preventDefault={handleMouseout}
+      on:touchstart|preventDefault={handleTouch}
+      on:touchend|preventDefault={handleMouseout}
     />
   {/each}
 </g>
