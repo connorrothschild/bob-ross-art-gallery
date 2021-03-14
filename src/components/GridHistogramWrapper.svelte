@@ -46,7 +46,7 @@
       "resize",
       debounceFn(() => {
         const heightChange = currWindowHeight / window.innerHeight;
-        if ((heightChange > 1.1) | (heightChange < 0.9)) {
+        if ((heightChange > 1.2) | (heightChange < 0.8)) {
           handleStepEnter(lastResponse);
         }
         currWindowHeight = window.innerHeight;
