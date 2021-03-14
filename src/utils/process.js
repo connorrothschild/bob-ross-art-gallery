@@ -8,14 +8,15 @@ export function processData(data, long = false) {
         (d.painting_index = +d.painting_index);
     });
   } else {
+    var eval2 = eval;
     data.forEach(function (d) {
       (d.num_colors = +d.num_colors),
         (d.episode = +d.episode),
         (d.season = +d.season),
         (d.painting_index = +d.painting_index),
-        (d.colors = eval(d.colors)),
+        (d.colors = eval2(d.colors)),
         (d.yPos = +d.yPos),
-        (d.color_hex = eval(d.color_hex));
+        (d.color_hex = eval2(d.color_hex));
     });
   }
 

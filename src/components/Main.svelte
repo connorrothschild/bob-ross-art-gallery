@@ -5,16 +5,14 @@
   import Gallery from "./Gallery.svelte";
   import ColorVizWrapper from "./ColorVizWrapper.svelte";
   import { processData, getTextColor } from "../utils/process.js";
-    import debounceFn from "lodash.debounce";
+  import debounceFn from "lodash.debounce";
 
   import data from "../data/bob_ross_paintings.csv";
   import long_data from "../data/colors_long.csv";
   import { onMount } from "svelte";
 
   import { windowHeight } from "../stores/global.js";
- 
-  let height;
-  
+
   processData(data);
   processData(long_data, true);
 
@@ -25,19 +23,18 @@
   console.log(data);
 
   //RESIZING
-onMount(() => {
+  let height = 800;
 
-  height = $windowHeight * 0.8;
+  onMount(() => {
+    height = $windowHeight * 0.8;
 
-  function resizeFn() {
-  if (window.innerWidth > 768) {
-		height = $windowHeight * 0.8;
-	}
-}
-  window.addEventListener("resize", debounceFn(resizeFn, 300));
-})
-
-
+    function resizeFn() {
+      if (window.innerWidth > 768) {
+        height = $windowHeight * 0.8;
+      }
+    }
+    window.addEventListener("resize", debounceFn(resizeFn, 300));
+  });
 </script>
 
 <Hero />

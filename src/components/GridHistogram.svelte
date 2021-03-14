@@ -1,16 +1,7 @@
 <script>
   import * as d3 from "d3";
   import { fade } from "svelte/transition";
-  export let data,
-    width,
-    height,
-    padding,
-    xScaleGrid,
-    yScaleGrid,
-    xScaleHist,
-    yScaleHist,
-    xTicks,
-    activeStep;
+  export let data, height, padding, xScaleHist, xTicks;
 
   function handleMouseover(e) {
     let d = e.target.attributes;

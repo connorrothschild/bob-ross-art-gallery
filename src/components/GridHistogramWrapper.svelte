@@ -4,14 +4,17 @@
   import debounceFn from "lodash.debounce";
   import Icon from "./helpers/Icon.svelte";
   import GridHistogram from "./GridHistogram.svelte";
+  import { windowWidth } from "../stores/global.js";
 
   export let data, height;
-
-  console.log(height)
 
   const padding = { top: 0, right: 0, bottom: 30, left: 0 };
 
   $: width = null;
+  $: activeStep = 0;
+  $: lastResponse = null;
+
+  let currWindowWidth = $windowWidth;
 
   // SCROLL
   onMount(async () => {
@@ -29,6 +32,7 @@
       if (response.index == 2) {
         highlight();
       }
+      lastResponse = response;
     }
 
     // setup the instance, pass callback functions
@@ -39,6 +43,16 @@
       .onStepEnter((response) => handleStepEnter(response))
       .onStepExit((response) => {});
 
+    function resizeWidth() {
+      // If width changed, trigger last step again
+      if (window.innerWidth != currWindowWidth) {
+        if (lastResponse) {
+          handleStepEnter(lastResponse);
+        }
+      }
+    }
+
+    window.addEventListener("resize", resizeWidth);
     window.addEventListener("resize", debounceFn(scroller.resize, 300));
   });
 
@@ -72,14 +86,14 @@
 
   $: xTicks = null;
 
-  let rectWidth,
-    rectHeight = null;
+  $: rectWidthGrid = (width / 19) * 0.95;
+  $: rectHeightGrid = (height / 21) * 0.95;
 
+  $: rectWidthHist = width / d3.max(data, (d) => d.num_colors);
+  $: rectHeightHist =
+    (height - padding.top - padding.bottom) / d3.max(data, (d) => d.yPos);
   function grid() {
     xTicks = null;
-
-    rectWidth = (width / 19) * 0.95;
-    rectHeight = (height / 21) * 0.95;
 
     d3.selectAll(".gridRect")
       .data(data)
@@ -88,18 +102,14 @@
       .duration(1000)
       .attr("x", (d) => xScaleGrid(d.gridX))
       .attr("y", (d) => yScaleGrid(d.gridY))
-      .attr("width", rectWidth)
-      .attr("height", rectHeight)
+      .attr("width", rectWidthGrid)
+      .attr("height", rectHeightGrid)
       .attr("fill", "grey")
       .attr("stroke", "white");
   }
 
   function histogram() {
     xTicks = xScaleHist.domain();
-
-    rectWidth = width / d3.max(data, (d) => d.num_colors);
-    rectHeight =
-      (height - padding.top - padding.bottom) / d3.max(data, (d) => d.yPos);
 
     d3.selectAll(".gridRect")
       .data(data)
@@ -108,17 +118,13 @@
       .duration(1000)
       .attr("x", (d) => xScaleHist(d.num_colors))
       .attr("y", (d) => yScaleHist(d.yPos))
-      .attr("width", rectWidth)
-      .attr("height", rectHeight)
+      .attr("width", rectWidthHist)
+      .attr("height", rectHeightHist)
       .attr("fill", "grey")
       .attr("stroke", "white");
   }
 
   function highlight() {
-    rectWidth = width / d3.max(data, (d) => d.num_colors);
-    rectHeight =
-      (height - padding.top - padding.bottom) / d3.max(data, (d) => d.yPos);
-
     d3.selectAll(".gridRect")
       .data(data)
       .transition("histogram")
@@ -126,15 +132,13 @@
       .duration(1000)
       .attr("x", (d) => xScaleHist(d.num_colors))
       .attr("y", (d) => yScaleHist(d.yPos))
-      .attr("width", rectWidth)
-      .attr("height", rectHeight)
+      .attr("width", rectWidthHist)
+      .attr("height", rectHeightHist)
       .attr("fill", "grey")
       .attr("stroke", "white")
       .attr("fill", (d) => (d.num_colors == 12 ? "steelblue" : "grey"))
       .attr("stroke", (d) => (d.num_colors == 12 ? "steelblue" : "grey"));
   }
-
-  $: activeStep = 0;
 </script>
 
 <div class="scrollama-container">
@@ -147,18 +151,7 @@
     >
       <div class="gridTip" />
       <svg style="width: 100%; height: 100%;">
-        <GridHistogram
-          {width}
-          {height}
-          {data}
-          {padding}
-          {xScaleHist}
-          {yScaleHist}
-          {xScaleGrid}
-          {yScaleGrid}
-          {xTicks}
-          {activeStep}
-        />
+        <GridHistogram {height} {data} {padding} {xScaleHist} {xTicks} />
       </svg>
     </div>
   </div>

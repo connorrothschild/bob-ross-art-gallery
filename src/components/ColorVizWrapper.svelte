@@ -4,6 +4,7 @@
   import debounceFn from "lodash.debounce";
   import mapToArray from "../utils/mapToArray";
   import ColorViz from "./ColorViz.svelte";
+  import { windowWidth } from "../stores/global.js";
 
   export let data, height;
 
@@ -12,6 +13,10 @@
   const padding = { top: 0, right: 15, bottom: 30, left: 15 };
 
   $: width = null;
+  $: activeStep = 0;
+  $: lastResponse = null;
+
+  let currWindowWidth = $windowWidth;
 
   // SCROLL!
   onMount(async () => {
@@ -31,6 +36,7 @@
       if (response.index == 2) {
         highlight();
       }
+      lastResponse = response;
     }
 
     // setup the instance, pass callback functions
@@ -41,6 +47,15 @@
       .onStepEnter((response) => handleStepEnter(response))
       .onStepExit((response) => {});
 
+    function resizeWidth() {
+      if (window.innerWidth != currWindowWidth) {
+        if (lastResponse) {
+          handleStepEnter(lastResponse);
+        }
+      }
+    }
+
+    window.addEventListener("resize", debounceFn(resizeWidth, 200));
     window.addEventListener("resize", debounceFn(scroller.resize, 300));
   });
 
@@ -139,8 +154,6 @@
       .attr("width", width / num_paintings)
       .attr("height", (height / unique_colors) * 0.9);
   }
-
-  $: activeStep = 0;
 </script>
 
 <div class="scrollama-container">
@@ -148,19 +161,7 @@
     <div class="chart" bind:offsetWidth={width} style="height: {height}px">
       <div class="timelineTip" />
       <svg style="width: 100%; height: 100%;">
-        <ColorViz
-          {width}
-          {height}
-          {padding}
-          {grouped}
-          {data}
-          {xScaleBar}
-          {xScaleTimeline}
-          {yScaleBar}
-          {yScaleTimeline}
-          {xTicks}
-          {activeStep}
-        />
+        <ColorViz {height} {padding} {grouped} {data} {xScaleBar} {xTicks} />
       </svg>
     </div>
   </div>
