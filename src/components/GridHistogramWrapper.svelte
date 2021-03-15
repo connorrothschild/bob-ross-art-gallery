@@ -121,7 +121,9 @@
       .attr("width", rectWidthHist)
       .attr("height", rectHeightHist)
       .attr("fill", "grey")
-      .attr("stroke", "white");
+      .attr("stroke", "white")
+      .attr("stroke-width", ".5px")
+      .attr("stroke-dasharray", "100%");
   }
 
   function highlight() {
@@ -134,10 +136,8 @@
       .attr("y", (d) => yScaleHist(d.yPos))
       .attr("width", rectWidthHist)
       .attr("height", rectHeightHist)
-      .attr("fill", "grey")
-      .attr("stroke", "white")
       .attr("fill", (d) => (d.num_colors == 12 ? "steelblue" : "grey"))
-      .attr("stroke", (d) => (d.num_colors == 12 ? "steelblue" : "grey"));
+      .attr("stroke-dasharray", `0, ${rectWidthHist}, ${rectHeightHist}, 0`);
   }
 </script>
 

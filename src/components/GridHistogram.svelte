@@ -96,8 +96,7 @@
         transform="translate({xScaleHist(x)},0)"
         transition:fade
       >
-        <line stroke="currentColor" y2="6" />
-        <text fill="currentColor" y="9" dy="1em" x="-{padding.left}">
+        <text fill="currentColor" y="12" dy="1em" x="-{padding.left}">
           {x}
         </text>
       </g>

@@ -1,6 +1,6 @@
 <script>
   export let selected;
-  import { ind } from "../stores/global.js";
+  import { painting_index, hoveredColor } from "../stores/global.js";
   import { getTextColor } from "../utils/process.js";
 
   // The selected art piece's colors
@@ -49,17 +49,28 @@
       <button
         style="margin: 0 auto"
         on:click={() => {
-          ind.set(Math.floor(Math.random() * 403));
+          painting_index.set(Math.floor(Math.random() * 403));
         }}>Show me another</button
       >
     </div>
   </div>
-  <div class="color-container">
+  <div
+    class="color-container"
+    on:mouseout={() => {
+      hoveredColor.set(null);
+    }}
+  >
     <h3>Colors used</h3>
     <div class="colors">
       {#each colors as { color, hex, text_color }}
-        <div style="background: {hex}; color: {text_color}" class="color-label">
-          {color}
+        <!-- Div with hover interactions -->
+        <div on:mouseover={hoveredColor.set(hex)}>
+          <div
+            style="background: {hex}; color: {text_color}"
+            class="color-label"
+          >
+            {color}
+          </div>
         </div>
       {/each}
     </div>
@@ -133,5 +144,7 @@
     border-radius: 5px;
     box-shadow: 3px 1px 6px 0px #cecece;
     font-size: 0.9rem;
+    cursor: crosshair;
+    user-select: none;
   }
 </style>

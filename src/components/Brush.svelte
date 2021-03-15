@@ -1,7 +1,7 @@
 <script>
   import { scaleLinear } from "d3-scale";
   import { pannable } from "../utils/pannable.js";
-  import { ind } from "../stores/global.js";
+  import { painting_index } from "../stores/global.js";
 
   export let width, height;
 
@@ -14,14 +14,14 @@
   $: xScale = scaleLinear().domain([0, width]).range([0, 403]);
 
   // Position of the handle itself
-  $: pos = xScale.invert($ind);
+  $: pos = xScale.invert($painting_index);
 
   function handleMove(event) {
     var x = pos + event.detail.dx;
     if (x > leftBound && x < rightBound) {
       pos = x;
       let i = Math.round(xScale(x));
-      ind.set(i);
+      painting_index.set(i);
     }
   }
 </script>

@@ -1,9 +1,15 @@
 <script>
   import { fade } from "svelte/transition";
   import * as d3 from "d3";
-  import { identity } from "svelte/internal";
 
-  export let data, grouped, height, padding, xScaleBar, xTicks;
+  export let data,
+    grouped,
+    height,
+    padding,
+    xScaleBar,
+    xScaleTimeline,
+    xTicksBar,
+    xTicksTimeline;
 
   function handleMouseover(e) {
     let d = e.originalTarget.attributes;
@@ -65,8 +71,8 @@
     padding.bottom -
     padding.top})"
 >
-  {#if xTicks}
-    {#each xTicks as x}
+  {#if xTicksBar}
+    {#each xTicksBar as x}
       <g
         class="tick"
         opacity="1"
@@ -76,6 +82,26 @@
         <line stroke="#000" y2="6" y1={-height} />
         <text fill="currentColor" dy="1em" y="9" x={x == 0 ? 4 : null}>
           {x}
+        </text>
+      </g>
+    {/each}
+  {:else if xTicksTimeline}
+    {#each xTicksTimeline as x}
+      <g
+        class="tick"
+        opacity="1"
+        transform="translate({xScaleTimeline(x)},0)"
+        transition:fade
+      >
+        <line stroke="#000" y2="6" y1={-height} />
+        <text
+          fill="currentColor"
+          dy="1em"
+          y="9"
+          style="text-anchor: {x == 0 ? 'start' : 'end'}"
+        >
+          <!-- Episode {x} -->
+          {x == 0 ? "Season 1, episode 1" : "Season 13, episode 31"}
         </text>
       </g>
     {/each}

@@ -2,7 +2,7 @@
   import GalleryPainting from "./GalleryPainting.svelte";
   import GalleryInformation from "./GalleryInformation.svelte";
   import Scrubber from "./Scrubber.svelte";
-  import { ind } from "../stores/global.js";
+  import { painting_index } from "../stores/global.js";
 
   export let data;
   export let long_data;
@@ -13,7 +13,7 @@
   const LENGTH = data.length - 1;
 
   $: {
-    selected = data[$ind] ? data[$ind] : data[0];
+    selected = data[$painting_index] ? data[$painting_index] : data[0];
   }
 </script>
 
@@ -22,9 +22,9 @@
     <div class="gallery-bg">
       <button
         on:click={() => {
-          ind.update((n) => (n - 1 < 0 ? 0 : n - 1));
+          painting_index.update((n) => (n - 1 < 0 ? 0 : n - 1));
         }}
-        class={$ind === 0 ? "left disabled" : "left"}
+        class={$painting_index === 0 ? "left disabled" : "left"}
       >
         &#8249;
       </button>
@@ -44,9 +44,9 @@
       </div>
       <button
         on:click={() => {
-          ind.update((n) => (n + 1 > LENGTH ? LENGTH : n + 1));
+          painting_index.update((n) => (n + 1 > LENGTH ? LENGTH : n + 1));
         }}
-        class={$ind === LENGTH ? "disabled right" : "right"}
+        class={$painting_index === LENGTH ? "disabled right" : "right"}
       >
         &#8250;
       </button>

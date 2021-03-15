@@ -41,7 +41,7 @@
   }
 
   .step {
-    padding: 3%;
+    padding: 1rem;
     // min-width: 300px;
     width: 90%;
     margin: 30rem auto; // 0 auto 50%
@@ -57,7 +57,7 @@
     z-index: 999;
     opacity: 0.85;
     transition: 500ms all ease;
-    // border-radius: 3px;
+    border-radius: 5px;
 
     &.active {
       color: black;
@@ -77,6 +77,7 @@
   .scrollama-container {
     display: flex;
     flex-direction: row-reverse;
+    margin-bottom: 500px;
 
     .scrollama-graphic {
       flex: 2;
@@ -95,7 +96,9 @@
       // justify-content: center;
     }
 
-    margin-bottom: 500px;
+    &.last {
+      margin-bottom: 0;
+    }
   }
 
   .scrollama-graphic {

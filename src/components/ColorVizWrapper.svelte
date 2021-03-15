@@ -10,7 +10,7 @@
 
   let DELAY;
 
-  const padding = { top: 0, right: 15, bottom: 30, left: 15 };
+  const padding = { top: 0, right: 0, bottom: 30, left: 0 };
 
   $: width = null;
   $: activeStep = 0;
@@ -91,10 +91,10 @@
     .domain(grouped.map((d) => d.key))
     .range([height - padding.bottom, padding.top]);
 
-  $: xTicks = xScaleBar.ticks(5);
+  $: xTicksBar = xScaleBar.ticks(5);
 
   // FOR TIMELINE VIEW
-  const num_paintings = 403;
+  const num_paintings = d3.max(data, (d) => d.painting_index);
 
   $: xScaleTimeline = d3
     .scaleLinear()
@@ -106,8 +106,11 @@
     .domain(grouped.map((d) => d.key))
     .range([height - padding.bottom, padding.top]);
 
+  $: xTicksTimeline = xScaleTimeline.domain();
+
   // SCROLL STEPS
   function init(DELAY) {
+    xTicksBar = xScaleBar.ticks(5);
     d3.selectAll(".timelineRect")
       .data(data)
       .transition("timeline-exit")
@@ -128,6 +131,7 @@
   }
 
   function createTimeline(DELAY) {
+    xTicksBar = null;
     d3.selectAll(".colorBar")
       .data(grouped)
       .transition("bar-exit")
@@ -163,12 +167,21 @@
   }
 </script>
 
-<div class="scrollama-container">
+<div class="scrollama-container last">
   <div class="scrollama-graphic">
     <div class="chart" bind:offsetWidth={width} style="height: {height}px">
       <div class="timelineTip" />
       <svg style="width: 100%; height: 100%;">
-        <ColorViz {height} {padding} {grouped} {data} {xScaleBar} {xTicks} />
+        <ColorViz
+          {height}
+          {padding}
+          {grouped}
+          {data}
+          {xScaleBar}
+          {xScaleTimeline}
+          {xTicksBar}
+          {xTicksTimeline}
+        />
       </svg>
     </div>
   </div>
@@ -228,7 +241,7 @@
         >.
       </p>
       <p>
-        Here, for example, we see Ross' single use of the color <span
+        Here, for example, we see Ross's single use of the color <span
           class="highlight-text"
           style="background: #CD5C5C; color: white;">Indian Red</span
         >. That color occurred in one painting: Autumn Images.

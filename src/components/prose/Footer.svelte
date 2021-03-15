@@ -14,7 +14,7 @@
       <a
         href="https://github.com/connorrothschild/bob-ross-art-gallery/blob/master/r/cleaning.R"
         >some processing in R</a
-      >. The images of Bob Ross' paintings are from
+      >. The images of Bob Ross's paintings are from
       <a href="https://www.twoinchbrush.com/">TwoInchBrush</a>.
     </p>
     <p>

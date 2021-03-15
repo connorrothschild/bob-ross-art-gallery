@@ -3,6 +3,7 @@
   import * as _ from "lodash";
   import Brush from "./Brush.svelte";
   import mapToArray from "../utils/mapToArray";
+  import { hoveredColor } from "../stores/global.js";
 
   export let data;
 
@@ -38,6 +39,11 @@
           width={width / num_paintings}
           height={height / unique_colors}
           fill={d.color_hex}
+          opacity={$hoveredColor
+            ? d.color_hex == $hoveredColor
+              ? 1
+              : 0.2
+            : null}
           x={xScale(d.painting_index)}
           y={yScale(d.color_hex)}
         />
@@ -49,4 +55,7 @@
 </div>
 
 <style lang="scss">
+  rect {
+    transition: opacity 400ms linear;
+  }
 </style>

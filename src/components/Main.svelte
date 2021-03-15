@@ -1,6 +1,7 @@
 <script>
   import Hero from "./prose/Hero.svelte";
   import Intro from "./prose/Intro.svelte";
+  import Outro from "./prose/Outro.svelte";
   import GridHistogramWrapper from "./GridHistogramWrapper.svelte";
   import Gallery from "./Gallery.svelte";
   import ColorVizWrapper from "./ColorVizWrapper.svelte";
@@ -26,11 +27,11 @@
   let height = 700;
 
   onMount(() => {
-    height = $windowHeight * 0.8;
+    height = $windowHeight * 0.9;
 
     function resizeFn() {
       if (window.innerWidth > 768) {
-        height = $windowHeight * 0.8;
+        height = $windowHeight * 0.9;
       }
     }
     window.addEventListener("resize", debounceFn(resizeFn, 300));
@@ -49,22 +50,18 @@
   <ColorVizWrapper data={long_data} {height} />
 </section>
 
+<Outro />
 <!-- <section> -->
 <Gallery {data} {long_data} />
-<!-- </section> -->
 
 <!-- </section> -->
 <style lang="scss" global>
   section {
-    padding: 1rem;
+    padding: 0.5rem;
     margin: 0 auto;
 
     &.prose {
       max-width: 78ch;
-    }
-
-    &.visual {
-      max-width: 800px;
     }
   }
 </style>
