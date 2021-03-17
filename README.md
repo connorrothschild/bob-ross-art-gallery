@@ -5,6 +5,7 @@ Because we all deserve a bit of relaxation.
 ### To fix:
 
 * Mobile touch events
+* Chart titles?
 
 Data from: https://github.com/jwilber/Bob_Ross_Paintings
 

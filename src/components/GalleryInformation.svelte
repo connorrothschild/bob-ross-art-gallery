@@ -129,7 +129,7 @@
     }
   }
 
-  .colors {
+  :global(.colors) {
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -144,6 +144,8 @@
     border-radius: 5px;
     box-shadow: 3px 1px 6px 0px #cecece;
     font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 300;
     cursor: crosshair;
     user-select: none;
   }

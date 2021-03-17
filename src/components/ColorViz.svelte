@@ -15,14 +15,17 @@
     let d = e.originalTarget.attributes;
     const tip = d3.select(".timelineTip");
 
+    tip.style("background", d.fill.value).style("color", d.text_color.value);
+
     if (d.num) {
       tip.html(
-        `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}<br>${d.num.value} uses</p>`
+        `<span class='title'>${d.background_color.value}</span><br/>
+         <span class='subtitle'>${d.num.value} ${
+          d.num.value == 1 ? "use" : "uses"
+        }</span>`
       );
     } else {
-      tip.html(
-        `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}</p>`
-      );
+      tip.html(`<span class='title'>${d.background_color.value}</span>`);
     }
 
     tip

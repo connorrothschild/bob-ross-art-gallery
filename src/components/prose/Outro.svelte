@@ -2,10 +2,11 @@
 
 <section class="prose">
   <p class="has-dropcap">
-    We hope this tour of the gallery has helped you understand Bob Ross's
-    legacy. Below, you can explore all of Ross's artwork from The Joy of
-    Painting. For each piece, you can see the colors used, and watch the YouTube
-    video of its creation. Not interested? Click 'Show me another' for another
+    We hope this tour of the gallery has helped you appreciate Bob Ross's
+    legacy. Below, you can explore all of Ross's artwork from <em
+      >The Joy of Painting</em
+    >. For each piece, you can see the colors used, and watch the YouTube video
+    of its creation. Not interested? Click 'Show me another' for another
     painting!
   </p>
   <p>

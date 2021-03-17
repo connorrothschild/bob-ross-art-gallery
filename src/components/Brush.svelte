@@ -7,11 +7,11 @@
 
   const padding = { top: 0, bottom: 5 };
 
-  const handlewidth = 5;
+  const handleWidth = 5;
   const leftBound = -1;
 
   $: rightBound = width;
-  $: xScale = scaleLinear().domain([0, width]).range([0, 403]);
+  $: xScale = scaleLinear().domain([0, width]).range([0, 402]);
 
   // Position of the handle itself
   $: pos = xScale.invert($painting_index);
@@ -39,7 +39,7 @@
     cursor="ew-resize"
     x={pos}
     y="0"
-    width={handlewidth}
+    width={handleWidth}
     height={height - padding.bottom - padding.top}
   />
 </g>

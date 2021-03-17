@@ -189,8 +189,8 @@
   <div class="scrollama-steps" id="colorSection">
     <div class="step" class:active={activeStep == 0} data-step="a">
       <p>
-        But what colors does Bob Ross use most often? This chart shows each
-        color used throughout <em>The Joy of Painting</em>.
+        So, what colors did Bob Ross use most often? This chart shows each color
+        used in <em>The Joy of Painting</em>.
       </p>
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">
@@ -231,7 +231,7 @@
       </p>
       <p>
         The two colors are similar enough that Ross could easily substitute one
-        for the other without much functional difference in his art.
+        for the other without much aesthetic difference in his art.
       </p>
     </div>
     <div class="step" class:active={activeStep == 4} data-step="b">
@@ -252,8 +252,9 @@
         rel="noopener noreferrer"
         class="frame"
         ><img
-          class="painting"
+          class="painting-in-text"
           src="https://www.twoinchbrush.com/images/painting14.png"
+          alt="Autumn Images by Bob Ross"
         /></a
       >
     </div>
@@ -265,16 +266,21 @@
     opacity: 0;
     position: absolute;
     pointer-events: none;
-  }
-
-  :global(.timelineTip .title) {
     text-align: center;
     padding: 0.5rem;
     border-radius: 10px;
     box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.5);
   }
 
-  .painting {
+  :global(.timelineTip .title) {
+    font-weight: normal;
+  }
+
+  :global(.timelineTip .subtitle) {
+    font-weight: lighter;
+  }
+
+  :global(.painting-in-text) {
     aspect-ratio: 4/3;
     object-fit: cover;
     border-radius: 5px;
