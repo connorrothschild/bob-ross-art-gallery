@@ -33,7 +33,7 @@
 
     tipper(d);
 
-    const xPos = parseFloat(d.width.value);
+    const xPos = e.target.attributes.class.value == 'colorBar' ? parseFloat(d.width.value) : parseFloat(d.x.value);
     const yPos = parseFloat(d.y.value);
 
     tip
@@ -41,7 +41,7 @@
       // Below handles offset on edges of screen
       .style(
         "left",
-        (xPos > window.innerWidth * 0.5 ? xPos - 130 : xPos) + "px"
+        (xPos > window.innerWidth * 0.5 ? xPos - 130 : xPos + 5) + "px"
       )
       .style("top", yPos + "px");
   }
@@ -119,6 +119,7 @@
       text_color={d.text_color}
       class="timelineRect"
       on:mouseover|preventDefault={handleMouseover}
+      on:touchend|preventDefault={handleMouseover}
       on:mouseout|preventDefault={handleMouseout}
     />
   {/each}

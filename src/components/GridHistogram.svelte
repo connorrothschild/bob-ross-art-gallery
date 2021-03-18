@@ -1,6 +1,7 @@
 <script>
   import * as d3 from "d3";
   import { fade } from "svelte/transition";
+  import {windowWidth, windowHeight} from "../stores/global.js";
   export let data, height, padding, xScaleHist, yScaleHist, xTicks, yTicks;
 
   function handleMouseover(e) {
@@ -13,7 +14,7 @@
 
     const paintingHeight = parseFloat(tip.style("height"));
     const paintingWidth = parseFloat(tip.style("width"));
-    const xPos = parseFloat(d.x.value);
+    const xPos = parseFloat(d.x.value) - (parseFloat(d.width.value));
     const yPos = parseFloat(d.y.value);
 
     tip
@@ -21,15 +22,15 @@
       // Below handles offset on edges of screen
       .style(
         "left",
-        (xPos > window.innerWidth - paintingWidth
+        (xPos > $windowWidth - paintingWidth
           ? xPos - paintingWidth
           : xPos ) + "px"
       )
       .style(
         "top",
-        (yPos > window.innerHeight / 2
+        (yPos > $windowHeight / 2
           ? yPos - paintingHeight
-          : yPos - 28) + "px"
+          : yPos + 28) + "px"
       );
   }
 
@@ -49,7 +50,7 @@
         transition:fade
       >
         <text fill="currentColor" y="12" dy="1em" x="-{padding.left}">
-          {x}
+          {x == 2 ? "" : x == 1 ? "1 color" : x}
         </text>
       </g>
     {/each}
