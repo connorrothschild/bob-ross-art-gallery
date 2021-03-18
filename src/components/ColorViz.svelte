@@ -29,39 +29,24 @@
 
   function handleMouseover(e) {
     const tip = d3.select(".timelineTip");
-    let d = e.originalTarget.attributes;
+    let d = e.currentTarget.attributes;
 
     tipper(d);
+
+    const xPos = parseFloat(d.width.value);
+    const yPos = parseFloat(d.y.value);
 
     tip
       .style("opacity", 1)
       // Below handles offset on edges of screen
       .style(
         "left",
-        (e.screenX > window.innerWidth * 0.7 ? e.layerX - 130 : e.layerX) + "px"
+        (xPos > window.innerWidth * 0.5 ? xPos - 130 : xPos) + "px"
       )
-      .style("top", e.layerY - 28 + "px");
+      .style("top", yPos + "px");
   }
   function handleMouseout() {
     d3.select(".timelineTip").style("opacity", 0);
-  }
-
-  function handleTouch(e) {
-    const tip = d3.select(".timelineTip");
-    let d = e.originalTarget.attributes;
-
-    tipper(d);
-
-    const xPos = parseFloat(d.x.value);
-    const yPos = parseFloat(d.y.value);
-
-    tip
-      .style("opacity", 1)
-      .style(
-        "left",
-        (xPos > window.innerWidth * 0.5 ? xPos - 125 : xPos + 25) + "px"
-      )
-      .style("top", yPos - 25 + "px");
   }
 </script>
 
@@ -109,7 +94,7 @@
 </g>
 
 <!-- CHART (BARCHART) -->
-<g on:mouseover={d3.select('.timelineTip').attr('opacity', 0)}>
+<g>
   {#each grouped as d}
     <rect
       class="colorBar"
@@ -119,6 +104,7 @@
       text_color={d.text_color}
       num={d.value.length}
       on:mouseover|preventDefault={handleMouseover}
+      on:touchend|preventDefault={handleMouseover}
       on:mouseout|preventDefault={handleMouseout}
     />
   {/each}

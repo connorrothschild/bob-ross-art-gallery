@@ -4,7 +4,7 @@
   export let data, height, padding, xScaleHist, yScaleHist, xTicks, yTicks;
 
   function handleMouseover(e) {
-    let d = e.originalTarget.attributes;
+    let d = e.currentTarget.attributes;
     const tip = d3.select(".gridTip");
 
     tip.html(`<p class='title'>${d.title.value}</p>
@@ -13,57 +13,28 @@
 
     const paintingHeight = parseFloat(tip.style("height"));
     const paintingWidth = parseFloat(tip.style("width"));
+    const xPos = parseFloat(d.x.value);
+    const yPos = parseFloat(d.y.value);
 
     tip
       .style("opacity", 1)
       // Below handles offset on edges of screen
       .style(
         "left",
-        (e.clientX > window.innerWidth - paintingWidth
-          ? e.layerX - paintingWidth
-          : e.layerX) + "px"
+        (xPos > window.innerWidth - paintingWidth
+          ? xPos - paintingWidth
+          : xPos ) + "px"
       )
       .style(
         "top",
-        (e.clientY > window.innerHeight - paintingHeight
-          ? e.layerY - paintingHeight
-          : e.layerY - 28) + "px"
+        (yPos > window.innerHeight / 2
+          ? yPos - paintingHeight
+          : yPos - 28) + "px"
       );
   }
 
   function handleMouseout() {
     d3.select(".gridTip").style("opacity", 0);
-  }
-
-  function handleTouch(e) {
-    let d = e.originalTarget.attributes;
-
-    const tip = d3.select(".gridTip");
-
-    tip.html(`<p class='title'>${d.title.value}</p>
-              <p class='subtitle'>${d.subtitle.value}</p>
-              <img class="painting" src=${d.img.value}></img>`);
-
-    const xPos = parseFloat(d.x.value);
-    const yPos = parseFloat(d.y.value);
-    const paintingHeight = parseFloat(tip.style("height"));
-    const paintingWidth = parseFloat(tip.style("width"));
-
-    tip
-      .style("opacity", 1)
-      // Below handles offset on edges of screen
-      .style(
-        "left",
-        (xPos > window.innerWidth / 2 // Right side of screen
-          ? xPos - paintingWidth
-          : xPos + 25) + "px"
-      )
-      .style(
-        "top",
-        (yPos > window.innerHeight * 0.75 // Bottom of screen
-          ? yPos - paintingHeight
-          : yPos + 25) + "px"
-      );
   }
 </script>
 
@@ -105,11 +76,7 @@
 </g>
 
 <!-- RECTS -->
-<g
-  on:mouseover|preventDefault={handleMouseover}
-  on:mouseout|preventDefault={handleMouseout}
-  on:touchend|preventDefault={handleMouseover}
->
+<g>
   {#each data as d}
     <rect
       title={d.painting_title}
@@ -118,7 +85,10 @@
       class="gridRect"
       fill="grey"
       stroke="white"
-    />
+      on:mouseover|preventDefault={handleMouseover}
+      on:mouseout|preventDefault={handleMouseout}
+      on:touchend|preventDefault={handleMouseover}
+      />
   {/each}
 </g>
 

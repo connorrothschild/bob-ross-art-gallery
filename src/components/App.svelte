@@ -87,7 +87,7 @@
     .scrollama-steps {
       flex: 1;
       z-index: 1000;
-      pointer-events: none;
+      // pointer-events: none;
     }
 
     @media screen and (max-width: 968px) {
