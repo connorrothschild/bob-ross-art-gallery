@@ -108,6 +108,7 @@
 <g
   on:mouseover|preventDefault={handleMouseover}
   on:mouseout|preventDefault={handleMouseout}
+  on:click={handleMouseover}
 >
   {#each data as d}
     <rect

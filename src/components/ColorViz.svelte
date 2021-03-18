@@ -109,7 +109,7 @@
 </g>
 
 <!-- CHART (BARCHART) -->
-<g>
+<g on:mouseover={d3.select('.timelineTip').attr('opacity', 0)}>
   {#each grouped as d}
     <rect
       class="colorBar"
@@ -120,8 +120,6 @@
       num={d.value.length}
       on:mouseover|preventDefault={handleMouseover}
       on:mouseout|preventDefault={handleMouseout}
-      on:touchstart|preventDefault={handleTouch}
-      on:touchend|preventDefault={handleMouseout}
     />
   {/each}
 </g>
@@ -136,8 +134,6 @@
       class="timelineRect"
       on:mouseover|preventDefault={handleMouseover}
       on:mouseout|preventDefault={handleMouseout}
-      on:touchstart|preventDefault={handleTouch}
-      on:touchend|preventDefault={handleMouseout}
     />
   {/each}
 </g>
