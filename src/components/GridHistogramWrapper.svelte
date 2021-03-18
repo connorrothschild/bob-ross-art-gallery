@@ -114,22 +114,42 @@
   $: rectHeightHist =
     (height - padding.top - padding.bottom) / d3.max(data, (d) => d.yPos);
 
+  let initialized = false;
+
   function grid() {
     xTicks = null;
     yTicks = null;
 
-    d3.selectAll(".gridRect")
-      .data(data)
-      .transition("grid")
-      // .delay((d) => (d.gridY * d.gridX) / 10)
-      .duration(1000)
-      .attr("x", (d) => xScaleGrid(d.gridX))
-      .attr("y", (d) => yScaleGrid(d.gridY))
-      .attr("width", rectWidthGrid)
-      .attr("height", rectHeightGrid)
-      .attr("fill", "grey")
-      .attr("stroke", "white")
-      .attr("opacity", 1);
+    if (initialized) {
+      d3.selectAll(".gridRect")
+        .data(data)
+        .transition("grid")
+        // .delay((d) => (d.gridY * d.gridX) / 10)
+        .duration(1000)
+        .attr("x", (d) => xScaleGrid(d.gridX))
+        .attr("y", (d) => yScaleGrid(d.gridY))
+        .attr("width", rectWidthGrid)
+        .attr("height", rectHeightGrid)
+        .attr("fill", "grey")
+        .attr("stroke", "white")
+        .attr("opacity", 1);
+    } else {
+      d3.selectAll(".gridRect")
+        .data(data)
+        .attr("x", (d) => -rectWidthGrid)
+        .attr("y", (d) => yScaleGrid(d.gridY))
+        .attr("width", rectWidthGrid)
+        .attr("height", rectHeightGrid)
+        .attr("fill", "grey")
+        .attr("stroke", "white")
+        .attr("opacity", 1)
+        .transition("init")
+        .delay((d) => d.gridX * d.gridY)
+        .duration(1000)
+        .attr("x", (d) => xScaleGrid(d.gridX));
+
+      initialized = true;
+    }
   }
 
   function histogram() {
@@ -235,7 +255,6 @@
         >. This was <em>The Joy of Painting's</em> series finale, and Bob Ross' final
         painting before he passed away on July 4, 1995.
       </p>
-      <p>Here's the painting, and its color palette:</p>
       <a
         href="https://www.youtube.com/embed/nJGCVFn57U8"
         target="_blank"

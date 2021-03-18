@@ -16,16 +16,38 @@
   // Position of the handle itself
   $: pos = xScale.invert($painting_index);
 
-  function handleMove(event) {
-    var x = pos + event.detail.dx;
+  function setPos(x) {
     if (x > leftBound && x < rightBound) {
       pos = x;
       let i = Math.round(xScale(x));
       painting_index.set(i);
     }
   }
+  function handleMove(event) {
+    var x = pos + event.detail.dx;
+    setPos(x);
+  }
+
+  function handleTouch(event) {
+    var x = event.changedTouches[0].clientX;
+    setPos(x);
+  }
+
+  function handleClick(event) {
+    var x = event.layerX;
+    setPos(x);
+  }
 </script>
 
+<rect
+  class="overlay"
+  pointer-events="all"
+  width="100%"
+  height="100%"
+  on:click={handleClick}
+  on:touchstart={handleTouch}
+  on:touchmove={handleTouch}
+/>
 <g
   class="brush"
   fill="none"
@@ -50,5 +72,8 @@
     stroke: black;
     stroke-width: 1px;
     fill: whitesmoke;
+  }
+  .overlay {
+    fill: transparent;
   }
 </style>

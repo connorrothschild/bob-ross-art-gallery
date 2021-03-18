@@ -11,12 +11,10 @@
     xTicksBar,
     xTicksTimeline;
 
-  function handleMouseover(e) {
-    let d = e.originalTarget.attributes;
+  function tipper(d) {
     const tip = d3.select(".timelineTip");
 
     tip.style("background", d.fill.value).style("color", d.text_color.value);
-
     if (d.num) {
       tip.html(
         `<span class='title'>${d.background_color.value}</span><br/>
@@ -27,6 +25,13 @@
     } else {
       tip.html(`<span class='title'>${d.background_color.value}</span>`);
     }
+  }
+
+  function handleMouseover(e) {
+    const tip = d3.select(".timelineTip");
+    let d = e.originalTarget.attributes;
+
+    tipper(d);
 
     tip
       .style("opacity", 1)
@@ -42,18 +47,10 @@
   }
 
   function handleTouch(e) {
-    let d = e.originalTarget.attributes;
     const tip = d3.select(".timelineTip");
+    let d = e.originalTarget.attributes;
 
-    if (d.num) {
-      tip.html(
-        `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}: ${d.num.value} uses</p>`
-      );
-    } else {
-      tip.html(
-        `<p class='title' style="background: ${d.fill.value}; color: ${d.text_color.value}">${d.background_color.value}</p>`
-      );
-    }
+    tipper(d);
 
     const xPos = parseFloat(d.x.value);
     const yPos = parseFloat(d.y.value);

@@ -28,7 +28,8 @@
     margin-top: 10rem;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: clamp(1vw, 5rem, 10vw);
+    font-size: clamp(1vw, 5rem, 12vw);
+    padding: 0 1rem;
     color: black;
     line-height: 1.25;
   }

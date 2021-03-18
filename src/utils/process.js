@@ -5,6 +5,8 @@ export function processData(data, long = false) {
         (d.episode = +d.episode),
         (d.season = +d.season),
         (d.yPos = +d.yPos),
+        (d.gridX = +d.gridX),
+        (d.gridY = +d.gridY),
         (d.painting_index = +d.painting_index);
     });
   } else {
@@ -16,6 +18,8 @@ export function processData(data, long = false) {
         (d.painting_index = +d.painting_index),
         (d.colors = eval2(d.colors)),
         (d.yPos = +d.yPos),
+        (d.gridX = +d.gridX),
+        (d.gridY = +d.gridY),
         (d.color_hex = eval2(d.color_hex));
     });
   }

@@ -24,9 +24,9 @@
     &:first-child:first-letter {
       float: left;
       font-family: Georgia;
-      font-size: 80px;
+      font-size: 60px;
       line-height: 60px;
-      padding-top: 3px;
+      padding-top: 10px;
       padding-right: 5px;
       padding-left: 2px;
     }
