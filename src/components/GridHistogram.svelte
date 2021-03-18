@@ -1,7 +1,7 @@
 <script>
   import * as d3 from "d3";
   import { fade } from "svelte/transition";
-  import {windowWidth, windowHeight} from "../stores/global.js";
+  import { windowWidth, windowHeight } from "../stores/global.js";
   export let data, height, padding, xScaleHist, yScaleHist, xTicks, yTicks;
 
   function handleMouseover(e) {
@@ -14,7 +14,7 @@
 
     const paintingHeight = parseFloat(tip.style("height"));
     const paintingWidth = parseFloat(tip.style("width"));
-    const xPos = parseFloat(d.x.value) - (parseFloat(d.width.value));
+    const xPos = parseFloat(d.x.value) - parseFloat(d.width.value);
     const yPos = parseFloat(d.y.value);
 
     tip
@@ -22,15 +22,12 @@
       // Below handles offset on edges of screen
       .style(
         "left",
-        (xPos > $windowWidth - paintingWidth
-          ? xPos - paintingWidth
-          : xPos ) + "px"
+        (xPos > $windowWidth - paintingWidth ? xPos - paintingWidth : xPos) +
+          "px"
       )
       .style(
         "top",
-        (yPos > $windowHeight / 2
-          ? yPos - paintingHeight
-          : yPos + 28) + "px"
+        (yPos > $windowHeight / 2 ? yPos - paintingHeight : yPos + 28) + "px"
       );
   }
 
@@ -89,7 +86,7 @@
       on:mouseover|preventDefault={handleMouseover}
       on:mouseout|preventDefault={handleMouseout}
       on:touchend|preventDefault={handleMouseover}
-      />
+    />
   {/each}
 </g>
 

@@ -33,7 +33,10 @@
 
     tipper(d);
 
-    const xPos = e.target.attributes.class.value == 'colorBar' ? parseFloat(d.width.value) : parseFloat(d.x.value);
+    const xPos =
+      e.target.attributes.class.value == "colorBar"
+        ? parseFloat(d.width.value)
+        : parseFloat(d.x.value);
     const yPos = parseFloat(d.y.value);
 
     tip
