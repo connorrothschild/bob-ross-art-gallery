@@ -106,8 +106,10 @@
     .domain(grouped.map((d) => d.key))
     .range([height - padding.bottom, padding.top]);
 
-  $: xTicksTimeline = xScaleTimeline.domain();
+  // $: xTicksTimeline = xScaleTimeline.domain();
+  $: xTicksTimeline = [...new Set(data.filter(d => d.episode == 1).map(d => d.painting_index))];
 
+  $:console.log(xTicksTimeline)
   // SCROLL STEPS
   function init(DELAY) {
     xTicksBar = xScaleBar.ticks(5);

@@ -67,7 +67,7 @@
         transform="translate({xScaleBar(x)},0)"
         transition:fade
       >
-        <line stroke="#000" y2="6" y1={-height} />
+        <line stroke="#cecece" y2="6" y1={-height} />
         <text fill="currentColor" dy="1em" y="9" x={x == 0 ? 4 : null}>
           {x}
         </text>
@@ -81,15 +81,16 @@
         transform="translate({xScaleTimeline(x)},0)"
         transition:fade
       >
-        <line stroke="#000" y2="6" y1={-height} />
+        <line stroke={xTicksTimeline.indexOf(x) % 10 === 0 | x == 1 ? "#adadad" : "#cecece50"} y2="6" y1={-height} />
         <text
           fill="currentColor"
           dy="1em"
           y="9"
-          style="text-anchor: {x == 0 ? 'start' : 'end'}"
+          style="text-anchor: {x == 1 ? 'start' : 'end'}"
         >
           <!-- Episode {x} -->
-          {x == 0 ? "Season 1, episode 1" : "Season 13, episode 31"}
+          {x == 1 ? "Season 1" : xTicksTimeline.indexOf(x) % 10 === 0 ? `S${xTicksTimeline.indexOf(x)}` : ""}
+          <!-- {x == 0 ? "Season 1, episode 1" : "Season 13, episode 31"} -->
         </text>
       </g>
     {/each}
@@ -137,7 +138,7 @@
 
   .tick {
     line {
-      stroke: #cecece80;
+      // stroke: #cecece52;
     }
 
     text {
