@@ -16,13 +16,6 @@
 <style lang="scss" global>
   html {
     scroll-behavior: smooth;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     touch-action: manipulation;
   }
 
@@ -86,6 +79,14 @@
     display: flex;
     flex-direction: row-reverse;
     margin-bottom: 500px;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     .scrollama-graphic {
       flex: 2;
