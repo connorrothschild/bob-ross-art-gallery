@@ -235,7 +235,8 @@
     <div class="step" class:active={activeStep == 1} data-step="b">
       <p>
         To get a feeling for Bob Ross' process, we can organize the pieces by
-        the <strong>number of colors</strong> used to paint them. The height of a bar represents how many paintings used that number of colors.
+        the <strong>number of colors</strong> used to paint them. The height of a
+        bar represents how many paintings used that number of colors.
       </p>
     </div>
     <div class="step" class:active={activeStep == 2} data-step="c">

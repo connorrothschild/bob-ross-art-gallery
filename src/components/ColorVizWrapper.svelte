@@ -107,9 +107,11 @@
     .range([height - padding.bottom, padding.top]);
 
   // $: xTicksTimeline = xScaleTimeline.domain();
-  $: xTicksTimeline = [...new Set(data.filter(d => d.episode == 1).map(d => d.painting_index))];
+  $: xTicksTimeline = [
+    ...new Set(data.filter((d) => d.episode == 1).map((d) => d.painting_index)),
+  ];
 
-  $:console.log(xTicksTimeline)
+  $: console.log(xTicksTimeline);
   // SCROLL STEPS
   function init(DELAY) {
     xTicksBar = xScaleBar.ticks(5);
@@ -130,6 +132,19 @@
       .delay(DELAY)
       .ease(d3.easeExp)
       .attr("width", (d) => xScaleBar(d.value.length));
+
+    d3.selectAll(".colorText")
+      .data(grouped)
+      .attr("y", (d) => yScaleBar(d.key))
+      .attr('dy', (height / unique_colors) / 1.7)
+      .attr('fill', d => d.colors == 'Indian Red' | d.colors == 'Burnt Umber' | d.colors == 'Phthalo Green' ? 'black' : d.text_color)
+      .transition("test")
+      .duration(1000)
+      .delay(DELAY)
+      .ease(d3.easeExp)
+      .attr("x", (d) => xScaleBar(d.value.length))
+      .attr('dx', d => d.colors == 'Indian Red' | d.colors == 'Burnt Umber' | d.colors == 'Phthalo Green' ? '8' : '-8')
+      .attr('text-anchor', d => d.colors == 'Indian Red' | d.colors == 'Burnt Umber' | d.colors == 'Phthalo Green' ? 'start' : 'end')
   }
 
   function createTimeline(DELAY) {
@@ -139,8 +154,17 @@
       .transition("bar-exit")
       .duration(1000)
       .ease(d3.easeExp)
-      .attr("width", 0);
+      .attr("width", 0)
 
+    d3.selectAll(".colorText")
+      .data(grouped)
+      .transition("text-exit")
+      .duration(1000)
+      .ease(d3.easeExp)
+      .attr("x", 0)
+      .attr('text-anchor', 'end')
+      .attr('dx', '-8')
+      
     d3.selectAll(".timelineRect")
       .data(data)
       .attr("y", (d) => yScaleTimeline(d.color_hex))
@@ -183,6 +207,7 @@
           {xScaleTimeline}
           {xTicksBar}
           {xTicksTimeline}
+          {yScaleBar}
         />
       </svg>
     </div>

@@ -9,7 +9,8 @@
     xScaleBar,
     xScaleTimeline,
     xTicksBar,
-    xTicksTimeline;
+    xTicksTimeline,
+    yScaleBar;
 
   function tipper(d) {
     const tip = d3.select(".timelineTip");
@@ -81,7 +82,13 @@
         transform="translate({xScaleTimeline(x)},0)"
         transition:fade
       >
-        <line stroke={xTicksTimeline.indexOf(x) % 10 === 0 | x == 1 ? "#adadad" : "#cecece50"} y2="6" y1={-height} />
+        <line
+          stroke={(xTicksTimeline.indexOf(x) % 10 === 0) | (x == 1)
+            ? "#adadad"
+            : "#cecece50"}
+          y2="6"
+          y1={-height}
+        />
         <text
           fill="currentColor"
           dy="1em"
@@ -89,8 +96,12 @@
           style="text-anchor: {x == 1 ? 'start' : 'end'}"
         >
           <!-- Episode {x} -->
-          {x == 1 ? "Season 1" : xTicksTimeline.indexOf(x) % 10 === 0 ? `S${xTicksTimeline.indexOf(x)}` : ""}
-          <!-- {x == 0 ? "Season 1, episode 1" : "Season 13, episode 31"} -->
+          {x == 1
+            ? "Season 1"
+            : xTicksTimeline.indexOf(x) % 10 === 0
+            ? `S${xTicksTimeline.indexOf(x)}`
+            : ""}
+
         </text>
       </g>
     {/each}
@@ -100,17 +111,23 @@
 <!-- CHART (BARCHART) -->
 <g>
   {#each grouped as d}
-    <rect
-      class="colorBar"
-      fill={d.key}
-      stroke={d.key == "#FFFFFF" ? "#cecece" : null}
-      background_color={d.colors}
-      text_color={d.text_color}
-      num={d.value.length}
-      on:mouseover|preventDefault={handleMouseover}
-      on:touchend|preventDefault={handleMouseover}
-      on:mouseout|preventDefault={handleMouseout}
-    />
+    <g>
+      <rect
+        class="colorBar"
+        fill={d.key}
+        stroke={d.key == "#FFFFFF" ? "#cecece" : null}
+        background_color={d.colors}
+        text_color={d.text_color}
+        num={d.value.length}
+        on:mouseover|preventDefault={handleMouseover}
+        on:touchend|preventDefault={handleMouseover}
+        on:mouseout|preventDefault={handleMouseout}
+      />
+
+      <text
+        class="colorText">{d.colors}
+      </text>
+    </g>
   {/each}
 </g>
 
@@ -133,7 +150,7 @@
 <style lang="scss">
   text {
     font-weight: 300;
-    text-anchor: middle;
+    // text-anchor: middle;
   }
 
   .tick {
@@ -147,5 +164,9 @@
         font-size: 0.75rem;
       }
     }
+  }
+
+  .colorText {
+    // text-anchor: end;
   }
 </style>
