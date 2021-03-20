@@ -143,7 +143,7 @@
           ? "black"
           : d.text_color
       )
-      .transition("test")
+      .transition("text-enter")
       .duration(1000)
       .delay(DELAY)
       .ease(d3.easeExp)
@@ -166,6 +166,19 @@
 
   function createTimeline(DELAY) {
     xTicksBar = null;
+
+    d3.selectAll(".timelineRect")
+      .data(data)
+      .attr("y", (d) => yScaleTimeline(d.color_hex))
+      .attr("height", (height / unique_colors) * 0.9)
+      .transition("timeline-enter")
+      .duration(1000)
+      .delay(DELAY)
+      .ease(d3.easeExp)
+      .attr("opacity", 1)
+      .attr("x", (d) => xScaleTimeline(d.painting_index))
+      .attr("width", width / num_paintings);
+
     d3.selectAll(".colorBar")
       .data(grouped)
       .transition("bar-exit")
@@ -181,21 +194,11 @@
       .attr("x", 0)
       .attr("dx", "-8")
       .attr("text-anchor", "end");
-
-    d3.selectAll(".timelineRect")
-      .data(data)
-      .attr("y", (d) => yScaleTimeline(d.color_hex))
-      .attr("height", (height / unique_colors) * 0.9)
-      .transition("timeline-enter")
-      .duration(1000)
-      .delay(DELAY)
-      .ease(d3.easeExp)
-      .attr("opacity", 1)
-      .attr("x", (d) => xScaleTimeline(d.painting_index))
-      .attr("width", width / num_paintings);
   }
 
   function highlight(color1, color2) {
+    createTimeline(0);
+
     d3.selectAll(".timelineRect")
       .data(data)
       .transition("timeline-highlight")

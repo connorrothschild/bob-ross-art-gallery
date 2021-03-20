@@ -12,16 +12,24 @@
 </script>
 
 <div class="frame">
-  {#await loadImage(selected.img_src)}
-    <img src="./assets/placeholder.png" alt="Placeholder painting" />
-  {:then}
+  <!-- Don't async the first image, as it will hang sometimes? -->
+  {#if selected.img_src == "https://www.twoinchbrush.com/images/painting282.png"}
     <img
       src={selected.img_src}
       alt="A painting titled {selected.painting_title}"
     />
-  {:catch error}
-    <div />
-  {/await}
+  {:else}
+    {#await loadImage(selected.img_src)}
+      <img src="./assets/placeholder.png" alt="Placeholder painting" />
+    {:then}
+      <img
+        src={selected.img_src}
+        alt="A painting titled {selected.painting_title}"
+      />
+    {:catch error}
+      <div />
+    {/await}
+  {/if}
 </div>
 
 <style lang="scss">
