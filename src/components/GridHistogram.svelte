@@ -10,7 +10,7 @@
 
     tip.html(`<p class='title'>${d.title.value}</p>
               <p class='subtitle'>${d.subtitle.value}</p>
-              <img class="painting" src=${d.img.value}></img>`);
+              <img class="painting" src="./assets/paintings/${d.img.value}"></img>`);
 
     const paintingHeight = parseFloat(tip.style("height"));
     const paintingWidth = parseFloat(tip.style("width"));
@@ -86,7 +86,7 @@
     <rect
       title={d.painting_title}
       subtitle={"Season " + d.season + ", episode " + d.episode}
-      img={d.img_src}
+      img={d.img}
       class="gridRect"
       fill="grey"
       stroke="white"
