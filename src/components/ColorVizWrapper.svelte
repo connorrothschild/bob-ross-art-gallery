@@ -111,7 +111,6 @@
     ...new Set(data.filter((d) => d.episode == 1).map((d) => d.painting_index)),
   ];
 
-  $: console.log(xTicksTimeline);
   // SCROLL STEPS
   function init(DELAY) {
     xTicksBar = xScaleBar.ticks(5);
