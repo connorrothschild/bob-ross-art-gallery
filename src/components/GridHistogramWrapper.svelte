@@ -223,13 +223,15 @@
       <p>
         This is every piece Bob Ross painted in his series <em
           >The Joy of Painting</em
-        >. Each rectangle
+        >.
+        <p>Each rectangle
         <svg width="20" height="15">
           <rect width="100%" height="100%" fill="grey" />
         </svg>
-        represents a painting. Go ahead and hover
+        represents a painting. 
+        <!-- Go ahead and hover
         <Icon name="mouse-pointer" stroke="black" strokeWidth="1" />
-        over a rectangle to see the painting it represents!
+        over a rectangle to see the painting it represents! -->
       </p>
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">
@@ -247,6 +249,9 @@
         >. Of the {data.length} pieces Bob Ross painted, {data.filter(
           (d) => d.num_colors == 12
         ).length} used 12 colors.
+      </p>
+      <p>
+        The peak is concentrated around 12, meaning most of Ross' paintings used somewhere in the range of 7-13 colors; very rarely did they venture outside of that range.
       </p>
     </div>
     <div class="step" class:active={activeStep == 3} data-step="c">

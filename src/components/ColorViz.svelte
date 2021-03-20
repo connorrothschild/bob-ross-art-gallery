@@ -83,7 +83,7 @@
         transition:fade
       >
         <line
-          stroke={(xTicksTimeline.indexOf(x) % 10 === 0) | (x == 1)
+          stroke={((xTicksTimeline.indexOf(x) + 1) % 10 === 0) | (x == 1)
             ? "#adadad"
             : "#cecece50"}
           y2="6"
@@ -98,8 +98,8 @@
           <!-- Episode {x} -->
           {x == 1
             ? "Season 1"
-            : xTicksTimeline.indexOf(x) % 10 === 0
-            ? `S${xTicksTimeline.indexOf(x)}`
+            : (xTicksTimeline.indexOf(x) + 1) % 10 === 0
+            ? `S${xTicksTimeline.indexOf(x) + 1}`
             : ""}
 
         </text>
@@ -125,7 +125,9 @@
       />
 
       <text
-        class="colorText">{d.colors}
+        class="colorText"
+        y={yScaleBar(d.key)}
+        text-anchor="end">{d.colors}
       </text>
     </g>
   {/each}

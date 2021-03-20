@@ -162,8 +162,8 @@
       .duration(1000)
       .ease(d3.easeExp)
       .attr("x", 0)
-      .attr('text-anchor', 'end')
       .attr('dx', '-8')
+      .attr('text-anchor', 'end')
       
     d3.selectAll(".timelineRect")
       .data(data)

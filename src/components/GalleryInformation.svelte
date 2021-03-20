@@ -116,10 +116,11 @@
       letter-spacing: 1px;
       margin-right: 0.5rem;
       font-size: 0.8rem;
-      box-shadow: 0px 0px 4px 1px #cecece;
+        box-shadow: 1px 1px 4px 1px #91919180;
 
       &:hover {
-        box-shadow: 0px 0px 2px 1px #cecece80;
+              box-shadow: 1px 0 2px 1px #cecece80;
+
         background: whitesmoke;
       }
 
@@ -144,7 +145,7 @@
     border-radius: 5px;
     box-shadow: 3px 1px 6px 0px #cecece;
     font-size: 0.9rem;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     font-weight: 300;
     cursor: crosshair;
     user-select: none;
