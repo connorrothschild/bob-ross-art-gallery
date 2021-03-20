@@ -7,14 +7,14 @@
     > year, and you deserve to relax.
   </p>
   <p>
-    Thankfully, we've collected 403 paintings that Bob Ross painted during his <strong
-      >Joy of Painting</strong
-    >
-    series. For each of those paintings, we've collected information on how it was
-    painted, including <em>which colors each painting used</em>.
+    And what better way to relax than Bob Ross? I've collected 403 paintings
+    that Bob Ross painted during his <strong>Joy of Painting</strong>
+    series and presented them for you here in a virtual art gallery.
   </p>
   <p>
-    Let's take a brief tour before getting to the gallery!<a
+    For each painting, we also have information on how it was painted,
+    specifically <em>which colors the painting used</em>. Let's take a brief
+    tour of Bob Ross' colors before getting to the gallery!<a
       href="#gallery"
       class="button">(or, skip to the gallery)</a
     >

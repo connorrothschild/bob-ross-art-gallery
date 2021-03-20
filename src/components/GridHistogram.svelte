@@ -34,6 +34,10 @@
   function handleMouseout() {
     d3.select(".gridTip").style("opacity", 0);
   }
+
+  function wtf() {
+    console.log("wtf");
+  }
 </script>
 
 <!-- X AXIS -->
@@ -83,9 +87,9 @@
       class="gridRect"
       fill="grey"
       stroke="white"
-      on:mouseover|preventDefault={handleMouseover}
       on:mouseout|preventDefault={handleMouseout}
-      on:touchend|preventDefault={handleMouseover}
+      on:mouseover|preventDefault={handleMouseover}
+      on:touchend={handleMouseover}
     />
   {/each}
 </g>
@@ -93,10 +97,6 @@
 <!-- RECTS -->
 <style lang="scss">
   .tick {
-    line {
-      // stroke: none;
-    }
-
     text {
       font-weight: 200;
       @media screen and (max-width: 768px) {

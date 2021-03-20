@@ -80,13 +80,13 @@
     flex-direction: row-reverse;
     margin-bottom: 500px;
 
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    // -webkit-touch-callout: none;
+    // -webkit-user-select: none;
+    // -khtml-user-select: none;
+    // -moz-user-select: none;
+    // -ms-user-select: none;
+    // user-select: none;
+    // -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     .scrollama-graphic {
       flex: 2;
@@ -96,7 +96,7 @@
     .scrollama-steps {
       flex: 1;
       z-index: 1000;
-      // pointer-events: none;
+      pointer-events: none;
     }
 
     @media screen and (max-width: 968px) {

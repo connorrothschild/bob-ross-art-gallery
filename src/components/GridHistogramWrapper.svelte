@@ -221,17 +221,12 @@
   <div class="scrollama-steps" id="gridSection">
     <div class="step" class:active={activeStep == 0} data-step="a">
       <p>
-        This is every piece Bob Ross painted in his series <em
-          >The Joy of Painting</em
-        >.
-      </p>
-      <p>
+        This is every piece Bob Ross painted in <em>The Joy of Painting</em>.
         Each rectangle
         <svg width="20" height="15">
           <rect width="100%" height="100%" fill="grey" />
         </svg>
-        represents a painting.
-
+        represents a painting. There are 403 rectangles, organized chronologically.
       </p>
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">

@@ -21,8 +21,8 @@
     Below, you can explore all of Ross's artwork from <em
       >The Joy of Painting</em
     >
-    in a virtual art gallery. For each piece, you can see the colors used, and
-    watch the YouTube video of its creation. Not interested? Click
+    in a virtual art gallery. For each piece, you can see the colors used, and watch
+    the YouTube video of its creation. Not interested? Click
     <span
       class="highlight-text"
       style="text-transform: uppercase; background: whitesmoke; font-weight: 300; border: 1px solid #cecece; font-size: .85rem;"
