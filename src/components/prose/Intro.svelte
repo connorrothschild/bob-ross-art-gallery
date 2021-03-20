@@ -20,15 +20,17 @@
 </section>
 
 <style lang="scss">
-  .has-dropcap {
-    &:first-child:first-letter {
-      float: left;
-      font-family: Georgia;
-      font-size: 55px;
-      line-height: 50px;
-      padding-top: 8px;
-      padding-right: 5px;
-      padding-left: 2px;
+  @media screen and (min-width: 768px) {
+    .has-dropcap {
+      &:first-child:first-letter {
+        float: left;
+        font-family: Georgia;
+        font-size: 55px;
+        line-height: 50px;
+        padding-top: 8px;
+        padding-right: 5px;
+        padding-left: 2px;
+      }
     }
   }
 
