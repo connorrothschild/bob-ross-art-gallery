@@ -236,27 +236,27 @@
   <div class="scrollama-steps" id="colorSection">
     <div class="step" class:active={activeStep == 0} data-step="a">
       <p>
-        So, what colors did Bob Ross use most often? This chart shows each color
-        used in <em>The Joy of Painting</em>.
+        So, which colors did Bob Ross use most often? This chart shows how often each of Bob Ross' colors
+        were used throughout <em>The Joy of Painting</em>. 
       </p>
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">
       <p>
-        Unsurprisingly, the most common color in Bob Ross's palette is a <span
+        Unsurprisingly, the most common color in Bob Ross' palette is a <span
           class="highlight-text"
           style="color: black; background: white; border: 1px solid #cecece"
           >solid white</span
         >.
       </p>
       <p>
-        Ross uses a solid, pure white in every painting, as both a base for the
-        overall piece (in what he calls <strong>Liquid White</strong>) and
+        Ross uses a solid, pure white in every painting, sometimes as a base for the
+        overall piece (in what he calls <strong>Liquid White</strong>) and sometimes
         throughout (in the form of <strong>Titanium White</strong>).
       </p>
     </div>
     <div class="step" class:active={activeStep == 2} data-step="b">
       <p>
-        Another way to visualize Ross's use of colors is to look at each
+        Another way to visualize Ross' use of colors is to look at each
         painting, one by one.
       </p>
       <p>
@@ -288,10 +288,10 @@
         >.
       </p>
       <p>
-        Here, for example, we see Ross's single use of the color <span
+        Here, for example, we see Ross' single use of the color <span
           class="highlight-text"
           style="background: #CD5C5C; color: white;">Indian Red</span
-        >. That color occurred in one painting: Autumn Images.
+        >. That color occurred in one painting: Autumn Images (season 22, episode 1).
       </p>
       <a
         href="https://www.youtube.com/embed/HMx34Am6RFg"
@@ -330,8 +330,13 @@
   :global(.painting-in-text) {
     aspect-ratio: 4/3;
     object-fit: cover;
-    border-radius: 5px;
-    box-shadow: 1px 1px 10px 1px #cecece;
+    // border-radius: 5px;
+    border: 2px solid;
+    border-bottom-color: #ffe;
+    border-left-color: #eed;
+    border-right-color: #eed;
+    border-top-color: #ccb;
+    // box-shadow: 1px 1px 10px 1px #cecece;
     margin: 0 auto;
     max-width: 250px;
   }

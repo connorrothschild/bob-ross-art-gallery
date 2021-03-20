@@ -109,13 +109,6 @@
 
 <!-- CHART (BARCHART) -->
 <g>
-  <!-- Overlay rect that is transparent and triggers mouseout for mobile/touch devices -->
-  <rect
-    on:touchend|preventDefault={handleMouseout}
-    width="100%"
-    height="100%"
-    fill="transparent"
-  />
   {#each grouped as d}
     <g>
       <rect
@@ -127,7 +120,6 @@
         num={d.value.length}
         on:mouseover|preventDefault={handleMouseover}
         on:touchend|preventDefault={handleMouseover}
-        on:mouseout|preventDefault={handleMouseout}
       />
 
       <text class="colorText" y={yScaleBar(d.key)} text-anchor="end"
@@ -139,6 +131,13 @@
 
 <!-- CHART (TIMELINE VIEW) -->
 <g>
+  <!-- Overlay rect that is transparent and triggers mouseout for mobile/touch devices -->
+  <rect
+    on:touchend|preventDefault={handleMouseout}
+    width="100%"
+    height="100%"
+    fill="transparent"
+  />
   {#each data as d}
     <rect
       fill={d.color_hex}

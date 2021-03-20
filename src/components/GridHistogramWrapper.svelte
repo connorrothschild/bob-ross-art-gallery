@@ -226,7 +226,13 @@
         <svg width="20" height="15">
           <rect width="100%" height="100%" fill="grey" />
         </svg>
-        represents a painting. There are 403 rectangles, organized chronologically.
+        represents a painting. 
+      </p>
+      <p>
+        There are 403 rectangles, organized chronologically.
+        Go ahead and hover
+        <Icon name="mouse-pointer" stroke="black" strokeWidth="1" />
+        over a rectangle to see the painting it represents!
       </p>
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">

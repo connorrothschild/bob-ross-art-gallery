@@ -19,6 +19,13 @@
     touch-action: manipulation;
   }
 
+  a[href] {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
   .highlight-text {
     font-weight: 600;
     padding: 3px;

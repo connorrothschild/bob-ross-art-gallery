@@ -17,8 +17,8 @@
     >."
   </p>
   <p>
-    I hope this tour of Bob Ross's work has helped you appreciate his legacy.
-    Below, you can explore all of Ross's artwork from <em
+    I hope this tour of Bob Ross' work has helped you appreciate his legacy.
+    Below, you can explore all of Ross' artwork from <em
       >The Joy of Painting</em
     >
     in a virtual art gallery. For each piece, you can see the colors used, and watch
@@ -47,7 +47,7 @@
       font-family: Georgia;
       font-size: 60px;
       line-height: 60px;
-      padding-top: 10px;
+      padding-top: 6px;
       padding-right: 5px;
       padding-left: 2px;
     }

@@ -12,6 +12,9 @@ paintings[1:400,]$gridX <- rep(1:20, length.out = 400)
 paintings[401:403,]$gridY <- 21
 paintings[401:403,]$gridX <- c(1,2,3)
 
+paintings <- paintings %>%
+  mutate(img = str_replace_all(img_src, 'https://www.twoinchbrush.com/images/', ''))
+
 readr::write_csv(paintings, here::here('src/data/bob_ross_paintings.csv'))
 
 long <- paintings %>%

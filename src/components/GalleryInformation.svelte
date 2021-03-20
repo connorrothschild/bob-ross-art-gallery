@@ -141,7 +141,7 @@
   .color-label {
     display: inline-block;
     padding: 10px;
-    margin: 5px;
+    margin: 4px 8px 4px 0;
     border-radius: 5px;
     box-shadow: 3px 1px 6px 0px #cecece;
     font-size: 0.9rem;

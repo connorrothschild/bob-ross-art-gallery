@@ -12,37 +12,27 @@
 </script>
 
 <div class="frame">
-  <!-- Don't async the first image, as it will hang sometimes? -->
-  {#if selected.img_src == "https://www.twoinchbrush.com/images/painting282.png"}
-    <img
-      src={selected.img_src}
-      alt="A painting titled {selected.painting_title}"
-    />
-  {:else}
-    {#await loadImage(selected.img_src)}
-      <img src="./assets/placeholder.png" alt="Placeholder painting" />
-    {:then}
       <img
-        src={selected.img_src}
+        src={`./assets/paintings/${selected.img}`}
         alt="A painting titled {selected.painting_title}"
       />
-    {:catch error}
-      <div />
-    {/await}
-  {/if}
 </div>
 
 <style lang="scss">
   img {
     aspect-ratio: 4/3;
     object-fit: cover;
-    border-radius: 5px;
     box-shadow: 1px 1px 10px 1px #cecece;
+    border: 2px solid;
+    border-bottom-color: #ffe;
+    border-left-color: #eed;
+    border-right-color: #eed;
+    border-top-color: #ccb;
   }
 
   :global(.frame) {
     background-color: #ddc;
-    border: solid 2vmin #eee;
+    border: solid 2.5vmin #eee;
     border-bottom-color: #fff;
     border-left-color: #eee;
     border-radius: 2px;
@@ -52,8 +42,7 @@
       0 3px 10px 3px rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
     display: inline-block;
-    margin: 1vh 1vw;
-    padding: 1vmin;
+    padding: 12px;
     position: relative;
     text-align: center;
     &:before {
@@ -68,13 +57,13 @@
     }
     &:after {
       border-radius: 2px;
-      bottom: -2vmin;
+      bottom: -2.5vmin;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
       content: "";
-      left: -2vmin;
+      left: -2.5vmin;
       position: absolute;
-      right: -2vmin;
-      top: -2vmin;
+      right: -2.5vmin;
+      top: -2.5vmin;
     }
   }
 </style>
