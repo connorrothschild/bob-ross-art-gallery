@@ -16,17 +16,17 @@
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="en_US" />
 
-  <meta property="og:image" content="assets/social.png" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/connorrothschild/bob-ross-art-gallery/master/public/assets/social.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="600" />
+  <meta property="og:image:height" content="720" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@CL_Rothschild" />
   <meta name="twitter:creator" content="@CL_Rothschild" />
   <meta name="twitter:title" content="The Bob Ross Virtual Art Gallery" />
   <meta name="twitter:description" content="You deserve to relax." />
-  <meta name="twitter:image:src" content="assets/social.png" />
+  <meta name="twitter:image:src" content="https://raw.githubusercontent.com/connorrothschild/bob-ross-art-gallery/master/public/assets/social.png" />
 
   <meta name="robots" content="max-image-preview:large" />
 
