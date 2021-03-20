@@ -2,21 +2,19 @@
 
 <section class="prose">
   <p class="has-dropcap">
-    Welcome to the Bob Ross virtual art gallery! It's been a <em
-      >hard</em
-    > year, and we could all use some relaxation.
+    Welcome to the Bob Ross virtual art gallery! It's been a <em>hard</em> year,
+    and we could all use some relaxation.
   </p>
   <p>
-    And what better way to relax than with Bob Ross? I've collected 403 paintings
-    that Bob Ross painted during his <strong>Joy of Painting</strong>
+    And what better way to relax than with Bob Ross? I've collected 403
+    paintings that Bob Ross painted during his <strong>Joy of Painting</strong>
     series and presented them for you here in a virtual art gallery.
   </p>
   <p>
-    For each painting, we also have some information on how it was painted,
-    such as which colors the painting used. Let's take a brief
-    tour of Bob Ross' colors before getting to the gallery.<a
-      href="#gallery"
-      class="button">(or, skip directly to the gallery)</a
+    For each painting, we also have some information on how it was painted, such
+    as which colors the painting used. Let's take a brief tour of Bob Ross'
+    colors before getting to the gallery.<a href="#gallery" class="button"
+      >(or, skip directly to the gallery)</a
     >
   </p>
 </section>

@@ -236,8 +236,10 @@
   <div class="scrollama-steps" id="colorSection">
     <div class="step" class:active={activeStep == 0} data-step="a">
       <p>
-        So, which colors did Bob Ross use most often? This chart shows how often each of Bob Ross' colors
-        were used throughout <em>The Joy of Painting</em>. 
+        So, which colors did Bob Ross use most often? This chart shows how often
+        each of Bob Ross' colors were used throughout <em
+          >The Joy of Painting</em
+        >.
       </p>
     </div>
     <div class="step" class:active={activeStep == 1} data-step="b">
@@ -249,9 +251,9 @@
         >.
       </p>
       <p>
-        Ross uses a solid, pure white in every painting, sometimes as a base for the
-        overall piece (in what he calls <strong>Liquid White</strong>) and sometimes
-        throughout (in the form of <strong>Titanium White</strong>).
+        Ross uses a solid, pure white in every painting, sometimes as a base for
+        the overall piece (in what he calls <strong>Liquid White</strong>) and
+        sometimes throughout (in the form of <strong>Titanium White</strong>).
       </p>
     </div>
     <div class="step" class:active={activeStep == 2} data-step="b">
@@ -291,7 +293,8 @@
         Here, for example, we see Ross' single use of the color <span
           class="highlight-text"
           style="background: #CD5C5C; color: white;">Indian Red</span
-        >. That color occurred in one painting: Autumn Images (season 22, episode 1).
+        >. That color occurred in one painting: Autumn Images (season 22,
+        episode 1).
       </p>
       <a
         href="https://www.youtube.com/embed/HMx34Am6RFg"

@@ -12,10 +12,10 @@
 </script>
 
 <div class="frame">
-      <img
-        src={`./assets/paintings/${selected.img}`}
-        alt="A painting titled {selected.painting_title}"
-      />
+  <img
+    src={`./assets/paintings/${selected.img}`}
+    alt="A painting titled {selected.painting_title}"
+  />
 </div>
 
 <style lang="scss">

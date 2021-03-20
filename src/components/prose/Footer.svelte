@@ -4,9 +4,11 @@
   <section class="notes">
     <h2>Notes and data</h2>
     <p>
-      Built with <a href="https://svelte.dev/">Svelte</a>, <a href="https://github.com/the-pudding/svelte-starter"
-        >Svelte Starter</a
-      >, and <a href="https://github.com/russellgoldenberg/scrollama">Scrollama</a>. Data is from
+      Built with <a href="https://svelte.dev/">Svelte</a>,
+      <a href="https://github.com/the-pudding/svelte-starter">Svelte Starter</a
+      >, and
+      <a href="https://github.com/russellgoldenberg/scrollama">Scrollama</a>.
+      Data is from
       <a href="https://github.com/jwilber/Bob_Ross_Paintings">Jared Wilber</a>
       and underwent
       <a
@@ -19,7 +21,8 @@
       Code is available on <a
         href="https://github.com/connorrothschild/bob-ross-art-gallery"
         >GitHub</a
-      >. Questions? Reach out on <a href="https://twitter.com/CL_Rothschild">Twitter</a>!
+      >. Questions? Reach out on
+      <a href="https://twitter.com/CL_Rothschild">Twitter</a>!
     </p>
   </section>
 </footer>
