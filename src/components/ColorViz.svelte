@@ -101,7 +101,6 @@
             : (xTicksTimeline.indexOf(x) + 1) % 10 === 0
             ? `S${xTicksTimeline.indexOf(x) + 1}`
             : ""}
-
         </text>
       </g>
     {/each}
@@ -124,10 +123,8 @@
         on:mouseout|preventDefault={handleMouseout}
       />
 
-      <text
-        class="colorText"
-        y={yScaleBar(d.key)}
-        text-anchor="end">{d.colors}
+      <text class="colorText" y={yScaleBar(d.key)} text-anchor="end"
+        >{d.colors}
       </text>
     </g>
   {/each}

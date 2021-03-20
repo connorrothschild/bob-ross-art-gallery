@@ -116,10 +116,10 @@
       letter-spacing: 1px;
       margin-right: 0.5rem;
       font-size: 0.8rem;
-        box-shadow: 1px 1px 4px 1px #91919180;
+      box-shadow: 1px 1px 4px 1px #91919180;
 
       &:hover {
-              box-shadow: 1px 0 2px 1px #cecece80;
+        box-shadow: 1px 0 2px 1px #cecece80;
 
         background: whitesmoke;
       }

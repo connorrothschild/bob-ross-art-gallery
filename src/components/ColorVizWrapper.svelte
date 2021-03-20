@@ -136,15 +136,33 @@
     d3.selectAll(".colorText")
       .data(grouped)
       .attr("y", (d) => yScaleBar(d.key))
-      .attr('dy', (height / unique_colors) / 1.7)
-      .attr('fill', d => d.colors == 'Indian Red' | d.colors == 'Burnt Umber' | d.colors == 'Phthalo Green' ? 'black' : d.text_color)
+      .attr("dy", height / unique_colors / 1.7)
+      .attr("fill", (d) =>
+        (d.colors == "Indian Red") |
+        (d.colors == "Burnt Umber") |
+        (d.colors == "Phthalo Green")
+          ? "black"
+          : d.text_color
+      )
       .transition("test")
       .duration(1000)
       .delay(DELAY)
       .ease(d3.easeExp)
       .attr("x", (d) => xScaleBar(d.value.length))
-      .attr('dx', d => d.colors == 'Indian Red' | d.colors == 'Burnt Umber' | d.colors == 'Phthalo Green' ? '8' : '-8')
-      .attr('text-anchor', d => d.colors == 'Indian Red' | d.colors == 'Burnt Umber' | d.colors == 'Phthalo Green' ? 'start' : 'end')
+      .attr("dx", (d) =>
+        (d.colors == "Indian Red") |
+        (d.colors == "Burnt Umber") |
+        (d.colors == "Phthalo Green")
+          ? "8"
+          : "-8"
+      )
+      .attr("text-anchor", (d) =>
+        (d.colors == "Indian Red") |
+        (d.colors == "Burnt Umber") |
+        (d.colors == "Phthalo Green")
+          ? "start"
+          : "end"
+      );
   }
 
   function createTimeline(DELAY) {
@@ -154,7 +172,7 @@
       .transition("bar-exit")
       .duration(1000)
       .ease(d3.easeExp)
-      .attr("width", 0)
+      .attr("width", 0);
 
     d3.selectAll(".colorText")
       .data(grouped)
@@ -162,9 +180,9 @@
       .duration(1000)
       .ease(d3.easeExp)
       .attr("x", 0)
-      .attr('dx', '-8')
-      .attr('text-anchor', 'end')
-      
+      .attr("dx", "-8")
+      .attr("text-anchor", "end");
+
     d3.selectAll(".timelineRect")
       .data(data)
       .attr("y", (d) => yScaleTimeline(d.color_hex))
