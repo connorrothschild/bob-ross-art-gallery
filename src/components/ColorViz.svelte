@@ -109,6 +109,13 @@
 
 <!-- CHART (BARCHART) -->
 <g>
+  <!-- Overlay rect that is transparent and triggers mouseout for mobile/touch devices -->
+  <rect
+    on:touchend|preventDefault={handleMouseout}
+    width="100%"
+    height="100%"
+    fill="transparent"
+  />
   {#each grouped as d}
     <g>
       <rect

@@ -34,10 +34,6 @@
   function handleMouseout() {
     d3.select(".gridTip").style("opacity", 0);
   }
-
-  function wtf() {
-    console.log("wtf");
-  }
 </script>
 
 <!-- X AXIS -->
@@ -79,6 +75,13 @@
 
 <!-- RECTS -->
 <g>
+  <!-- Overlay rect that is transparent and triggers mouseout for mobile/touch devices -->
+  <rect
+    on:touchend|preventDefault={handleMouseout}
+    width="100%"
+    height="100%"
+    fill="transparent"
+  />
   {#each data as d}
     <rect
       title={d.painting_title}
@@ -89,7 +92,7 @@
       stroke="white"
       on:mouseout|preventDefault={handleMouseout}
       on:mouseover|preventDefault={handleMouseover}
-      on:touchend={handleMouseover}
+      on:touchend|preventDefault={handleMouseover}
     />
   {/each}
 </g>
