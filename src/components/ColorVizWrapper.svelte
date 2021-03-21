@@ -23,7 +23,6 @@
 
     function handleStepEnter(response) {
       activeStep = response.index;
-      console.log(response.index, response.direction);
       if (response.index == 0) {
         init();
       }

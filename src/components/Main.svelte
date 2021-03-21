@@ -21,7 +21,7 @@
     d.text_color = getTextColor(d.color_hex);
   });
 
-  console.log(data);
+  // console.log(data);
 
   //RESIZING
   let height = 700;
