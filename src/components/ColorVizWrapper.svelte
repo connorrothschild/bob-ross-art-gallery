@@ -8,8 +8,6 @@
 
   export let data, height;
 
-  let DELAY;
-
   const padding = { top: 0, right: 0, bottom: 30, left: 0 };
 
   $: width = null;
@@ -25,17 +23,15 @@
 
     function handleStepEnter(response) {
       activeStep = response.index;
+      console.log(response.index, response.direction);
       if (response.index == 0) {
-        response.direction == "down" ? (DELAY = 0) : (DELAY = 1000);
-        init(DELAY);
+        init();
       }
       if (response.index == 1) {
-        response.direction == "down" ? (DELAY = 0) : (DELAY = 1000);
-        init(DELAY);
+        init();
       }
       if (response.index == 2) {
-        response.direction == "down" ? (DELAY = 1000) : (DELAY = 0);
-        createTimeline(DELAY);
+        createTimeline();
       }
       if (response.index == 3) {
         highlight("#8A3324", "#5F2E1F");
@@ -112,14 +108,17 @@
   ];
 
   // SCROLL STEPS
-  function init(DELAY) {
-    xTicksBar = xScaleBar.ticks(5);
+  function init() {
+    //// EXIT THE OLD ////
     d3.selectAll(".timelineRect")
       .data(data)
       .transition("timeline-exit")
       .duration(1000)
       .ease(d3.easeExp)
       .attr("x", 0);
+
+    //// ENTER THE NEW ////
+    xTicksBar = xScaleBar.ticks(5);
 
     d3.selectAll(".colorBar")
       .data(grouped)
@@ -128,7 +127,6 @@
       .attr("height", (height / unique_colors) * 0.9)
       .transition("bar-enter")
       .duration(1000)
-      .delay(DELAY)
       .ease(d3.easeExp)
       .attr("width", (d) => xScaleBar(d.value.length));
 
@@ -145,7 +143,6 @@
       )
       .transition("text-enter")
       .duration(1000)
-      .delay(DELAY)
       .ease(d3.easeExp)
       .attr("x", (d) => xScaleBar(d.value.length))
       .attr("dx", (d) =>
@@ -164,20 +161,9 @@
       );
   }
 
-  function createTimeline(DELAY) {
+  function createTimeline() {
+    //// EXIT THE OLD ////
     xTicksBar = null;
-
-    d3.selectAll(".timelineRect")
-      .data(data)
-      .attr("y", (d) => yScaleTimeline(d.color_hex))
-      .attr("height", (height / unique_colors) * 0.9)
-      .transition("timeline-enter")
-      .duration(1000)
-      .delay(DELAY)
-      .ease(d3.easeExp)
-      .attr("opacity", 1)
-      .attr("x", (d) => xScaleTimeline(d.painting_index))
-      .attr("width", width / num_paintings);
 
     d3.selectAll(".colorBar")
       .data(grouped)
@@ -194,10 +180,22 @@
       .attr("x", 0)
       .attr("dx", "-8")
       .attr("text-anchor", "end");
+
+    //// ENTER THE NEW ////
+    d3.selectAll(".timelineRect")
+      .data(data)
+      .attr("y", (d) => yScaleTimeline(d.color_hex))
+      .attr("height", (height / unique_colors) * 0.9)
+      .transition("timeline-enter")
+      .duration(1000)
+      .ease(d3.easeExp)
+      .attr("opacity", 1)
+      .attr("x", (d) => xScaleTimeline(d.painting_index))
+      .attr("width", width / num_paintings);
   }
 
   function highlight(color1, color2) {
-    createTimeline(0);
+    createTimeline();
 
     d3.selectAll(".timelineRect")
       .data(data)
