@@ -6,9 +6,14 @@
     and we could all use some relaxation.
   </p>
   <p>
-    And what better way to relax than with Bob Ross? I've collected 403
-    paintings that Bob Ross painted during his <strong>Joy of Painting</strong>
-    series and presented them for you here in a virtual art gallery.
+    And what better way to relax than with Bob Ross? Jared Wilber has <a
+      href="https://github.com/jwilber/Bob_Ross_Paintings"
+      target="_blank"
+      rel="noopener noreferrer">collected data</a
+    >
+    on the 403 paintings that Bob Ross painted during his
+    <strong>Joy of Painting</strong>
+    series, and I've presented them for you here in a virtual art gallery.
   </p>
   <p>
     For each painting, we also have some information on how it was painted, such

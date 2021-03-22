@@ -22,11 +22,8 @@
     >
     in a virtual art gallery. For each piece, you can see the colors used, and watch
     the YouTube video of its creation. Not interested? Click
-    <span
-      class="highlight-text"
-      style="text-transform: uppercase; background: whitesmoke; font-weight: 300; border: 1px solid #cecece; font-size: .85rem;"
-      >Show me another</span
-    > for another painting!
+    <span class="highlight-text inline-button">Show me another</span> for another
+    painting!
   </p>
   <p />
   <p>
@@ -60,5 +57,14 @@
 
   section {
     margin: 20rem auto 10rem auto;
+  }
+
+  .inline-button {
+    text-transform: uppercase;
+    background: whitesmoke;
+    font-weight: 300;
+    font-size: 0.85rem;
+    padding: 5px;
+    box-shadow: 1px 1px 4px 1px #91919180;
   }
 </style>

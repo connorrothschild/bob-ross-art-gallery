@@ -31,6 +31,10 @@
       }
       if (response.index == 2) {
         createTimeline();
+        d3.selectAll(".timelineRect")
+          .transition("restore-opacity")
+          .duration(1000)
+          .attr("opacity", 1);
       }
       if (response.index == 3) {
         highlight("#8A3324", "#5F2E1F");
@@ -188,7 +192,6 @@
       .transition("timeline-enter")
       .duration(1000)
       .ease(d3.easeExp)
-      .attr("opacity", 1)
       .attr("x", (d) => xScaleTimeline(d.painting_index))
       .attr("width", width / num_paintings);
   }

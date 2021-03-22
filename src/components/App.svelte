@@ -52,7 +52,7 @@
     padding: 1rem;
     // min-width: 300px;
     width: 90%;
-    margin: 30rem auto; // 0 auto 50%
+    margin: 30rem auto;
     background-color: whitesmoke;
     border-left: 2px solid #cecece;
     display: flex;
@@ -62,10 +62,8 @@
     color: #cecece;
     text-align: center;
     line-height: 1.5;
-    z-index: 999;
     opacity: 0.85;
     transition: 500ms all ease;
-    border-radius: 5px;
 
     &.active {
       color: black;

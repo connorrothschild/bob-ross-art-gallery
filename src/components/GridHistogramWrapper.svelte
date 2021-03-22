@@ -246,7 +246,7 @@
         Most commonly, paintings have <span
           class="highlight-text"
           style="background: steelblue; color: white;">12 colors</span
-        >. Of the {data.length} pieces Bob Ross painted, {data.filter(
+        >. Of the {data.length} pieces in <em>The Joy of Painting</em>, {data.filter(
           (d) => d.num_colors == 12
         ).length} used 12 colors.
       </p>
