@@ -5,7 +5,7 @@
   <div class="hero">
     <h1 class="headline">The Bob Ross Virtual Art Gallery</h1>
     <h2 class="subtitle">You deserve some calm.</h2>
-    <h3>By <a href="https://connorrothschild.com">Connor Rothschild</a></h3>
+    <h3>By <a href="https://twitter.com/CL_Rothschild">Connor Rothschild</a></h3>
   </div>
 </div>
 
