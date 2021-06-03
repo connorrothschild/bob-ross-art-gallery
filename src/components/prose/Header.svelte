@@ -4,7 +4,7 @@
 
 <header>
   <div class="wordmark">
-    <a href="https://connorrothschild.com">Connor Rothschild</a>
+    <a href="https://twitter.com/CL_Rothschild">Connor Rothschild</a>
   </div>
 </header>
 
