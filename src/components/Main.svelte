@@ -21,8 +21,6 @@
     d.text_color = getTextColor(d.color_hex);
   });
 
-  // console.log(data);
-
   //RESIZING
   let height = 700;
 
@@ -51,10 +49,9 @@
 </section>
 
 <Outro />
-<!-- <section> -->
+
 <Gallery {data} {long_data} />
 
-<!-- </section> -->
 <style lang="scss" global>
   section {
     padding: 0.5rem;

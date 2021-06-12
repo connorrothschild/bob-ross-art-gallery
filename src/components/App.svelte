@@ -3,15 +3,24 @@
   import Window from "./helpers/Window.svelte";
   import Main from "./Main.svelte";
   import Footer from "./prose/Footer.svelte";
+
+  import Ceased from "./prose/Ceased.svelte";
+  let ceased = true;
 </script>
 
 <Meta />
 
+
+{#if ceased} 
+<Ceased />
+
+{:else}
 <Window />
 
 <Main />
 
 <Footer />
+{/if}
 
 <style lang="scss" global>
   html {
