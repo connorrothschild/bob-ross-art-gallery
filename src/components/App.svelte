@@ -5,12 +5,12 @@
   import Footer from "./prose/Footer.svelte";
   import Ceased from "./prose/Ceased.svelte";
   
-  let ceased = true;
+  import { desisted } from ".././stores/global.js";
 </script>
 
 <Meta />
 
-{#if ceased} 
+{#if $desisted} 
 <Ceased />
 
 {:else}
