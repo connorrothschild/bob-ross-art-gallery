@@ -58,9 +58,9 @@
     font-weight: 900;
     font-size: clamp(1vw, 5rem, 12vw);
     padding: 0 1rem;
-    color: white;
+    color: #fff9e8;
     line-height: 1.1;
-    text-shadow: 1px 1px 6px black;
+    text-shadow: 1px 1px 2px black;
   }
 
   .subtitle {
