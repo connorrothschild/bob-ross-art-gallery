@@ -58,6 +58,7 @@
     &:hover {
       background: whitesmoke;
       box-shadow: 0px 0px 3px 1px #cecece;
+      text-decoration: none;
     }
   }
 </style>
