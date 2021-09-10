@@ -49,6 +49,7 @@
     "number-flip": "^1.1.10",
     "prettier": "^2.0.5",
     "prettier-plugin-svelte": "^2.1.4",
+    "sass": "^1.39.2",
     "scrollama": "^2.2.1"
   }
 }

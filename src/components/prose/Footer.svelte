@@ -4,6 +4,9 @@
   <section class="notes">
     <h2>Notes and data</h2>
     <p>
+      <b>This project is in no way affiliated with Bob Ross, Inc.</b>
+    </p>
+    <p>
       Built with <a href="https://svelte.dev/">Svelte</a>,
       <a href="https://github.com/the-pudding/svelte-starter">Svelte Starter</a
       >, and
@@ -38,10 +41,11 @@
     margin: auto;
   }
 
-  a,
-  a:visited,
+  a {
+    color: var(--selection);
+  }
+
   a:hover {
-    color: var(--background-body);
     text-decoration: underline;
   }
 

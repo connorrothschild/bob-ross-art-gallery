@@ -8,4 +8,4 @@ export const windowWidth = writable(0);
 export const windowHeight = writable(0);
 export const scrollY = writable(0);
 
-export const desisted = writable(true);
+export const desisted = writable(false);
