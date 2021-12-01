@@ -4,21 +4,20 @@
   import Main from "./Main.svelte";
   import Footer from "./prose/Footer.svelte";
   import Ceased from "./prose/Ceased.svelte";
-  
+
   import { desisted } from ".././stores/global.js";
 </script>
 
 <Meta />
 
-{#if $desisted} 
-<Ceased />
-
+{#if $desisted}
+  <Ceased />
 {:else}
-<Window />
+  <Window />
 
-<Main />
+  <Main />
 
-<Footer />
+  <Footer />
 {/if}
 
 <style lang="scss" global>
@@ -35,10 +34,11 @@
     }
   }
   .highlight-text {
-    font-weight: 600;
-    padding: 3px;
+    font-weight: 400;
+    letter-spacing: -0.025rem;
+    padding: 3px 5px;
     border-radius: 3px;
-    /* white-space: nowrap; */
+    box-decoration-break: clone;
     display: inline-block;
     background: steelblue;
     background: linear-gradient(to left, white 50%, steelblue 50%) right;
@@ -62,7 +62,7 @@
     width: 90%;
     margin: 30rem auto;
     background-color: whitesmoke;
-    border-left: 2px solid #cecece;
+    border-left: 5px solid #cecece;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,7 +75,7 @@
 
     &.active {
       color: black;
-      border-left: 2px solid black;
+      border-left: 5px solid black;
       box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, 0.12);
       opacity: 1;
       pointer-events: auto;

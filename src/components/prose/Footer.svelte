@@ -39,6 +39,7 @@
     padding: 3rem 1rem;
     min-height: 50vh;
     margin: auto;
+    font-family: var(--serif);
   }
 
   a {
@@ -54,8 +55,17 @@
     margin: auto;
 
     h2 {
-      font-weight: bold;
+      font-weight: 400;
       margin-bottom: 2rem;
+    }
+
+    p {
+      font-family: var(--sans);
+    }
+
+    b {
+      font-family: var(--serif);
+      font-weight: 600;
     }
   }
 </style>

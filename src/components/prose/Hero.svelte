@@ -22,17 +22,19 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    max-width: 1000px;
+    max-width: 1168px;
     margin: 0 auto;
+    font-family: var(--serif);
+    place-items: center;
+    justify-content: center;
   }
 
   .headline {
-    margin-top: 12rem;
     text-transform: uppercase;
-    font-weight: 900;
-    font-size: clamp(1vw, 5rem, 12vw);
+    font-weight: 800;
+    font-size: 6.5rem;
     padding: 0 1rem;
-    color: #fff9e8;
+    color: white;
     line-height: 1.1;
     text-shadow: 1px 1px 2px black;
   }
@@ -47,5 +49,29 @@
     color: black;
     text-decoration: none;
     font-weight: 600;
+  }
+
+  @media screen and (max-width: 1168px) {
+    .headline {
+      font-size: 6rem;
+    }
+  }
+
+  @media screen and (max-width: 968px) {
+    .headline {
+      font-size: 4.5rem;
+    }
+  }
+
+  @media screen and (max-width: 668px) {
+    .headline {
+      font-size: 3.5rem;
+    }
+    .subtitle {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+    }
   }
 </style>

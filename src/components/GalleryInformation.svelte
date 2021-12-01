@@ -60,7 +60,7 @@
       hoveredColor.set(null);
     }}
   >
-    <h3>Colors used</h3>
+    <h3 class="colors-title">Colors used</h3>
     <div class="colors">
       {#each colors as { color, hex, text_color }}
         <!-- Div with hover interactions -->
@@ -94,6 +94,7 @@
   }
 
   .title-container {
+    font-family: var(--serif);
     margin-top: 2rem;
 
     .title {
@@ -113,7 +114,7 @@
     button {
       text-transform: uppercase;
       font-weight: 200;
-      letter-spacing: 1px;
+      // letter-spacing: 1px;
       margin-right: 0.5rem;
       font-size: 0.8rem;
       box-shadow: 1px 1px 4px 1px #91919180;
@@ -128,6 +129,13 @@
         font-weight: 200 !important;
       }
     }
+  }
+
+  .colors-title {
+    font-family: var(--serif);
+    margin-top: 2.5rem;
+    margin-bottom: 0.6rem;
+    font-size: 1.35rem;
   }
 
   :global(.colors) {

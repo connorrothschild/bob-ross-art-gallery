@@ -22,8 +22,7 @@
     >
     in a virtual art gallery. For each piece, you can see the colors used, and watch
     the YouTube video of its creation. Not interested? Click
-    <span class="highlight-text inline-button">Show me another</span> for another
-    painting!
+    <span class="inline-button">Show me another</span> for another painting!
   </p>
   <p />
   <p>
@@ -41,7 +40,7 @@
     .has-dropcap {
       &:first-child:first-letter {
         float: left;
-        font-family: Georgia;
+        font-family: var(--serif);
         font-size: 60px;
         line-height: 60px;
         padding-top: 6px;
@@ -53,6 +52,9 @@
 
   p {
     font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: -0.01rem;
+    color: black;
   }
 
   section {
@@ -65,6 +67,7 @@
     font-weight: 300;
     font-size: 0.85rem;
     padding: 5px;
-    box-shadow: 1px 1px 4px 1px #91919180;
+    border-radius: 4px;
+    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.2);
   }
 </style>

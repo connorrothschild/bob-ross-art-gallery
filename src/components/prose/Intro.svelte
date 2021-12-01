@@ -29,7 +29,7 @@
     .has-dropcap {
       &:first-child:first-letter {
         float: left;
-        font-family: Georgia;
+        font-family: var(--serif);
         font-size: 55px;
         line-height: 50px;
         padding-top: 8px;
@@ -41,14 +41,17 @@
 
   p {
     font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: -0.01rem;
+    color: black;
   }
 
   .button {
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 5px;
     background: white;
     border-radius: 3px;
-    box-shadow: 0px 0px 6px 1px #cecece;
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
     font-weight: lighter;
     text-decoration: none;
     color: black;

@@ -59,6 +59,7 @@
 
     &.prose {
       max-width: 78ch;
+      padding: 0.5rem 1rem;
     }
   }
 </style>

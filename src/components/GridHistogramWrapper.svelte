@@ -267,7 +267,7 @@
         href="https://www.youtube.com/embed/nJGCVFn57U8"
         target="_blank"
         rel="noopener noreferrer"
-        class="frame"
+        class="frame margin-vertical"
         ><img
           src="https://www.twoinchbrush.com/images/painting411.png"
           class="painting-in-text"

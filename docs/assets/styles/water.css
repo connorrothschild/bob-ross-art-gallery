@@ -44,6 +44,12 @@ h6 {
 p {
   margin: 1rem 0;
   text-align: left;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: -.01rem;
+}
+.margin-vertical {
+  margin: 1rem 0;
 }
 button,
 input,
